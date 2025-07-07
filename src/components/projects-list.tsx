@@ -31,6 +31,40 @@ export function ProjectsList({ limit }: { limit?: number }) {
       repository: "https://github.com/heygauravshukla/weather-app",
       stack: ["HTML", "CSS", "JavaScript"],
     },
+    {
+      title: "Portfolio Website",
+      description:
+        "A personal website to showcase technical expertise and write blogs.",
+      image: "/projects/portfolio.jpg",
+      link: "https://gshukla.vercel.app",
+      repository: "https://github.com/heygauravshukla/portfolio",
+      stack: [
+        "Next.js",
+        "Tailwind CSS",
+        "TypeScript",
+        "shadcn/ui",
+        "MDX",
+        "Framer Motion",
+      ],
+    },
+    {
+      title: "Bento grid",
+      description:
+        "A modern and responsive grid layout for displaying content in a visually appealing way.",
+      image: "/projects/bento-grid.webp",
+      link: "https://heygauravshukla.github.io/bento-grid",
+      repository: "https://github.com/heygauravshukla/bento-grid",
+      stack: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+      title: "Social Links Profile",
+      description:
+        "A social links profile page to showcase your social media profiles.",
+      image: "/projects/social-links-profile.webp",
+      link: "https://heygauravshukla.github.io/social-links-profile",
+      repository: "https://github.com/heygauravshukla/social-links-profile",
+      stack: ["HTML", "Tailwind CSS", "JavaScript"],
+    },
   ];
 
   return (
