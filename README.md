@@ -42,6 +42,7 @@ Users should be able to:
 
 - Semantic JSX markup
 - Mobile-first responsive design
+- Static Site Generation
 - [Next.js 15 (App Router)](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
