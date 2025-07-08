@@ -1,80 +1,90 @@
-import { promises as fs } from "fs";
 import path from "path";
+import { promises as fs } from "fs";
 
 import Image from "next/image";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { notFound } from "next/navigation";
-
-import { BackButton } from "@/components/back-button";
 import { Wrapper } from "@/components/wrapper";
+import { BackButton } from "@/components/back-button";
 
-interface Frontmatter {
-  title: string;
-  description: string;
-  image: string;
-  publishDate: string;
-  tags: string[];
-}
-
-export async function generateMetadata(props: {
+export async function generateMetadata({
+  params,
+}: {
   params: Promise<{ slug: string }>;
 }) {
-  const params = await props.params;
-  const content = await fs.readFile(
-    path.join(process.cwd(), "src/articles", `${params.slug}.mdx`),
-    "utf-8",
-  );
-  const { frontmatter } = await compileMDX<Frontmatter>({
-    source: content,
-    options: {
-      parseFrontmatter: true,
-    },
-  });
+  const { slug } = await params;
+  const { metadata } = await import(`@/articles/${slug}.mdx`);
+
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    image,
+  } = metadata;
 
   return {
-    title: `${frontmatter.title} - Gaurav Shukla`,
-    description: frontmatter.description,
+    metadataBase: new URL("https://gshukla.vercel.app"),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      publishedTime,
+      url: `/articles/${slug}`,
+      images: [
+        {
+          url: image,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
-export default async function ArticlePage(props: {
+export default async function ArticlePage({
+  params,
+}: {
   params: Promise<{ slug: string }>;
 }) {
-  const params = await props.params;
-  try {
-    const content = await fs.readFile(
-      path.join(process.cwd(), "src/articles", `${params.slug}.mdx`),
-      "utf-8",
-    );
-    const data = await compileMDX<Frontmatter>({
-      source: content,
-      options: {
-        parseFrontmatter: true,
-      },
-      components: {},
-    });
+  const { slug } = await params;
+  const { default: Post, metadata } = await import(`@/articles/${slug}.mdx`);
 
-    return (
+  return (
+    <>
       <Wrapper as="main" className="space-y-8 py-10 md:py-20">
         <nav>
           <BackButton />
         </nav>
 
         <article className="prose dark:prose-invert prose-img:rounded-xl prose-img:border mx-auto">
-          <h1>{data.frontmatter.title}</h1>
-          <p>{data.frontmatter.description}</p>
+          <h1>{metadata.title}</h1>
+          <p>{metadata.summary}</p>
           <Image
-            src={data.frontmatter.image}
-            alt={data.frontmatter.title}
+            src={metadata.image}
+            alt={metadata.title}
             width={800}
             height={600}
             className="aspect-video w-full rounded-lg border object-cover shadow"
           />
-          {data.content}
+          <Post />
         </article>
       </Wrapper>
-    );
-  } catch {
-    notFound();
-  }
+    </>
+  );
 }
+
+export async function generateStaticParams() {
+  const filenames = await fs.readdir(path.join(process.cwd(), "src/articles"));
+
+  const staticSlugs = filenames.map((filename) => {
+    return { slug: filename.replace(".mdx", "") };
+  });
+
+  return staticSlugs;
+}
+
+export const dynamicParams = false;

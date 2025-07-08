@@ -1,37 +1,19 @@
 import path from "path";
 import { promises as fs } from "fs";
-import { compileMDX } from "next-mdx-remote/rsc";
 
 import { Link } from "next-view-transitions";
 import { ChevronRight } from "lucide-react";
 import * as motion from "motion/react-client";
 
-interface Frontmatter {
-  title: string;
-  description: string;
-  image: string;
-  publishDate: string;
-  tags: string[];
-}
-
 export async function ArticlesList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(path.join(process.cwd(), "src/articles"));
   const articles = await Promise.all(
     filenames.map(async (filename) => {
-      const content = await fs.readFile(
-        path.join(process.cwd(), "src/articles", filename),
-        "utf-8",
-      );
-      const { frontmatter } = await compileMDX<Frontmatter>({
-        source: content,
-        options: {
-          parseFrontmatter: true,
-        },
-      });
+      const { metadata } = await import(`@/articles/${filename}`);
       return {
         filename,
         slug: filename.replace(".mdx", ""),
-        ...frontmatter,
+        ...metadata,
       };
     }),
   );
@@ -39,7 +21,7 @@ export async function ArticlesList({ limit }: { limit?: number }) {
   const sortedArticles = articles
     .sort(
       (a, b) =>
-        new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime(),
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
     )
     .slice(0, limit);
 
@@ -68,14 +50,14 @@ export async function ArticlesList({ limit }: { limit?: number }) {
               </Link>
             </h3>
             <time className="text-muted-foreground order-first mb-3 text-sm">
-              {new Date(article.publishDate).toLocaleDateString("en-US", {
+              {new Date(article.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
               })}
             </time>
             <p className="text-muted-foreground mt-2 text-sm">
-              {article.description}
+              {article.summary}
             </p>
             <div>
               <Link
