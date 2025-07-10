@@ -1,7 +1,6 @@
 import { Metadata } from "next";
-import { PageIntro } from "@/components/page-intro";
 import { Wrapper } from "@/components/wrapper";
-import { SectionIntro } from "@/components/section-intro";
+import { PageIntro } from "@/components/page-intro";
 import { ProjectsList } from "@/components/projects-list";
 
 export const metadata: Metadata = {
@@ -13,17 +12,11 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main>
-      <PageIntro
-        title="All projects"
-        description="Discover my portfolio of web development projects, showcasing full-stack applications, modern frontend solutions, and innovative web technologies. From React applications to complete web platforms."
-      />
-      <hr />
       <section className="py-10 md:py-20">
-        <Wrapper className="space-y-12">
-          <SectionIntro
-            heading="Projects"
-            subheading="Explore my collection of projects."
-            paragraph="Projects ranging from web applications to landing pages."
+        <Wrapper className="space-y-10 md:space-y-20">
+          <PageIntro
+            title="All projects"
+            description="Discover my portfolio of web development projects, showcasing full-stack applications, modern frontend solutions, and innovative web technologies. From React applications to complete web platforms."
           />
           <ProjectsList />
         </Wrapper>
