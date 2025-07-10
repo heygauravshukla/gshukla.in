@@ -66,16 +66,13 @@ Users should be able to:
 ### Continued development
 
 - Add code syntax highlighting
-- Generate dynamic OG images for SEO
 - Automate RSS feed and sitemap
 
 ### Useful resources
 
-- [MDX in Next.js – A YouTube video by Colby Fayock](https://youtu.be/MsSUAOkepCw?si=DX6Fboi9r02nfqFx) – Clear walkthrough on using MDX
 - [Inter font GitHub repo](https://github.com/rsms/inter) – Resource to download Inter font
 - [IBM Plex font GitHub repo](https://github.com/IBM/plex) – Resource to download IBM Plex fonts
 - [shadcn/ui](https://ui.shadcn.com/) – Component library used for UI patterns
-- [tweakcn](https://tweakcn.com) – Helpful for customizing the shadcn/ui theme
 - [Squoosh](https://squoosh.app) – Image optimization tool
 - [RedKetchup](https://redketchup.io/favicon-generator) – Favicon Generator
 
