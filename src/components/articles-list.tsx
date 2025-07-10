@@ -1,7 +1,7 @@
 import path from "path";
 import { promises as fs } from "fs";
 
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import * as motion from "motion/react-client";
 

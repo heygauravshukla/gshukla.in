@@ -3,7 +3,6 @@ import { SiteHeader } from "@/components/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import type { Metadata } from "next";
-import { ViewTransitions } from "next-view-transitions";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -67,26 +66,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html
-        lang="en"
-        suppressHydrationWarning
-        className={`${inter.variable} ${plexMono.variable} antialiased`}
-      >
-        <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <SiteHeader />
-            {children}
-            <SiteFooter />
-            <Toaster />
-          </ThemeProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${plexMono.variable} antialiased`}
+    >
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+          <Toaster />
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

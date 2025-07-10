@@ -58,7 +58,6 @@ Users should be able to:
 ### What I learned
 
 - How to set up MDX in a Next.js project for content
-- Implementing smooth page transitions using the `next-view-transitions` package
 - Adding micro-interactions and subtle animations using the Motion library
 - Creating accessible forms with real-time validation using `react-hook-form` and `Zod`
 - Building reusable components with shadcn/ui and Tailwind CSS
