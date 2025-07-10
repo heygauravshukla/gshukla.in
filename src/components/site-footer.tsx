@@ -6,7 +6,8 @@ export function SiteFooter() {
     <footer className="border-t py-4">
       <Wrapper>
         <p className="text-muted-foreground text-center text-sm text-pretty">
-          Built with love <Heart className="fill-primary mx-1 inline size-4" />{" "}
+          Built with love{" "}
+          <Heart className="fill-primary mx-1 inline size-4 stroke-transparent" />{" "}
           by Gaurav Shukla
         </p>
       </Wrapper>
