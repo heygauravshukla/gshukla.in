@@ -60,7 +60,7 @@ export default async function ArticlePage({
           <BackButton />
         </nav>
 
-        <article className="prose dark:prose-invert prose-img:rounded-xl prose-img:border mx-auto">
+        <article className="prose prose-slate dark:prose-invert prose-img:rounded-xl prose-img:border mx-auto">
           <h1>{metadata.title}</h1>
           <p>{metadata.summary}</p>
           <Image
