@@ -6,10 +6,12 @@ import { ChevronRight } from "lucide-react";
 import * as motion from "motion/react-client";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
-  const filenames = await fs.readdir(path.join(process.cwd(), "src/articles"));
+  const filenames = await fs.readdir(
+    path.join(process.cwd(), "src/content/articles"),
+  );
   const articles = await Promise.all(
     filenames.map(async (filename) => {
-      const { metadata } = await import(`@/articles/${filename}`);
+      const { metadata } = await import(`@/content/articles/${filename}`);
       return {
         filename,
         slug: filename.replace(".mdx", ""),

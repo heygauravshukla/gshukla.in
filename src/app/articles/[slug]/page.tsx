@@ -11,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { metadata } = await import(`@/articles/${slug}.mdx`);
+  const { metadata } = await import(`@/content/articles/${slug}.mdx`);
 
   const {
     title,
@@ -51,7 +51,9 @@ export default async function ArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { default: Post, metadata } = await import(`@/articles/${slug}.mdx`);
+  const { default: Post, metadata } = await import(
+    `@/content/articles/${slug}.mdx`
+  );
 
   return (
     <>
@@ -78,7 +80,9 @@ export default async function ArticlePage({
 }
 
 export async function generateStaticParams() {
-  const filenames = await fs.readdir(path.join(process.cwd(), "src/articles"));
+  const filenames = await fs.readdir(
+    path.join(process.cwd(), "src/content/articles"),
+  );
 
   const staticSlugs = filenames.map((filename) => {
     return { slug: filename.replace(".mdx", "") };
