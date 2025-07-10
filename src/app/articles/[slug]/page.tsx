@@ -22,10 +22,10 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL("https://gshukla.vercel.app"),
-    title,
+    title: `${title} - Gaurav Shukla`,
     description,
     openGraph: {
-      title,
+      title: `${title} - Gaurav Shukla`,
       description,
       type: "article",
       publishedTime,
