@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Wrapper } from "@/components/wrapper";
 import { PageIntro } from "@/components/page-intro";
 import { BookmarksList } from "@/components/bookmarks-list";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Bookmarks - Gaurav Shukla",
@@ -19,6 +20,13 @@ export default function BookmarksPage() {
             description="Explore my collection of bookmarks, from web development resources to online tools that I use regularly."
           />
           <BookmarksList />
+          <p>
+            That&apos;s all folks! If you have any suggestions for more
+            resources, feel free to{" "}
+            <Link href="/contact" className="text-primary underline">
+              reach out!
+            </Link>
+          </p>
         </Wrapper>
       </section>
     </main>
