@@ -4,7 +4,7 @@ import { PageIntro } from "@/components/page-intro";
 import { TimelineList } from "@/components/timeline-list";
 
 export const metadata: Metadata = {
-  title: "About - Gaurav Shukla",
+  title: "About",
   description:
     "A passionate Software Engineer with expertise in full-stack web development since 2020. Specializing in crafting elegant user interfaces, I combine design engineering with robust front-end and back-end development. I'm dedicated to sharing in-depth technical knowledge through comprehensive articles.",
 };

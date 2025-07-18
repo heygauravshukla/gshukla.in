@@ -4,7 +4,7 @@ import { PageIntro } from "@/components/page-intro";
 import { ContactForm } from "@/components/contact-form";
 
 export const metadata: Metadata = {
-  title: "Contact - Gaurav Shukla",
+  title: "Contact",
   description:
     "Get in touch with me for collaborations, opportunities, or just to say hello",
 };

@@ -5,7 +5,7 @@ import { BookmarksList } from "@/components/bookmarks-list";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Bookmarks - Gaurav Shukla",
+  title: "Bookmarks",
   description:
     "Explore my collection of bookmarks, from web development resources to online tools that I use regularly.",
 };

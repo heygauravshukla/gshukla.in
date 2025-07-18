@@ -56,7 +56,10 @@ const plexMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gshukla.vercel.app"),
-  title: "Gaurav Shukla - Software engineer, creator, and tech enthusiast",
+  title: {
+    default: "Gaurav Shukla - Software engineer, creator, and tech enthusiast",
+    template: "%s - Gaurav Shukla",
+  },
   description:
     "I’m Gaurav, a software engineer and creator based in India. I do front-end development, build awesome projects and share knowledge through articles.",
 };
