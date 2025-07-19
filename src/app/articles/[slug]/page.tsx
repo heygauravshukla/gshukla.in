@@ -21,7 +21,6 @@ export async function generateMetadata({
   } = metadata;
 
   return {
-    metadataBase: new URL("https://gshukla.vercel.app"),
     title: title,
     description,
     openGraph: {
