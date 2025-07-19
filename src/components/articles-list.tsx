@@ -2,7 +2,7 @@ import path from "path";
 import { promises as fs } from "fs";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { Calendar, ChevronRight } from "lucide-react";
 import * as motion from "motion/react-client";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
@@ -51,7 +51,8 @@ export async function ArticlesList({ limit }: { limit?: number }) {
                 {article.title}
               </Link>
             </h3>
-            <time className="text-muted-foreground order-first mb-3 text-sm">
+            <time className="text-muted-foreground order-first mb-3 flex items-start gap-2 text-sm">
+              <Calendar className="h-[1lh] w-4" />
               {new Date(article.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
