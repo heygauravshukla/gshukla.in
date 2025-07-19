@@ -36,22 +36,6 @@ export const projects: Project[] = [
     stack: ["HTML", "CSS", "JavaScript"],
   },
   {
-    title: "Portfolio Website",
-    description:
-      "A personal website to showcase technical expertise and write blogs.",
-    image: "/projects/portfolio.jpg",
-    link: "https://gshukla.vercel.app",
-    repository: "https://github.com/heygauravshukla/portfolio",
-    stack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "shadcn/ui",
-      "MDX",
-      "Framer Motion",
-    ],
-  },
-  {
     title: "Bento grid",
     description:
       "A modern and responsive grid layout for displaying content in a visually appealing way.",
