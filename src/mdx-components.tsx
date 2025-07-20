@@ -82,7 +82,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     code: (props: ComponentProps<"code">) => (
       <code
-        className="bg-muted text-primary rounded px-1 py-0.5 font-mono text-sm"
+        className="bg-muted text-primary rounded border px-1 py-0.5 font-mono text-sm"
         {...props}
       />
     ),
