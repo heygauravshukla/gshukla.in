@@ -121,10 +121,6 @@
     @apply border-border outline-ring/50;
   }
 
-  html {
-    scrollbar-color: var(--color-primary) var(--color-background);
-  }
-
   body {
     @apply bg-background text-foreground selection:bg-primary selection:text-primary-foreground;
   }
