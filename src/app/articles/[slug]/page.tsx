@@ -58,15 +58,19 @@ export default async function ArticlePage({
           <BackButton />
         </nav>
 
-        <article className="prose prose-slate dark:prose-invert prose-img:rounded-xl prose-img:border mx-auto">
-          <h1>{metadata.title}</h1>
-          <p>{metadata.summary}</p>
+        <article className="mx-auto max-w-[65ch]">
+          <h1 className="text-4xl/snug font-bold tracking-tight">
+            {metadata.title}
+          </h1>
+          <p className="text-muted-foreground mt-6 leading-7 text-pretty">
+            {metadata.summary}
+          </p>
           <Image
             src={metadata.image}
             alt={metadata.title}
             width={800}
             height={600}
-            className="aspect-video w-full rounded-lg border object-cover shadow"
+            className="my-8 aspect-video w-full rounded-lg border object-cover shadow"
           />
           <Post />
         </article>
