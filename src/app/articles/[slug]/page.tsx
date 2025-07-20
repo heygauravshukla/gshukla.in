@@ -18,11 +18,13 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
+    tags: keywords,
   } = metadata;
 
   return {
     title,
     description,
+    keywords: keywords.join(", "),
     openGraph: {
       type: "article",
       publishedTime,
