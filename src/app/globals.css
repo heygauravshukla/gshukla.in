@@ -55,7 +55,7 @@
   --card-foreground: var(--color-zinc-900);
   --popover: var(--color-white);
   --popover-foreground: var(--color-zinc-900);
-  --primary: var(--color-teal-500);
+  --primary: var(--color-teal-600);
   --primary-foreground: var(--color-teal-50);
   --secondary: var(--color-zinc-100);
   --secondary-foreground: var(--color-zinc-900);
@@ -74,7 +74,7 @@
   --chart-5: var(--color-amber-500);
   --sidebar: var(--color-zinc-100);
   --sidebar-foreground: var(--color-zinc-900);
-  --sidebar-primary: var(--color-teal-500);
+  --sidebar-primary: var(--color-teal-600);
   --sidebar-primary-foreground: var(--color-teal-50);
   --sidebar-accent: var(--color-zinc-100);
   --sidebar-accent-foreground: var(--color-zinc-900);
