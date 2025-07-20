@@ -21,11 +21,9 @@ export async function generateMetadata({
   } = metadata;
 
   return {
-    title: title,
+    title,
     description,
     openGraph: {
-      title: title,
-      description,
       type: "article",
       publishedTime,
       url: `/articles/${slug}`,
@@ -36,9 +34,6 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
-      title,
-      description,
       images: [image],
     },
   };
