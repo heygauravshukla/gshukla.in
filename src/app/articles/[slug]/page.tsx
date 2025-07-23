@@ -37,6 +37,7 @@ export async function generateMetadata({
     },
     twitter: {
       images: [image],
+      creator: "@heygauravshukla",
     },
   };
 }
