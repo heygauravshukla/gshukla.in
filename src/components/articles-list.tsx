@@ -2,8 +2,9 @@ import path from "path";
 import { promises as fs } from "fs";
 
 import Link from "next/link";
-import { Calendar, ChevronRight } from "lucide-react";
+import { ChevronRight, Clock } from "lucide-react";
 import * as motion from "motion/react-client";
+import { formatTimeAgo } from "@/lib/utils";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(
@@ -52,12 +53,8 @@ export async function ArticlesList({ limit }: { limit?: number }) {
               </Link>
             </h3>
             <time className="text-muted-foreground order-first mb-3 flex items-start gap-2 text-sm">
-              <Calendar className="h-[1lh] w-4" />
-              {new Date(article.publishedAt).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
+              <Clock className="h-[1lh] w-4" />
+              {formatTimeAgo(article.publishedAt)}
             </time>
             <p className="text-muted-foreground mt-2 text-sm">
               {article.summary}
