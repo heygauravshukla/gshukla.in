@@ -4,6 +4,7 @@ import { promises as fs } from "fs";
 import Image from "next/image";
 import { Wrapper } from "@/components/wrapper";
 import { BackButton } from "@/components/back-button";
+import { Calendar } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -60,7 +61,15 @@ export default async function ArticlePage({
         </nav>
 
         <article className="mx-auto max-w-[65ch]">
-          <h1 className="text-4xl/snug font-bold tracking-tight">
+          <time className="text-muted-foreground flex items-start gap-2 text-sm">
+            <Calendar className="h-[1lh] w-4" />
+            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+          <h1 className="mt-6 text-4xl/snug font-bold tracking-tight">
             {metadata.title}
           </h1>
           <p className="text-muted-foreground mt-6 leading-7 text-pretty">
