@@ -6,7 +6,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatTimeAgo(date: string | Date) {
-  const publishDate = new Date(date);
+  // Parse the date string as is - it should contain timezone information
+  const dateString = typeof date === "string" ? date : date.toISOString();
+  const publishDate = new Date(dateString);
   const now = new Date();
   const diffInSeconds = Math.floor(
     (now.getTime() - publishDate.getTime()) / 1000,
