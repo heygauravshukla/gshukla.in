@@ -8,6 +8,7 @@ export function BackButton() {
 
   return (
     <Button variant="outline" size="icon" onClick={() => router.back()}>
+      <span className="sr-only">Go back</span>
       <ArrowLeft />
     </Button>
   );
