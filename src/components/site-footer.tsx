@@ -1,15 +1,17 @@
+import { HiHeart } from "react-icons/hi2";
 import { Wrapper } from "@/components/wrapper";
-import { Heart } from "lucide-react";
+import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t py-4">
-      <Wrapper>
-        <p className="text-muted-foreground text-center text-sm text-pretty">
+    <footer className="border-t border-gray-800 py-8">
+      <Wrapper className="flex flex-col justify-between gap-6 sm:flex-row">
+        <p className="text-pretty text-gray-400">
           Built with love{" "}
-          <Heart className="fill-primary mx-1 inline size-4 stroke-transparent" />{" "}
-          by Gaurav Shukla
+          <HiHeart className="mx-1 inline size-5 fill-fuchsia-400" /> by Gaurav
+          Shukla
         </p>
+        <SocialLinks />
       </Wrapper>
     </footer>
   );

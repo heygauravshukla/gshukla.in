@@ -1,7 +1,8 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
+import { HiOutlineExternalLink } from "react-icons/hi";
+
 import { projects } from "@/data/projects";
-import { ExternalLinkIcon } from "lucide-react";
 
 export function ProjectsList({ limit }: { limit?: number }) {
   return (
@@ -18,7 +19,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="group bg-card text-card-foreground relative isolate overflow-hidden rounded-xl border"
+            className="group relative isolate overflow-hidden rounded-2xl border border-gray-800 bg-gray-900"
           >
             <Image
               src={project.image}
@@ -29,7 +30,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
             />
 
             <div className="p-4">
-              <h3 className="group-hover:text-primary leading-tight font-medium transition-colors">
+              <h3 className="font-medium tracking-tight">
                 <a
                   href={project.link}
                   target="_blank"
@@ -37,19 +38,20 @@ export function ProjectsList({ limit }: { limit?: number }) {
                   className="flex items-center gap-2"
                 >
                   <span className="absolute inset-0"></span>
-                  {project.title} <ExternalLinkIcon className="size-3" />
+                  {project.title}
+                  <HiOutlineExternalLink className="size-4 stroke-gray-400" />
                 </a>
               </h3>
 
-              <p className="text-muted-foreground mt-2 text-sm leading-normal">
+              <p className="mt-2 text-sm/normal text-gray-400">
                 {project.description}
               </p>
 
-              <ul className="mt-5 flex flex-wrap gap-2">
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-xs/5 font-medium"
+                    className="rounded-full bg-fuchsia-400/10 px-3 py-1.5 text-xs font-medium text-fuchsia-300"
                   >
                     {tech}
                   </li>

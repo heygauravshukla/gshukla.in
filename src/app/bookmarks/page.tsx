@@ -20,10 +20,10 @@ export default function BookmarksPage() {
             description="Explore my collection of bookmarks, from web development resources to online tools that I use regularly."
           />
           <BookmarksList />
-          <p>
+          <p className="leading-7 text-gray-400">
             That&apos;s all folks! If you have any suggestions for more
             resources, feel free to{" "}
-            <Link href="/contact" className="text-primary underline">
+            <Link href="/contact" className="text-fuchsia-400 underline">
               reach out!
             </Link>
           </p>

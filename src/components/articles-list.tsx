@@ -2,8 +2,8 @@ import path from "path";
 import { promises as fs } from "fs";
 
 import Link from "next/link";
-import { ChevronRight, Clock } from "lucide-react";
 import * as motion from "motion/react-client";
+import { HiOutlineClock, HiChevronRight } from "react-icons/hi2";
 import { formatTimeAgo } from "@/lib/utils";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
@@ -44,27 +44,22 @@ export async function ArticlesList({ limit }: { limit?: number }) {
             viewport={{ once: true }}
             className="relative isolate flex max-w-xl flex-col items-start"
           >
-            <h3 className="font-semibold tracking-tight">
-              <Link
-                href={`/articles/${article.slug}`}
-                className="hover:text-primary transition-colors"
-              >
-                {article.title}
-              </Link>
+            <h3 className="font-medium tracking-tight">
+              <Link href={`/articles/${article.slug}`}>{article.title}</Link>
             </h3>
-            <time className="text-muted-foreground order-first mb-3 flex items-start gap-2 text-sm">
-              <Clock className="h-[1lh] w-4" />
+            <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-gray-400">
+              <HiOutlineClock className="h-[1lh] w-4.5" />
               {formatTimeAgo(article.publishedAt)}
             </time>
-            <p className="text-muted-foreground mt-2 text-sm">
+            <p className="mt-2 text-sm/normal text-gray-400">
               {article.summary}
             </p>
             <div>
               <Link
                 href={`/articles/${article.slug}`}
-                className="text-primary mt-4 inline-flex items-center gap-1 text-sm font-medium"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fuchsia-400"
               >
-                Read article <ChevronRight className="size-4" />
+                Read article <HiChevronRight className="size-4" />
               </Link>
             </div>
           </motion.article>

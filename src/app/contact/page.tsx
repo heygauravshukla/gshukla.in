@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <main>
       <section className="py-10 md:py-20">
-        <Wrapper className="space-y-10 md:space-y-20">
+        <Wrapper className="space-y-10 md:space-y-16">
           <PageIntro
             title="Contact Me"
             description="Have a question or want to work together? I'm always open to discussing new opportunities and interesting projects. Feel free to reach out."

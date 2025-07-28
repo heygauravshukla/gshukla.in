@@ -16,25 +16,25 @@ export function SectionIntro({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-primary text-sm font-bold tracking-widest uppercase"
+        className="text-sm font-medium tracking-widest text-fuchsia-400 uppercase"
       >
         {heading}
       </motion.h2>
-      <motion.span
-        initial={{ opacity: 0, x: -10 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mt-4 block text-2xl font-bold tracking-tight sm:text-3xl"
-      >
-        {subheading}
-      </motion.span>
       <motion.p
         initial={{ opacity: 0, x: -10 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-muted-foreground mt-2 max-w-xl text-pretty"
+        className="mt-3 text-2xl font-medium tracking-tight sm:text-4xl"
+      >
+        {subheading}
+      </motion.p>
+      <motion.p
+        initial={{ opacity: 0, x: -10 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="mt-4 max-w-xl leading-relaxed text-pretty text-gray-400"
       >
         {paragraph}
       </motion.p>
