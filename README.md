@@ -68,6 +68,7 @@ Users should be able to:
 - [Inter font GitHub repo](https://github.com/rsms/inter) – Resource to download Inter font
 - [IBM Plex font GitHub repo](https://github.com/IBM/plex) – Resource to download IBM Plex fonts
 - [Squoosh](https://squoosh.app) – Image optimization tool
+- [og.new](https://og.new) – Open Graph image generator
 - [RedKetchup](https://redketchup.io/favicon-generator) – Favicon Generator
 
 ## Author
