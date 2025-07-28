@@ -1,10 +1,10 @@
 import path from "path";
 import { promises as fs } from "fs";
 
+import Link from "next/link";
 import Image from "next/image";
+import { HiArrowUturnLeft, HiOutlineCalendar } from "react-icons/hi2";
 import { Wrapper } from "@/components/wrapper";
-import { BackButton } from "@/components/back-button";
-import { Calendar } from "lucide-react";
 
 export async function generateMetadata({
   params,
@@ -57,22 +57,28 @@ export default async function ArticlePage({
     <>
       <Wrapper as="main" className="space-y-8 py-10 md:py-20">
         <nav>
-          <BackButton />
+          <Link
+            href="/articles"
+            aria-label="Back to projects"
+            className="inline-block rounded-full bg-gray-800 p-4 transition-colors hover:bg-gray-700"
+          >
+            <HiArrowUturnLeft className="size-4 stroke-gray-400" />
+          </Link>
         </nav>
 
         <article className="mx-auto max-w-[65ch]">
-          <time className="text-muted-foreground flex items-start gap-2 text-sm">
-            <Calendar className="h-[1lh] w-4" />
+          <time className="flex items-start gap-2 text-sm text-gray-400">
+            <HiOutlineCalendar className="h-[1lh] w-5 stroke-gray-400" />
             {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </time>
-          <h1 className="mt-6 text-4xl/snug font-bold tracking-tight">
+          <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
             {metadata.title}
           </h1>
-          <p className="text-muted-foreground mt-6 leading-7 text-pretty">
+          <p className="mt-6 leading-7 text-pretty text-gray-400">
             {metadata.summary}
           </p>
           <Image
@@ -80,7 +86,7 @@ export default async function ArticlePage({
             alt={metadata.title}
             width={800}
             height={600}
-            className="my-8 aspect-video w-full rounded-lg border object-cover shadow"
+            className="my-8 aspect-video w-full rounded-2xl object-cover ring ring-gray-800"
           />
           <Post />
         </article>
