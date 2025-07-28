@@ -1,131 +1,94 @@
 "use client";
 
-import { useState } from "react";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { toast } from "sonner";
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
-});
-
-type FormData = z.infer<typeof formSchema>;
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const form = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-  });
+  const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
 
-  async function onSubmit(values: FormData) {
+    setLoading(true);
+    setStatus("idle");
+
     try {
-      setIsSubmitting(true);
-      await emailjs.send(
+      await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        {
-          name: values.name,
-          email: values.email,
-          message: values.message,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       );
 
-      form.reset();
-      toast("Message sent successfully!");
+      setStatus("success");
+      formRef.current.reset();
     } catch (error) {
-      console.error(error);
-      toast("Failed to send message. Please try again.");
+      console.error("EmailJS error:", error);
+      setStatus("error");
     } finally {
-      setIsSubmitting(false);
+      setLoading(false);
     }
-  }
+  };
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-8">
-        <FormField
-          control={form.control}
+    <form ref={formRef} onSubmit={sendEmail} className="grid gap-6">
+      <div>
+        <label htmlFor="name" className="sr-only">
+          Enter name
+        </label>
+        <input
+          type="text"
           name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          id="name"
+          placeholder="Name"
+          required
+          className="w-full min-w-0 rounded-2xl border border-gray-800 p-4 placeholder:text-gray-500"
         />
-
-        <FormField
-          control={form.control}
+      </div>
+      <div>
+        <label htmlFor="email" className="sr-only">
+          Enter email
+        </label>
+        <input
+          type="email"
           name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="johndoe@example.com"
-                  type="email"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+          id="email"
+          placeholder="Email"
+          required
+          className="w-full min-w-0 rounded-2xl border border-gray-800 p-4 placeholder:text-gray-500"
         />
+      </div>
 
-        <FormField
-          control={form.control}
+      <div>
+        <label htmlFor="message" className="sr-only">
+          Enter Message
+        </label>
+        <textarea
           name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Your message here..."
-                  className="min-h-[150px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          id="message"
+          rows={5}
+          placeholder="Enter your message here..."
+          required
+          className="w-full min-w-0 rounded-2xl border border-gray-800 p-4 placeholder:text-gray-500"
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        className="rounded-full bg-fuchsia-400 px-4 py-3 text-sm font-medium text-fuchsia-950 transition-colors hover:bg-fuchsia-500"
+        disabled={loading}
+      >
+        {loading ? "Sending..." : "Send Message"}
+      </button>
 
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </Button>
-      </form>
-    </Form>
+      {status === "success" && (
+        <p className="text-green-400">Message sent successfully!</p>
+      )}
+      {status === "error" && (
+        <p className="text-red-400">Something went wrong. Try again later.</p>
+      )}
+    </form>
   );
 }
