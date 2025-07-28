@@ -22,7 +22,6 @@ This portfolio showcases my projects, technical articles written in MDX, and cur
 
 Users should be able to:
 
-- Explore the site with light/dark mode
 - Read technical articles powered by MDX
 - Browse a curated list of development bookmarks
 - Contact me via a validated, accessible form
