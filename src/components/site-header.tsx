@@ -1,17 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
-import { Menu, X } from "lucide-react";
-import Link from "next/link";
 
+import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import { ThemeToggle } from "@/components/theme-toggle";
-import { Wrapper } from "@/components/wrapper";
-import { Button } from "@/components/ui/button";
+import { motion } from "motion/react";
+import { HiBars2, HiOutlineXMark } from "react-icons/hi2";
 
+import { Wrapper } from "@/components/wrapper";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -40,15 +38,15 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="bg-background/85 sticky inset-x-0 top-0 z-50 border-b backdrop-blur-sm">
-      <Wrapper className="flex h-16 items-center justify-between gap-4">
+    <header className="sticky inset-x-0 top-0 z-50 border-b border-gray-800 bg-gray-950/85 backdrop-blur-sm">
+      <Wrapper className="flex items-center justify-between gap-4 py-4">
         <Link href="/" aria-label="Go to homepage">
           <Image
             src="/avatar.jpg"
             alt="Gaurav Shukla's avatar"
             width={40}
             height={40}
-            className="size-10 rounded-full"
+            className="size-8 rounded-full"
           />
         </Link>
 
@@ -67,7 +65,7 @@ export function SiteHeader() {
           }}
           transition={{ duration: 0.3, ease: "easeOut" }}
           className={cn(
-            "bg-popover text-popover-foreground absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4",
+            "absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4 bg-gray-950",
           )}
         >
           {navItems.map((item, idx) => (
@@ -82,8 +80,8 @@ export function SiteHeader() {
             >
               <Link
                 href={item.href}
-                className={cn("text-2xl", {
-                  "text-primary": pathname === item.href,
+                className={cn("text-2xl font-medium text-gray-400", {
+                  "text-fuchsia-400": pathname === item.href,
                 })}
                 onClick={handleLinkClick}
               >
@@ -100,9 +98,9 @@ export function SiteHeader() {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-muted-foreground hover:text-foreground text-sm font-medium transition-colors",
+                  "text-sm font-medium text-gray-400 transition-colors hover:text-fuchsia-400",
                   {
-                    "text-foreground": pathname === item.href,
+                    "text-fuchsia-400": pathname === item.href,
                   },
                 )}
               >
@@ -112,20 +110,19 @@ export function SiteHeader() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button
-            variant="secondary"
-            size="icon"
-            className="z-50 md:hidden"
-            onClick={handleMenuToggle}
-            aria-expanded={isMenuOpen}
-            aria-controls="mobile-menu"
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-            <span className="sr-only">Toggle color theme</span>
-          </Button>
-        </div>
+        <button
+          className="z-50 md:hidden"
+          onClick={handleMenuToggle}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
+        >
+          <span className="sr-only">Toggle menu</span>
+          {isMenuOpen ? (
+            <HiOutlineXMark className="size-6 stroke-gray-400" />
+          ) : (
+            <HiBars2 className="size-6 stroke-gray-400" />
+          )}
+        </button>
       </Wrapper>
     </header>
   );
