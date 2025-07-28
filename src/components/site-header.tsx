@@ -64,9 +64,7 @@ export function SiteHeader() {
             display: isMenuOpen ? "grid" : "none",
           }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className={cn(
-            "absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4 bg-gray-950",
-          )}
+          className="absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4 bg-gray-950"
         >
           {navItems.map((item, idx) => (
             <motion.li
