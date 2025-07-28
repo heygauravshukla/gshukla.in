@@ -9,9 +9,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <hr />
       <section className="py-20 md:py-32">
-        <Wrapper className="space-y-12">
+        <Wrapper className="space-y-12 md:space-y-16">
           <SectionIntro
             heading="Projects"
             subheading="I love building things."
@@ -20,9 +19,8 @@ export default function Home() {
           <ProjectsList limit={3} />
         </Wrapper>
       </section>
-      <hr />
-      <section className="bg-muted/30 py-20 md:py-32">
-        <Wrapper className="space-y-12">
+      <section className="bg-gray-900 py-20 md:py-32">
+        <Wrapper className="space-y-12 md:space-y-16">
           <SectionIntro
             heading="Articles"
             subheading="I love sharing knowledge."
@@ -31,9 +29,8 @@ export default function Home() {
           <ArticlesList limit={4} />
         </Wrapper>
       </section>
-      <hr />
       <section className="py-20 md:py-32">
-        <Wrapper className="space-y-12">
+        <Wrapper className="space-y-12 md:space-y-16">
           <SectionIntro
             heading="Timeline"
             subheading="My career journey."
