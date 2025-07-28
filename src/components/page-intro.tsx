@@ -13,7 +13,7 @@ export function PageIntro({
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-4xl font-bold tracking-tight sm:text-5xl/tight md:text-balance"
+        className="text-4xl leading-tight font-medium tracking-tight sm:text-5xl md:text-6xl md:text-balance"
       >
         {title}
       </motion.h1>
@@ -21,7 +21,7 @@ export function PageIntro({
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-        className="text-muted-foreground mt-6 leading-7 text-pretty"
+        className="mt-6 leading-7 text-pretty text-gray-400"
       >
         {description}
       </motion.p>
