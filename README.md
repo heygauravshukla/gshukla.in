@@ -29,7 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot of portfolio](./public/projects/portfolio.jpg)
+![Screenshot of portfolio](./public/portfolio-screenshot.jpg)
 
 ### Links
 
@@ -46,21 +46,16 @@ Users should be able to:
 - [Next.js 15 (App Router)](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
 - [Motion](https://motion.dev)
 - [MDX](https://mdxjs.com/)
-- [react-hook-form](https://react-hook-form.com/)
-- [Zod](https://zod.dev/)
 - [EmailJS](https://www.emailjs.com/)
-- [Sonner](https://sonner.emilkowal.ski/)
 - [pnpm](https://pnpm.io/)
 
 ### What I learned
 
 - How to set up MDX in a Next.js project for content
 - Adding micro-interactions and subtle animations using the Motion library
-- Creating accessible forms with real-time validation using `react-hook-form` and `Zod`
-- Building reusable components with shadcn/ui and Tailwind CSS
+- Building reusable components with TypeScript & Tailwind CSS
 - Structuring a scalable Next.js project using the App Router
 
 ### Continued development
@@ -72,7 +67,6 @@ Users should be able to:
 
 - [Inter font GitHub repo](https://github.com/rsms/inter) – Resource to download Inter font
 - [IBM Plex font GitHub repo](https://github.com/IBM/plex) – Resource to download IBM Plex fonts
-- [shadcn/ui](https://ui.shadcn.com/) – Component library used for UI patterns
 - [Squoosh](https://squoosh.app) – Image optimization tool
 - [RedKetchup](https://redketchup.io/favicon-generator) – Favicon Generator
 
