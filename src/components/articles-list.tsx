@@ -4,7 +4,7 @@ import { promises as fs } from "fs";
 import Link from "next/link";
 import * as motion from "motion/react-client";
 import { HiOutlineClock, HiChevronRight } from "react-icons/hi2";
-import { formatTimeAgo } from "@/lib/utils";
+import { TimeAgo } from "@/components/time-ago";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(
@@ -49,7 +49,7 @@ export async function ArticlesList({ limit }: { limit?: number }) {
             </h3>
             <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-gray-400">
               <HiOutlineClock className="h-[1lh] w-4.5" />
-              {formatTimeAgo(article.publishedAt)}
+              <TimeAgo date={article.publishedAt} />
             </time>
             <p className="mt-2 text-sm/normal text-gray-400">
               {article.summary}
