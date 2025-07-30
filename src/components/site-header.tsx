@@ -7,8 +7,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import { motion } from "motion/react";
-import { HiBars2, HiOutlineXMark } from "react-icons/hi2";
+import { Menu, X } from "lucide-react";
 
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
 import { Wrapper } from "@/components/wrapper";
 import { cn } from "@/lib/utils";
 
@@ -38,7 +40,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 border-b border-gray-800 bg-gray-950/85 backdrop-blur-sm">
+    <header className="bg-background/85 sticky inset-x-0 top-0 z-50 border-b backdrop-blur-sm">
       <Wrapper className="flex items-center justify-between gap-4 py-4">
         <Link href="/" aria-label="Go to homepage">
           <Image
@@ -64,7 +66,7 @@ export function SiteHeader() {
             display: isMenuOpen ? "grid" : "none",
           }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4 bg-gray-950"
+          className="bg-popover absolute inset-0 z-50 min-h-screen place-content-center place-items-center gap-4"
         >
           {navItems.map((item, idx) => (
             <motion.li
@@ -78,8 +80,8 @@ export function SiteHeader() {
             >
               <Link
                 href={item.href}
-                className={cn("text-2xl font-medium text-gray-400", {
-                  "text-fuchsia-400": pathname === item.href,
+                className={cn("text-muted-foreground text-2xl font-medium", {
+                  "text-primary": pathname === item.href,
                 })}
                 onClick={handleLinkClick}
               >
@@ -96,9 +98,9 @@ export function SiteHeader() {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium text-gray-400 transition-colors hover:text-fuchsia-400",
+                  "text-muted-foreground hover:text-primary text-sm font-medium transition-colors",
                   {
-                    "text-fuchsia-400": pathname === item.href,
+                    "text-primary": pathname === item.href,
                   },
                 )}
               >
@@ -108,19 +110,20 @@ export function SiteHeader() {
           ))}
         </ul>
 
-        <button
-          className="z-50 md:hidden"
-          onClick={handleMenuToggle}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <span className="sr-only">Toggle menu</span>
-          {isMenuOpen ? (
-            <HiOutlineXMark className="size-6 stroke-gray-400" />
-          ) : (
-            <HiBars2 className="size-6 stroke-gray-400" />
-          )}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="z-50 md:hidden"
+            onClick={handleMenuToggle}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <span className="sr-only">Toggle menu</span>
+            {isMenuOpen ? <X /> : <Menu />}
+          </Button>
+        </div>
       </Wrapper>
     </header>
   );

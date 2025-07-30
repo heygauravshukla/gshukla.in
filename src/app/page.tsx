@@ -19,7 +19,7 @@ export default function Home() {
           <ProjectsList limit={3} />
         </Wrapper>
       </section>
-      <section className="bg-gray-900 py-20 md:py-32">
+      <section className="bg-muted/40 py-20 md:py-32">
         <Wrapper className="space-y-12 md:space-y-16">
           <SectionIntro
             heading="Articles"

@@ -3,7 +3,8 @@ import { promises as fs } from "fs";
 
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import { HiOutlineClock, HiChevronRight } from "react-icons/hi2";
+import { ChevronRight, Clock } from "lucide-react";
+
 import { TimeAgo } from "@/components/time-ago";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
@@ -47,19 +48,19 @@ export async function ArticlesList({ limit }: { limit?: number }) {
             <h3 className="font-medium tracking-tight">
               <Link href={`/articles/${article.slug}`}>{article.title}</Link>
             </h3>
-            <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-gray-400">
-              <HiOutlineClock className="h-[1lh] w-4.5" />
+            <time className="text-muted-foreground order-first mb-3 flex items-start gap-1.5 text-sm">
+              <Clock className="h-[1lh] w-4" />
               <TimeAgo date={article.publishedAt} />
             </time>
-            <p className="mt-2 text-sm/normal text-gray-400">
+            <p className="text-muted-foreground mt-2 text-sm/normal">
               {article.summary}
             </p>
             <div>
               <Link
                 href={`/articles/${article.slug}`}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-fuchsia-400"
+                className="text-primary mt-4 inline-flex items-center gap-1 text-sm font-medium"
               >
-                Read article <HiChevronRight className="size-4" />
+                Read article <ChevronRight className="size-4" />
               </Link>
             </div>
           </motion.article>

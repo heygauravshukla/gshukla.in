@@ -1,6 +1,6 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
-import { HiOutlineExternalLink } from "react-icons/hi";
+import { ExternalLink } from "lucide-react";
 
 import { projects } from "@/data/projects";
 
@@ -19,7 +19,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="group relative isolate overflow-hidden rounded-2xl border border-gray-800 bg-gray-900"
+            className="group bg-card text-card-foreground relative isolate overflow-hidden rounded-2xl border"
           >
             <Image
               src={project.image}
@@ -39,11 +39,11 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 >
                   <span className="absolute inset-0"></span>
                   {project.title}
-                  <HiOutlineExternalLink className="size-4 stroke-gray-400" />
+                  <ExternalLink className="size-4" />
                 </a>
               </h3>
 
-              <p className="mt-2 text-sm/normal text-gray-400">
+              <p className="text-muted-foreground mt-2 text-sm/normal">
                 {project.description}
               </p>
 
@@ -51,7 +51,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 {project.stack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-full bg-fuchsia-400/10 px-3 py-1.5 text-xs font-medium text-fuchsia-300"
+                    className="bg-primary/10 text-primary rounded-full px-3 py-1.5 text-xs font-medium"
                   >
                     {tech}
                   </li>

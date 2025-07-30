@@ -1,6 +1,6 @@
 import * as motion from "motion/react-client";
 
-import { FaXTwitter, FaBluesky, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { Icons } from "@/components/icons";
 
 interface SocialLink {
   platform: string;
@@ -10,21 +10,21 @@ interface SocialLink {
 
 export function SocialLinks() {
   const socialLinks: SocialLink[] = [
-    { platform: "X", href: "https://x.com/heygauravshukla", icon: FaXTwitter },
+    { platform: "X", href: "https://x.com/heygauravshukla", icon: Icons.x },
     {
       platform: "Bluesky",
       href: "https://bsky.app/profile/heygauravshukla.bsky.social",
-      icon: FaBluesky,
+      icon: Icons.bluesky,
     },
     {
       platform: "LinkedIn",
       href: "https://www.linkedin.com/in/heygauravshukla",
-      icon: FaLinkedin,
+      icon: Icons.linkedin,
     },
     {
       platform: "GitHub",
       href: "https://github.com/heygauravshukla",
-      icon: FaGithub,
+      icon: Icons.github,
     },
   ];
   return (
@@ -44,7 +44,7 @@ export function SocialLinks() {
               rel="noopener noreferrer"
               aria-label={`Visit my ${item.platform} profile`}
             >
-              <IconComponent className="size-5 fill-gray-400 transition-colors hover:fill-fuchsia-400 md:size-6" />
+              <IconComponent className="fill-muted-foreground hover:fill-primary size-5 transition-colors md:size-6" />
             </a>
           </li>
         );

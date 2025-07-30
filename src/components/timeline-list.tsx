@@ -1,5 +1,6 @@
 import * as motion from "motion/react-client";
-import { HiCheckCircle } from "react-icons/hi2";
+import { BadgeCheck } from "lucide-react";
+
 import { timeline } from "@/data/timeline";
 
 export function TimelineList() {
@@ -15,7 +16,7 @@ export function TimelineList() {
           className="space-y-8"
         >
           <h3>
-            <span className="rounded-2xl px-4 py-2 font-medium ring ring-fuchsia-800">
+            <span className="border-primary/40 rounded-2xl border px-4 py-2 font-medium">
               {item.year}
             </span>
           </h3>
@@ -33,12 +34,12 @@ export function TimelineList() {
                 viewport={{ once: true }}
                 className="flex items-start gap-x-2"
               >
-                <HiCheckCircle className="h-[1lh] w-5 flex-none fill-fuchsia-400" />
+                <BadgeCheck className="stroke-primary h-[1lh] w-5 flex-none" />
                 <div>
                   <h4 className="font-medium tracking-tight">
                     {achievement.title}
                   </h4>
-                  <p className="mt-1 text-sm/normal text-gray-400">
+                  <p className="text-muted-foreground mt-1 text-sm/normal">
                     {achievement.description}
                   </p>
                 </div>

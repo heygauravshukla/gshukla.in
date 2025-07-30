@@ -23,7 +23,7 @@ export default function BookmarksPage() {
           <p className="leading-7 text-gray-400">
             That&apos;s all folks! If you have any suggestions for more
             resources, feel free to{" "}
-            <Link href="/contact" className="text-fuchsia-400 underline">
+            <Link href="/contact" className="text-primary underline">
               reach out!
             </Link>
           </p>

@@ -1,5 +1,6 @@
 import * as motion from "motion/react-client";
-import { HiOutlineExternalLink } from "react-icons/hi";
+import { ExternalLink } from "lucide-react";
+
 import { bookmarks } from "@/data/bookmarks";
 
 export function BookmarksList() {
@@ -29,21 +30,21 @@ export function BookmarksList() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="relative isolate flex flex-col items-start rounded-2xl border border-gray-800 p-4 transition-colors hover:border-fuchsia-400 md:p-6"
+                className="bg-card text-card-foreground hover:border-primary relative isolate flex flex-col items-start rounded-2xl border p-4 transition-colors md:p-6"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
-                <p className="mt-2 text-sm/normal text-gray-400">
+                <p className="text-muted-foreground mt-2 text-sm/normal">
                   {bookmark.description}
                 </p>
                 <a
                   href={bookmark.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="order-first mb-2 flex items-baseline gap-2 text-xs text-gray-400"
+                  className="text-muted-foreground order-first mb-2 flex items-baseline gap-2 text-xs"
                 >
                   <span className="absolute inset-0"></span>
                   {bookmark.href.slice(8)}
-                  <HiOutlineExternalLink className="size-3 min-w-fit" />
+                  <ExternalLink className="size-3 min-w-fit" />
                 </a>
               </motion.li>
             ))}

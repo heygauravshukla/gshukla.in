@@ -16,7 +16,7 @@ export function SectionIntro({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="text-sm font-medium tracking-widest text-fuchsia-400 uppercase"
+        className="text-primary text-sm font-medium tracking-widest uppercase"
       >
         {heading}
       </motion.h2>
@@ -34,7 +34,7 @@ export function SectionIntro({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mt-4 max-w-xl leading-relaxed text-pretty text-gray-400"
+        className="text-muted-foreground mt-4 max-w-xl leading-relaxed text-pretty"
       >
         {paragraph}
       </motion.p>

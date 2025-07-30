@@ -21,7 +21,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h4 className="mt-8 leading-relaxed font-medium" {...props} />
     ),
     p: (props: ComponentProps<"p">) => (
-      <p className="my-4 leading-loose text-pretty text-gray-400" {...props} />
+      <p
+        className="text-muted-foreground my-4 leading-loose text-pretty"
+        {...props}
+      />
     ),
     ol: (props: ComponentProps<"ol">) => (
       <ol className="my-4 list-decimal pl-6" {...props} />
@@ -30,17 +33,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <ul className="my-4 list-disc pl-6" {...props} />
     ),
     li: (props: ComponentProps<"li">) => (
-      <li className="pl-1 leading-loose text-gray-400" {...props} />
+      <li className="text-muted-foreground pl-1 leading-loose" {...props} />
     ),
     em: (props: ComponentProps<"em">) => (
-      <em className="text-gray-400 italic" {...props} />
+      <em className="text-muted-foreground italic" {...props} />
     ),
     strong: (props: ComponentProps<"strong">) => (
-      <strong className="font-medium text-gray-200" {...props} />
+      <strong className="text-secondary-foreground font-medium" {...props} />
     ),
     a: ({ href, children, ...props }: ComponentProps<"a">) => {
       const className =
-        "text-fuchsia-400 underline  hover:text-gray-100 transition-colors";
+        "text-primary underline hover:text-accent-foreground transition-colors";
       if (href?.startsWith("/")) {
         return (
           <Link href={href} className={className} {...props}>
@@ -69,7 +72,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     blockquote: (props: ComponentProps<"blockquote">) => (
       <blockquote
-        className="border-l-4 border-fuchsia-400 bg-gray-800 px-6 py-2 font-medium italic"
+        className="border-primary bg-muted border-l-4 px-6 py-2 font-medium italic"
         {...props}
       />
     ),
@@ -79,23 +82,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         alt={alt ?? "Image from content"}
         width={1200}
         height={630}
-        className="my-4 size-full rounded-2xl ring ring-gray-800"
+        className="my-4 size-full rounded-2xl border"
       />
     ),
     code: (props: ComponentProps<"code">) => (
       <code
-        className="rounded bg-gray-800 px-1 py-0.5 font-mono text-sm text-fuchsia-400 ring ring-gray-700"
+        className="bg-muted text-muted-foreground rounded px-1 py-0.5 font-mono text-sm"
         {...props}
       />
     ),
     pre: (props: ComponentProps<"pre">) => (
       <pre
-        className="my-4 overflow-x-auto rounded-2xl bg-gray-900 p-6 font-mono leading-relaxed ring ring-gray-800"
+        className="bg-muted my-4 overflow-x-auto rounded-2xl p-6 font-mono leading-relaxed"
         {...props}
       />
     ),
     hr: (props: ComponentProps<"hr">) => (
-      <hr className="my-8 border-t border-gray-800" {...props} />
+      <hr className="my-8 border-t" {...props} />
     ),
     ...components,
   };
