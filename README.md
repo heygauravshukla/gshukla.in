@@ -22,6 +22,7 @@ This portfolio showcases my projects, technical articles written in MDX, and cur
 
 Users should be able to:
 
+- Explore the site with light/dark mode
 - Read technical articles powered by MDX
 - Browse a curated list of development bookmarks
 - Contact me via a validated, accessible form
@@ -43,10 +44,14 @@ Users should be able to:
 - Mobile-first responsive design
 - Static Site Generation
 - [Next.js 15 (App Router)](https://nextjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Motion](https://motion.dev)
 - [MDX](https://mdxjs.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Motion](https://motion.dev)
+- [react-hook-form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+- [Sonner](https://sonner.emilkowal.ski/)
 - [EmailJS](https://www.emailjs.com/)
 - [pnpm](https://pnpm.io/)
 
@@ -54,7 +59,8 @@ Users should be able to:
 
 - How to set up MDX in a Next.js project for content
 - Adding micro-interactions and subtle animations using the Motion library
-- Building reusable components with TypeScript & Tailwind CSS
+- Creating accessible forms with real-time validation using `react-hook-form` and `Zod`
+- Building reusable components with shadcn/ui and Tailwind CSS
 - Structuring a scalable Next.js project using the App Router
 
 ### Continued development
