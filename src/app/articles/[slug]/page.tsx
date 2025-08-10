@@ -57,7 +57,7 @@ export default async function ArticlePage({
 
   return (
     <>
-      <Wrapper as="main" className="space-y-8 py-10 md:py-20">
+      <Wrapper className="space-y-8 py-10 md:py-20">
         <nav>
           <Button asChild variant="outline" size="icon">
             <Link href="/articles" aria-label="Back to projects">
