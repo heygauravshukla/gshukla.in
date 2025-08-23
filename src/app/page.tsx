@@ -36,7 +36,7 @@ export default function Home() {
         <Wrapper className="space-y-12 md:space-y-16">
           <SectionIntro
             heading="Timeline"
-            subheading="My career journey."
+            subheading="My life changelog."
             paragraph="Here's a timeline of my achievements."
           />
           <TimelineList />
