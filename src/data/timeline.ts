@@ -13,14 +13,29 @@ export const timeline: TimelineItem[] = [
     year: 2025,
     achievements: [
       {
-        title: "Received my degree in convocation",
+        title: "Frontend Intern at RW Infotech",
         description:
-          "Attended convocation held in April and got some memories.",
+          "Started my professional journey as a Frontend Intern, contributing to real-world projects and enhancing UI/UX experiences.",
       },
       {
-        title: "Technical Projects Portfolio",
+        title: "Launched Personal Portfolio Website",
         description:
-          "Developed multiple web applications using React, Next.js, and modern technologies.",
+          "Designed and developed a modern, responsive portfolio using Next.js, Tailwind CSS, and TypeScript to showcase my work.",
+      },
+      {
+        title: "Graduation Convocation",
+        description:
+          "Received my Bachelor's degree at the April convocation ceremony, celebrating academic and personal milestones.",
+      },
+      {
+        title: "Built 'Shortly' – URL Shortener App",
+        description:
+          "Developed a feature-rich URL shortener with persistent storage to improve productivity and learn API integration.",
+      },
+      {
+        title: "Developed IP Address Tracker",
+        description:
+          "Created an IP tracker app leveraging APIs to detect geolocation data, with a focus on security and fraud prevention use cases.",
       },
     ],
   },
@@ -28,9 +43,29 @@ export const timeline: TimelineItem[] = [
     year: 2024,
     achievements: [
       {
-        title: "Graduated with Computer Science degree",
+        title: "Graduated with B.Tech in Computer Science",
         description:
-          "Completed my Bachelor's degree with 7.44 CGPA and specialization in software engineering.",
+          "Completed Bachelor's in Computer Science & Engineering with 7.44 CGPA, specializing in web development.",
+      },
+    ],
+  },
+  {
+    year: 2023,
+    achievements: [
+      {
+        title: "Cloud Computing Certification – Elite Rank",
+        description:
+          "Earned Elite certification in a 12-week IIT Kharagpur NPTEL course, covering fundamentals of cloud computing.",
+      },
+    ],
+  },
+  {
+    year: 2021,
+    achievements: [
+      {
+        title: "Programming Foundations Certification",
+        description:
+          "Completed Duke University’s Coursera course on JavaScript, HTML, and CSS, strengthening my programming fundamentals.",
       },
     ],
   },
@@ -38,14 +73,14 @@ export const timeline: TimelineItem[] = [
     year: 2020,
     achievements: [
       {
-        title: "Started B.Tech in Computer Science",
+        title: "Started B.Tech in Computer Science & Engineering",
         description:
-          "Commenced undergraduate studies at CGC Jhanjeri, focusing on software engineering fundamentals.",
+          "Began undergraduate studies at CGC Jhanjeri with a focus on software engineering and modern web technologies.",
       },
       {
-        title: "Academic Excellence Award",
+        title: "Academic Excellence Recognition",
         description:
-          "Secured 93.56% in Class XII, recognized in Ajit newspaper for outstanding academic performance.",
+          "Awarded for securing 93.56% in Class XII, featured in Ajit newspaper for academic distinction.",
       },
     ],
   },
