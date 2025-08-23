@@ -17,7 +17,7 @@ export default function Home() {
             subheading="I love building things."
             paragraph="Here are some of the projects I've worked on."
           />
-          <ProjectsList limit={3} />
+          <ProjectsList limit={6} />
         </Wrapper>
       </section>
       <hr />
