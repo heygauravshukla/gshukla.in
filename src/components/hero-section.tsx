@@ -1,12 +1,11 @@
 import * as motion from "motion/react-client";
 
-import { Wrapper } from "@/components/wrapper";
 import { SocialLinks } from "@/components/social-links";
 
 export function HeroSection() {
   return (
     <section className="from-background to-muted/40 bg-gradient-to-br py-20 md:py-32">
-      <Wrapper>
+      <div className="container">
         <motion.h1
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -29,7 +28,7 @@ export function HeroSection() {
         <div className="mt-8">
           <SocialLinks />
         </div>
-      </Wrapper>
+      </div>
     </section>
   );
 }

@@ -1,15 +1,14 @@
-import { Wrapper } from "@/components/wrapper";
 import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
     <footer className="border-t py-8">
-      <Wrapper className="flex flex-col justify-between gap-6 sm:flex-row">
+      <div className="container flex flex-col justify-between gap-6 sm:flex-row">
         <p className="text-muted-foreground text-pretty">
           Built with love by Gaurav Shukla
         </p>
         <SocialLinks />
-      </Wrapper>
+      </div>
     </footer>
   );
 }

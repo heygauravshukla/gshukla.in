@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar } from "lucide-react";
 
-import { Wrapper } from "@/components/wrapper";
 import { Button } from "@/components/ui/button";
 
 export async function generateMetadata({
@@ -57,7 +56,7 @@ export default async function ArticlePage({
 
   return (
     <>
-      <Wrapper className="space-y-8 py-10 md:py-20">
+      <div className="container space-y-8 py-10 md:py-20">
         <nav>
           <Button asChild variant="outline" size="icon">
             <Link href="/articles" aria-label="Back to projects">
@@ -90,7 +89,7 @@ export default async function ArticlePage({
           />
           <Post />
         </article>
-      </Wrapper>
+      </div>
     </>
   );
 }

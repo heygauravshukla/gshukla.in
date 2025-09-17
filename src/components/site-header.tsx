@@ -5,7 +5,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { AlignRight } from "lucide-react";
 
-import { Wrapper } from "@/components/wrapper";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
   Sheet,
@@ -30,7 +29,7 @@ export function SiteHeader() {
 
   return (
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <Wrapper className="flex h-16 items-center justify-between gap-4">
+      <div className="container flex h-16 items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" aria-label="Go to homepage">
           <Image
@@ -99,7 +98,7 @@ export function SiteHeader() {
             </SheetContent>
           </Sheet>
         </div>
-      </Wrapper>
+      </div>
     </header>
   );
 }
