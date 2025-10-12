@@ -9,18 +9,31 @@ interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Shortly - URL Shortener",
+    title: "Tokners landing page",
+    description: "Modern landing page showcasing blockchain services.",
+    image: "/projects/tokners-landing-page.avif",
+    link: "https://tokners-landing-page.vercel.app",
+    stack: ["Next.js", "SCSS", "TypeScript"],
+  },
+  {
+    title: "Real estate landing page",
     description:
-      "A URL shortener app that shortens longer URLs to shareable concise links.",
-    image: "/projects/shortly-url-shortener.webp",
-    link: "https://sus-gshukla.vercel.app",
-    repository: "https://github.com/heygauravshukla/shortly-url-shortener",
+      "Interactive real estate platform with modern design and features.",
+    image: "/projects/real-estate-website.avif",
+    link: "https://real-estate-website-gshukla.vercel.app",
     stack: ["Next.js", "Tailwind CSS", "TypeScript", "shadcn/ui"],
   },
   {
+    title: "Shortly - URL Shortener",
+    description: "Transform long URLs into short, trackable links instantly.",
+    image: "/projects/shortly-url-shortener.webp",
+    link: "https://sus-gshukla.vercel.app",
+    repository: "https://github.com/heygauravshukla/shortly-url-shortener",
+    stack: ["Next.js", "Tailwind CSS", "TypeScript", "shadcn/ui", "REST API"],
+  },
+  {
     title: "IP Address Tracker",
-    description:
-      "A IP address tracker app that shows the location of an IP address.",
+    description: "Track IP addresses and view their locations on map.",
     image: "/projects/ip-address-tracker.webp",
     link: "https://iat-gshukla.vercel.app",
     repository: "https://github.com/heygauravshukla/ip-address-tracker",
@@ -28,17 +41,37 @@ export const projects: Project[] = [
   },
   {
     title: "Weather App",
-    description:
-      "A weather app that shows the current weather details of a city.",
+    description: "Get real-time weather updates for cities worldwide.",
     image: "/projects/weather-app.jpg",
     link: "https://weather-app-gshukla.vercel.app",
     repository: "https://github.com/heygauravshukla/weather-app",
-    stack: ["HTML", "CSS", "JavaScript"],
+    stack: ["HTML", "CSS", "JavaScript", "REST API"],
+  },
+  {
+    title: "Food website hero section",
+    description:
+      "An introductory hero section with interactive dish carouesel.",
+    image: "/projects/food-website-homepage.avif",
+    link: "https://food-website-homepage.vercel.app",
+    stack: ["Next.js", "TypeScript", "GSAP"],
+  },
+  {
+    title: "Image colors extractor",
+    description: "An online tool to extract dominant colors from images.",
+    image: "/projects/image-colors-extractor.avif",
+    link: "https://image-colors-extractor.vercel.app",
+    stack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "shadcn/ui",
+      "Node Vibrant",
+      "Cloudinary API",
+    ],
   },
   {
     title: "Bento grid",
-    description:
-      "A modern and responsive grid layout for displaying content in a visually appealing way.",
+    description: "A modern and responsive grid layout for displaying content.",
     image: "/projects/bento-grid.webp",
     link: "https://heygauravshukla.github.io/bento-grid",
     repository: "https://github.com/heygauravshukla/bento-grid",
