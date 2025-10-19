@@ -11,7 +11,7 @@ interface PostsListProps {
   posts: PostProps[];
 }
 
-export default function PostsList({ posts }: PostsListProps) {
+export function PostsList({ posts }: PostsListProps) {
   return (
     <main className="container mx-auto min-h-screen max-w-3xl p-8">
       <h1 className="mb-8 text-4xl font-bold">Posts</h1>
