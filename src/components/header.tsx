@@ -24,7 +24,7 @@ const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
-export function SiteHeader() {
+export function Header() {
   const pathname = usePathname();
 
   return (
