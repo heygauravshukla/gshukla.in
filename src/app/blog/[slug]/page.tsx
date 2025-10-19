@@ -12,7 +12,7 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 
-const options = { next: { revalidate: 30 } };
+const options = { next: { revalidate: 3600 } };
 
 export default async function PostPage({
   params,
@@ -49,4 +49,11 @@ export default async function PostPage({
       </div>
     </main>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs = await client.fetch(
+    `*[_type == "post" && defined(slug.current)][].slug.current`,
+  );
+  return slugs.map((slug: string) => ({ slug }));
 }
