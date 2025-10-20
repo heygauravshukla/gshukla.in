@@ -72,7 +72,24 @@ export const postType = defineType({
       of: [
         { type: "block" },
         { type: "image", options: { hotspot: true } },
-        // Optional: you can add custom block types later (code blocks, callouts, etc.)
+        {
+          type: "code",
+          title: "Code Block",
+          options: {
+            withFilename: true,
+            language: "javascript",
+            languageAlternatives: [
+              { title: "HTML", value: "html" },
+              { title: "CSS", value: "css" },
+              { title: "JavaScript", value: "javascript" },
+              { title: "TypeScript", value: "typescript" },
+              { title: "JSON", value: "json" },
+              { title: "Bash", value: "bash" },
+              { title: "C++", value: "cpp" },
+              { title: "Python", value: "python" },
+            ],
+          },
+        },
       ],
     }),
   ],

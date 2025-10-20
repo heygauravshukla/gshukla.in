@@ -6,6 +6,8 @@ import {
   type PortableTextComponents,
   type SanityDocument,
 } from "next-sanity";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -13,7 +15,28 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "@/sanity/lib/client";
 
-const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
+const POST_QUERY = `
+*[_type == "post" && slug.current == $slug][0]{
+  title,
+  slug,
+  summary,
+  publishedAt,
+  tags,
+  image,
+  body[]{
+    ...,
+    _type == "image" => {
+      ...,
+      "alt": alt
+    },
+    _type == "code" => {
+      ...,
+      code,
+      language,
+      filename
+    }
+  }
+}`;
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -110,6 +133,18 @@ export default async function Page({
           </div>
         );
       },
+      code: ({ value }) => (
+        <div className="my-6">
+          {value.filename && <div>{value.filename}</div>}
+          <SyntaxHighlighter
+            language={value.language || "javascript"}
+            style={oneDark}
+            PreTag="pre"
+          >
+            {value.code}
+          </SyntaxHighlighter>
+        </div>
+      ),
     },
   };
 
