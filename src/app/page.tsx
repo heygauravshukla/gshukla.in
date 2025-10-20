@@ -2,10 +2,16 @@ import Layout from "@/components/layout";
 import { HeroSection } from "@/components/hero-section";
 import { SectionIntro } from "@/components/section-intro";
 import { ProjectsList } from "@/components/projects-list";
-import { ArticlesList } from "@/components/articles-list";
 import { TimelineList } from "@/components/timeline-list";
+import { PostsList } from "@/components/posts-list";
+import { client } from "@/sanity/lib/client";
 
-export default function Home() {
+const POSTS_QUERY = `*[ _type == "post" && defined(slug.current)]|order(publishedAt desc)[0...4]{_id, title, summary, slug, publishedAt}`;
+const options = { next: { revalidate: 3600 } };
+
+export default async function Home() {
+  const posts = await client.fetch(POSTS_QUERY, {}, options);
+
   return (
     <Layout>
       <main>
@@ -25,11 +31,11 @@ export default function Home() {
         <section className="bg-muted/40 py-20 md:py-32">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
-              heading="Articles"
+              heading="Blog"
               subheading="I love sharing knowledge."
-              paragraph="Here are some of the articles I've written."
+              paragraph="Here are some of the blog posts I've written."
             />
-            <ArticlesList limit={4} />
+            <PostsList posts={posts} />
           </div>
         </section>
         <hr />
