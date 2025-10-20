@@ -1,7 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar } from "lucide-react";
-import { PortableText, type SanityDocument } from "next-sanity";
+import {
+  PortableText,
+  type PortableTextComponents,
+  type SanityDocument,
+} from "next-sanity";
 
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -76,7 +80,15 @@ export default async function Page({
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
 
-  const components = {
+  const components: PortableTextComponents = {
+    block: {
+      normal: ({ children }) => {
+        return <p>{children}</p>;
+      },
+      blockquote: ({ children }) => {
+        return <blockquote>{children}</blockquote>;
+      },
+    },
     types: {
       image: ({
         value,
