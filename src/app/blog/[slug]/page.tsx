@@ -139,7 +139,6 @@ export default async function Page({
           <SyntaxHighlighter
             language={value.language || "javascript"}
             style={oneDark}
-            PreTag="pre"
           >
             {value.code}
           </SyntaxHighlighter>
