@@ -139,6 +139,7 @@ export default async function Page({
           <SyntaxHighlighter
             language={value.language || "javascript"}
             style={oneDark}
+            codeTagProps={{ className: "font-mono" }}
           >
             {value.code}
           </SyntaxHighlighter>
