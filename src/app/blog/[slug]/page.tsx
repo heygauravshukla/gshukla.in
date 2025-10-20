@@ -78,7 +78,11 @@ export default async function Page({
 
   const components = {
     types: {
-      image: ({ value }: { value: SanityImageSource & { alt?: string; caption?: string } }) => {
+      image: ({
+        value,
+      }: {
+        value: SanityImageSource & { alt?: string; caption?: string };
+      }) => {
         return (
           <div className="my-8">
             <Image
@@ -108,7 +112,7 @@ export default async function Page({
           </Button>
         </nav>
 
-        <article className="mx-auto max-w-[65ch]">
+        <article className="prose dark:prose-invert mx-auto">
           <time className="text-muted-foreground flex items-start gap-2 text-sm">
             <Calendar className="h-[1lh] w-4" />
             {new Date(post.publishedAt).toLocaleDateString("en-US", {
@@ -117,12 +121,8 @@ export default async function Page({
               day: "numeric",
             })}
           </time>
-          <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
-            {post.title}
-          </h1>
-          <p className="text-muted-foreground mt-6 leading-7 text-pretty">
-            {post.summary}
-          </p>
+          <h1 className="mt-6">{post.title}</h1>
+          <p>{post.summary}</p>
           {postImageUrl && (
             <Image
               src={postImageUrl}
