@@ -147,3 +147,5 @@ export async function generateStaticParams() {
   );
   return slugs.map((slug: string) => ({ slug }));
 }
+
+export const dynamicParams = false;
