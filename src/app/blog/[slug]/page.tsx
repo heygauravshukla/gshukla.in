@@ -126,7 +126,7 @@ export default async function Page({
           {postImageUrl && (
             <Image
               src={postImageUrl}
-              alt={post.title}
+              alt={post.image.alt}
               className="my-8 aspect-video w-full rounded-2xl border object-cover"
               width={550}
               height={310}
