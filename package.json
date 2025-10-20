@@ -17,6 +17,7 @@
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
+    "@sanity/code-input": "^6.0.3",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.10.3",
     "@types/mdx": "^2.0.13",
