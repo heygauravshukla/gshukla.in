@@ -19,7 +19,7 @@ const urlFor = (source: SanityImageSource) =>
 
 const options = { next: { revalidate: 3600 } };
 
-export default async function PostPage({
+export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -32,6 +32,70 @@ export default async function PostPage({
   const postImageUrl = post.image
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
+
+  const {
+    title,
+    publishedAt: publishedTime,
+    summary: description,
+    slug,
+    tags: keywords,
+  } = post;
+
+  return {
+    title,
+    description,
+    keywords: keywords.join(", "),
+    openGraph: {
+      type: "article",
+      publishedTime,
+      url: `/blog/${slug.current}`,
+      images: [
+        {
+          url: postImageUrl,
+        },
+      ],
+    },
+    twitter: {
+      images: [postImageUrl],
+      creator: "@heygauravshukla",
+    },
+  };
+}
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const post = await client.fetch<SanityDocument>(
+    POST_QUERY,
+    await params,
+    options,
+  );
+  const postImageUrl = post.image
+    ? urlFor(post.image)?.width(550).height(310).url()
+    : null;
+
+  const components = {
+    types: {
+      image: ({ value }: { value: SanityImageSource & { alt?: string; caption?: string } }) => {
+        return (
+          <div className="my-8">
+            <Image
+              src={urlFor(value)?.width(800).url() || "/placeholder.svg"}
+              alt={value.alt || "Blog image"}
+              width={800}
+              height={500}
+              className="rounded-lg border"
+            />
+            {value.caption && (
+              <p className="mt-2 text-center text-sm">{value.caption}</p>
+            )}
+          </div>
+        );
+      },
+    },
+  };
 
   return (
     <Layout>
@@ -56,19 +120,21 @@ export default async function PostPage({
           <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
             {post.title}
           </h1>
-          {/* <p className="text-muted-foreground mt-6 leading-7 text-pretty">
-            {metadata.summary}
-          </p> */}
+          <p className="text-muted-foreground mt-6 leading-7 text-pretty">
+            {post.summary}
+          </p>
           {postImageUrl && (
             <Image
               src={postImageUrl}
               alt={post.title}
               className="my-8 aspect-video w-full rounded-2xl border object-cover"
-              width="550"
-              height="310"
+              width={550}
+              height={310}
             />
           )}
-          {Array.isArray(post.body) && <PortableText value={post.body} />}
+          {Array.isArray(post.body) && (
+            <PortableText value={post.body} components={components} />
+          )}
         </article>
       </div>
     </Layout>
