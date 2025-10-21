@@ -1,87 +1,132 @@
-# Portfolio
+# 🧭 Portfolio
 
-This portfolio showcases my projects, technical articles written in MDX, and curated development resources. It's designed with a focus on performance, accessibility, and scalability.
+A modern, developer-focused portfolio showcasing my **projects**, **blog posts** (powered by **Sanity CMS**), and **curated development resources** — all built with a strong focus on **performance**, **accessibility**, and **scalability**.
 
-## Table of contents
+This site uses **Static Site Generation (SSG)** and **Incremental Static Regeneration (ISR)** to deliver fast, dynamic content updates while maintaining optimal performance.
+
+---
+
+## 🗂️ Table of Contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+
+  - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+
+- [My Process](#my-process)
+
+  - [Built With](#built-with)
+  - [What I Learned](#what-i-learned)
+  - [Continued Development](#continued-development)
+  - [Environment Variables](#environment-variables)
+  - [Useful Resources](#useful-resources)
+
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-## Overview
+---
 
-### The challenge
+## 🧩 Overview
 
-Users should be able to:
+### 💡 The Challenge
 
-- Explore the site with light/dark mode
-- Read technical articles powered by MDX
-- Browse a curated list of development bookmarks
-- Contact me via a validated, accessible form
+The portfolio allows users to:
 
-### Screenshot
+- Explore the site in **light and dark mode**
+- Read **blog posts with rich formatting and syntax highlighting**
+- Browse **projects** with descriptions and live links
+- Discover a **curated list of development resources**
+- Contact me via a **validated, fully functional form** powered by EmailJS
+
+### 🖼️ Screenshot
 
 ![Screenshot of portfolio](./public/portfolio-screenshot.jpg)
 
-### Links
+### 🔗 Links
 
-- Live Site URL: [https://gshukla.vercel.app](https://gshukla.vercel.app)
-- Repository URL: [https://github.com/heygauravshukla/portfolio](https://github.com/heygauravshukla/portfolio)
+- **Live Site:** [https://gshukla.vercel.app](https://gshukla.vercel.app)
+- **Repository:** [https://github.com/heygauravshukla/portfolio](https://github.com/heygauravshukla/portfolio)
 
-## My process
+---
 
-### Built with
+## ⚙️ My Process
 
-- Semantic JSX markup
-- Mobile-first responsive design
-- Static Site Generation
-- [Next.js 15 (App Router)](https://nextjs.org/)
-- [MDX](https://mdxjs.com/)
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Motion](https://motion.dev)
-- [react-hook-form](https://react-hook-form.com/)
-- [Zod](https://zod.dev/)
-- [Sonner](https://sonner.emilkowal.ski/)
-- [EmailJS](https://www.emailjs.com/)
-- [pnpm](https://pnpm.io/)
+### 🛠️ Built With
 
-### What I learned
+- **Semantic TSX markup** & mobile-first responsive design
+- **Static Site Generation (SSG)** and **Incremental Static Regeneration (ISR)**
+- **Next.js 15 (App Router)** – framework core
+- **Sanity CMS** – headless content management
+- **shadcn/ui** – accessible UI component library
+- **Tailwind CSS** – utility-first styling
+- **TypeScript** – type-safe development
+- **Motion** – smooth animations & micro-interactions
+- **react-hook-form + Zod** – form handling & validation
+- **Sonner** – toast notifications
+- **EmailJS** – client-side email delivery
+- **pnpm** – fast, efficient package management
 
-- How to set up MDX in a Next.js project for content
-- Adding micro-interactions and subtle animations using the Motion library
-- Creating accessible forms with real-time validation using `react-hook-form` and `Zod`
-- Building reusable components with shadcn/ui and Tailwind CSS
-- Structuring a scalable Next.js project using the App Router
+---
 
-### Continued development
+### 🧠 What I Learned
 
-- Add code syntax highlighting
-- Automate RSS feed and sitemap
+- Integrating **Sanity CMS** with **Next.js** for dynamic, CMS-driven content using **SSG** and **ISR**
+- Adding **syntax highlighting** for code blocks in blog posts using the `react-syntax-highlighter` library
+- Creating **accessible, validated contact forms** with `react-hook-form`, `Zod`, and **EmailJS**
+- Designing **reusable UI components** with `shadcn/ui` and Tailwind CSS
+- Implementing **subtle animations and micro-interactions** using the Motion library
+- Structuring a **scalable project** with modern Next.js features like the App Router
 
-### Useful resources
+---
 
-- [Inter font GitHub repo](https://github.com/rsms/inter) – Resource to download Inter font
-- [IBM Plex font GitHub repo](https://github.com/IBM/plex) – Resource to download IBM Plex fonts
-- [Squoosh](https://squoosh.app) – Image optimization tool
-- [og.new](https://og.new) – Open Graph image generator
-- [RedKetchup](https://redketchup.io/favicon-generator) – Favicon Generator
+### 🚀 Continued Development
 
-## Author
+Planned improvements include:
 
-- Website – [gshukla.vercel.app](https://gshukla.vercel.app)
-- GitHub – [@heygauravshukla](https://github.com/heygauravshukla)
-- Twitter – [@heygauravshukla](https://twitter.com/heygauravshukla)
+- Adding smooth scrolling with **React Lenis**
+- Automating **RSS feed** and **sitemap generation**
+- Adding **pagination** for blog posts
+- Implementing **project filtering** and **blog search**
+- Replacing **EmailJS** with **Nodemailer** for secure server-side email handling
 
-## Acknowledgments
+---
 
-The GitHub repository of [Tailwind CSS docs](https://github.com/tailwindlabs/tailwindcss.com) helped me a lot to get insights into how to self-host fonts, and their [Spotlight template](https://tailwindcss.com/plus/templates/spotlight) was the first inspiration for building this site.
+### 🔐 Environment Variables
+
+To run this project locally, create a `.env.local` file at the root with the following variables:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=
+NEXT_PUBLIC_SANITY_DATASET=
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
+```
+
+Ensure you’ve set up a **Sanity project** and configured your **EmailJS service and template IDs** before running the app.
+
+---
+
+### 📚 Useful Resources
+
+- [Inter Font GitHub Repo](https://github.com/rsms/inter) – Inter font files & usage guide
+- [IBM Plex Font GitHub Repo](https://github.com/IBM/plex) – IBM Plex font family resources
+- [Squoosh](https://squoosh.app) – Image compression and optimization
+- [og.new](https://og.new) – Dynamic Open Graph image generator
+- [RedKetchup Favicon Generator](https://redketchup.io/favicon-generator) – Favicon creation tool
+
+---
+
+## 👨‍💻 Author
+
+- **Website:** [gshukla.vercel.app](https://gshukla.vercel.app)
+- **GitHub:** [@heygauravshukla](https://github.com/heygauravshukla)
+- **Twitter/X:** [@heygauravshukla](https://twitter.com/heygauravshukla)
+
+---
+
+## 🙌 Acknowledgments
+
+Special thanks to the [Tailwind CSS Docs](https://github.com/tailwindlabs/tailwindcss.com) repository for insights into **font self-hosting** and structure organization.
+The [Spotlight Template](https://tailwindcss.com/plus/templates/spotlight) by Tailwind Labs served as the **initial inspiration** for this portfolio’s layout and design.
