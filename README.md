@@ -41,7 +41,7 @@ The portfolio allows users to:
 
 ### 🖼️ Screenshot
 
-![Screenshot of portfolio](./public/portfolio-screenshot.jpg)
+![Screenshot of portfolio](./public/portfolio-screenshot.avif)
 
 ### 🔗 Links
 
