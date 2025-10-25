@@ -56,7 +56,7 @@ The portfolio allows users to:
 
 - **Semantic TSX markup** & mobile-first responsive design
 - **Static Site Generation (SSG)** and **Incremental Static Regeneration (ISR)**
-- **Next.js 15 (App Router)** – framework core
+- **Next.js 16 (App Router)** – framework core
 - **Sanity CMS** – headless content management
 - **shadcn/ui** – accessible UI component library
 - **Tailwind CSS** – utility-first styling
