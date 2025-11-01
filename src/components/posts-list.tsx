@@ -48,7 +48,7 @@ export function PostsList({ posts }: PostsListProps) {
                 href={`/blog/${post.slug.current}`}
                 className="text-primary mt-4 inline-flex items-center gap-1 text-sm font-medium"
               >
-                Read article <ChevronRight className="size-4" />
+                Read more <ChevronRight className="size-4" />
               </Link>
             </div>
           </motion.article>
