@@ -40,7 +40,7 @@ export function PostsList({ posts }: PostsListProps) {
               <Clock className="h-[1lh] w-4" />
               <TimeAgo date={post.publishedAt} />
             </time>
-            <p className="text-muted-foreground mt-2 text-sm/normal">
+            <p className="text-muted-foreground mt-2 line-clamp-3 text-sm/normal">
               {post.summary}
             </p>
             <div>
