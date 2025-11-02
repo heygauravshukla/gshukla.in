@@ -39,7 +39,7 @@ export function TimelineList() {
                   <h4 className="font-medium tracking-tight">
                     {achievement.title}
                   </h4>
-                  <p className="text-muted-foreground mt-1 text-sm/normal">
+                  <p className="text-muted-foreground mt-1 max-w-[70ch] text-sm/normal">
                     {achievement.description}
                   </p>
                 </div>
