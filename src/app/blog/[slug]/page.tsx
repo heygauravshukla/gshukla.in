@@ -7,7 +7,7 @@ import {
   type SanityDocument,
 } from "next-sanity";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 import Layout from "@/components/layout";
 import { Button } from "@/components/ui/button";
@@ -138,7 +138,7 @@ export default async function Page({
           {value.filename && <div>{value.filename}</div>}
           <SyntaxHighlighter
             language={value.language || "javascript"}
-            style={nightOwl}
+            style={atomDark}
             codeTagProps={{ className: "font-mono" }}
           >
             {value.code}
@@ -159,7 +159,7 @@ export default async function Page({
           </Button>
         </nav>
 
-        <article className="prose dark:prose-invert mx-auto">
+        <article className="prose prose-neutral dark:prose-invert mx-auto">
           <time className="text-muted-foreground flex items-start gap-2 text-sm">
             <Calendar className="h-[1lh] w-4" />
             {new Date(post.publishedAt).toLocaleDateString("en-US", {
