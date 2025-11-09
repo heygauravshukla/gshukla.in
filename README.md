@@ -19,7 +19,7 @@ This site uses **Static Site Generation (SSG)** and **Incremental Static Regener
   - [Built With](#built-with)
   - [What I Learned](#what-i-learned)
   - [Continued Development](#continued-development)
-  - [Environment Variables](#environment-variables)
+  - [Getting Started](#-getting-started)
   - [Useful Resources](#useful-resources)
 
 - [Author](#author)
@@ -57,15 +57,20 @@ The portfolio allows users to:
 - **Semantic TSX markup** & mobile-first responsive design
 - **Static Site Generation (SSG)** and **Incremental Static Regeneration (ISR)**
 - **Next.js 16 (App Router)** – framework core
+- **React 19** – latest React features
 - **Sanity CMS** – headless content management
 - **shadcn/ui** – accessible UI component library
-- **Tailwind CSS** – utility-first styling
+- **Radix UI** – headless UI primitives
+- **Tailwind CSS v4** – utility-first styling
 - **TypeScript** – type-safe development
 - **Motion** – smooth animations & micro-interactions
+- **Lenis** – smooth scrolling experience
+- **next-themes** – theme management (light/dark mode)
 - **react-hook-form + Zod** – form handling & validation
 - **Sonner** – toast notifications
 - **EmailJS** – client-side email delivery
-- **pnpm** – fast, efficient package management
+- **Lucide React** – icon library
+- **Bun** – fast JavaScript runtime & package manager
 
 ---
 
@@ -75,8 +80,11 @@ The portfolio allows users to:
 - Adding **syntax highlighting** for code blocks in blog posts using the `react-syntax-highlighter` library
 - Creating **accessible, validated contact forms** with `react-hook-form`, `Zod`, and **EmailJS**
 - Designing **reusable UI components** with `shadcn/ui` and Tailwind CSS
+- Implementing **smooth scrolling** with Lenis for enhanced user experience
+- Implementing **theme switching** (light/dark mode) using `next-themes`
 - Implementing **subtle animations and micro-interactions** using the Motion library
 - Structuring a **scalable project** with modern Next.js features like the App Router
+- Working with **React 19** and **Next.js 16** App Router patterns
 
 ---
 
@@ -84,7 +92,6 @@ The portfolio allows users to:
 
 Planned improvements include:
 
-- Adding smooth scrolling with **React Lenis**
 - Automating **RSS feed** and **sitemap generation**
 - Adding **pagination** for blog posts
 - Implementing **project filtering** and **blog search**
@@ -92,19 +99,37 @@ Planned improvements include:
 
 ---
 
-### 🔐 Environment Variables
+### 🚀 Getting Started
 
-To run this project locally, create a `.env.local` file at the root with the following variables:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/heygauravshukla/portfolio.git
+   cd portfolio
+   ```
 
-```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=
-NEXT_PUBLIC_SANITY_DATASET=
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
-```
+2. **Install dependencies**
+   ```bash
+   bun install
+   ```
 
-Ensure you’ve set up a **Sanity project** and configured your **EmailJS service and template IDs** before running the app.
+3. **Set up environment variables**
+   Create a `.env.local` file at the root with the following variables:
+   ```env
+   NEXT_PUBLIC_SANITY_PROJECT_ID=
+   NEXT_PUBLIC_SANITY_DATASET=
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
+   ```
+
+4. **Run the development server**
+   ```bash
+   bun run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+   Ensure you've set up a **Sanity project** and configured your **EmailJS service and template IDs** before running the app.
 
 ---
 
