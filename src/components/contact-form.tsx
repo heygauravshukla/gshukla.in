@@ -1,42 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import emailjs from "@emailjs/browser";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
+
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
-  }),
-  email: z.string().email({
-    message: "Please enter a valid email address.",
-  }),
-  message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters.")
+    .max(50, "Name must be at most 50 characters."),
+  email: z.string().email("Please enter a valid email address."),
+  message: z
+    .string()
+    .min(10, "Please provide at least 10 characters.")
+    .max(200, "Please keep it under 200 characters."),
 });
-
-type FormData = z.infer<typeof formSchema>;
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const form = useForm<FormData>({
+  const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -45,83 +49,117 @@ export function ContactForm() {
     },
   });
 
-  async function onSubmit(values: FormData) {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true);
       await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
-          name: values.name,
-          email: values.email,
-          message: values.message,
+          name: data.name,
+          email: data.email,
+          message: data.message,
         },
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
       );
 
       form.reset();
-      toast("Message sent successfully!");
+      toast("Form submitted successfully", {
+        description: "I'll get back to you as soon as possible.",
+      });
     } catch (error) {
       console.error(error);
-      toast("Failed to send message. Please try again.");
+      toast("Failed to send message.", {
+        description: "Please try again later.",
+      });
     } finally {
       setIsSubmitting(false);
     }
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-8">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="John Doe" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="johndoe@example.com"
-                  type="email"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormControl>
-                <Textarea placeholder="Your message here..." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Sending..." : "Send Message"}
-        </Button>
-      </form>
-    </Form>
+    <Card className="w-full">
+      <CardHeader className="sr-only">
+        <CardTitle>Fill in the form below to get in touch</CardTitle>
+        <CardDescription>
+          I'm always open to discussing new opportunities and interesting
+          projects. Feel free to reach out.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form id="form-rhf" onSubmit={form.handleSubmit(onSubmit)}>
+          <FieldGroup>
+            <Controller
+              name="name"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-rhf-name">Name</FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-rhf-name"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="John Doe"
+                    autoComplete="off"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="email"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-rhf-email">Email</FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-rhf-email"
+                    type="email"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="john.doe@example.com"
+                    autoComplete="off"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            <Controller
+              name="message"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-rhf-message">Message</FieldLabel>
+                  <Textarea
+                    {...field}
+                    id="form-rhf-textarea-message"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Enter your message here..."
+                    className="min-h-[120px]"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+          </FieldGroup>
+        </form>
+      </CardContent>
+      <CardFooter>
+        <Field orientation="horizontal">
+          <Button type="button" variant="outline" onClick={() => form.reset()}>
+            Reset
+          </Button>
+          <Button type="submit" form="form-rhf">
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </Button>
+        </Field>
+      </CardFooter>
+    </Card>
   );
 }
