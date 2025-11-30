@@ -54,7 +54,7 @@ const plexMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gshukla.vercel.app"),
+  metadataBase: new URL("https://www.gshukla.in"),
   title: {
     default: "Gaurav Shukla - Software engineer, creator, and tech enthusiast",
     template: "%s - Gaurav Shukla",
