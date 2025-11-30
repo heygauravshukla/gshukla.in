@@ -9,13 +9,11 @@ This site uses **Static Site Generation (SSG)** and **Incremental Static Regener
 ## 🗂️ Table of Contents
 
 - [Overview](#overview)
-
   - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
 
 - [My Process](#my-process)
-
   - [Built With](#built-with)
   - [What I Learned](#what-i-learned)
   - [Continued Development](#continued-development)
@@ -45,7 +43,7 @@ The portfolio allows users to:
 
 ### 🔗 Links
 
-- **Live Site:** [https://gshukla.vercel.app](https://gshukla.vercel.app)
+- **Live Site:** [gshukla.in](https://gshukla.in)
 - **Repository:** [https://github.com/heygauravshukla/portfolio](https://github.com/heygauravshukla/portfolio)
 
 ---
@@ -102,19 +100,23 @@ Planned improvements include:
 ### 🚀 Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/heygauravshukla/portfolio.git
    cd portfolio
    ```
 
 2. **Install dependencies**
+
    ```bash
    bun install
    ```
 
 3. **Set up environment variables**
    Create a `.env.local` file at the root with the following variables:
+
    ```env
+   NEXT_PUBLIC_BASE_URL=
    NEXT_PUBLIC_SANITY_PROJECT_ID=
    NEXT_PUBLIC_SANITY_DATASET=
    NEXT_PUBLIC_EMAILJS_SERVICE_ID=
@@ -123,6 +125,7 @@ Planned improvements include:
    ```
 
 4. **Run the development server**
+
    ```bash
    bun run dev
    ```
@@ -145,7 +148,7 @@ Planned improvements include:
 
 ## 👨‍💻 Author
 
-- **Website:** [gshukla.vercel.app](https://gshukla.vercel.app)
+- **Website:** [gshukla.in](https://gshukla.in)
 - **GitHub:** [@heygauravshukla](https://github.com/heygauravshukla)
 - **Twitter/X:** [@heygauravshukla](https://twitter.com/heygauravshukla)
 
