@@ -112,6 +112,15 @@ export default async function Page({
         return <blockquote>{children}</blockquote>;
       },
     },
+    marks: {
+      link: ({ value, children }) => {
+        return (
+          <a href={value?.href} target="_blank" rel="noopener noreferrer">
+            {children}
+          </a>
+        );
+      },
+    },
     types: {
       image: ({
         value,
