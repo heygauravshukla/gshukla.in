@@ -115,7 +115,12 @@ export default async function Page({
     marks: {
       link: ({ value, children }) => {
         return (
-          <a href={value?.href} target="_blank" rel="noopener noreferrer">
+          <a
+            href={value?.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary"
+          >
             {children}
           </a>
         );
