@@ -13,7 +13,7 @@ export function SocialLinks() {
     { platform: "X", href: "https://x.com/heygauravshukla", icon: Icons.x },
     {
       platform: "Bluesky",
-      href: "https://bsky.app/profile/heygauravshukla.bsky.social",
+      href: "https://bsky.app/profile/gshukla.in",
       icon: Icons.bluesky,
     },
     {
