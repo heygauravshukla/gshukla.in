@@ -31,7 +31,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 >
                   <span className="absolute inset-0 z-10"></span>
                   {project.title}
-                  <ArrowUpRight className="size-4 origin-center -translate-x-0.5 opacity-0 transition-all duration-100 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
+                  <ArrowUpRight className="text-primary size-4 origin-center -translate-x-0.5 opacity-0 transition-all duration-100 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
                 </a>
               </h3>
 
