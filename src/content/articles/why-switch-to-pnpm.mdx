@@ -1,0 +1,103 @@
+export const metadata = {
+  title: "Why I switched to PNPM (and you probably should too)",
+  publishedAt: "2025-07-20T10:46:00+05:30",
+  summary:
+    "Discover the benefits of using PNPM over other package managers and learn how to make the switch seamlessly.",
+  image: "/articles/why-switch-to-pnpm.avif",
+  tags: ["Development", "Node.js", "NPM", "PNPM", "JavaScript"],
+};
+
+As a frontend developer juggling multiple side projects, I was tired of slow installs and bloated `node_modules` folders. That’s when I stumbled upon **PNPM**, and it completely changed my workflow.
+
+In this article, I’ll break down what PNPM is, why it’s better than npm, and how it can speed up your dev process while saving disk space.
+
+---
+
+### What is PNPM?
+
+PNPM stands for **Performant NPM**. It’s a fast, disk-efficient alternative to npm and yarn. The best part? It’s a **drop-in replacement** — you can use the same commands like:
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+It’s open-source and used in production by companies like **Vercel**, **Vue**, **Astro**, and many others.
+
+---
+
+### Why I switched — The key benefits
+
+#### 🚀 1. Fast installs
+
+PNPM is **up to 2x faster** than npm. How? It doesn’t re-download packages you’ve already installed. It just links them from a global cache — blazing fast.
+
+#### 💾 2. Disk space efficient
+
+When you install a package for the first time, PNPM stores it in a **content-addressable storage** on your disk. Next time (or in another project), it hard-links that package instead of downloading it again. No duplication = massive disk savings.
+
+> One dev replied to my tweet: _"I’ll use PNPM just for the hard links!"_ — and honestly, that’s reason enough.
+
+#### 🔒 3. Strict dependency isolation
+
+PNPM creates a **non-flat `node_modules`** structure. This means packages can only access dependencies they explicitly declare — reducing bugs from undeclared or hoisted packages.
+
+#### 🧱 4. Built-in monorepo support
+
+PNPM supports **workspaces** out of the box. Whether you’re building a monorepo with multiple packages or just a monolith, PNPM handles dependency management better than most tools.
+
+> And yes — **even a fresh Next.js app is a monolith by default**, so you still benefit from pnpm’s speed and efficiency.
+
+Read more about [Monorepo vs Multi-repo vs Monolith](https://medium.com/@magenta2127/monorepo-vs-multi-repo-vs-monolith-7c4a5f476009) if you’re curious.
+
+---
+
+### Common misconceptions I encountered on Twitter
+
+- **"Isn’t pnpm only for monorepos?"**
+
+  > Nope. It brings value to monoliths too: faster installs, disk savings, and strict dependency checks.
+
+- **"Is pnpm used in production?"**
+
+  > Absolutely. Vercel, Vue, Astro, and many more rely on it.
+
+- **"So I just run `pnpm install` instead of `npm install`?"**
+
+  > Exactly. You can even alias `pnpm` to `npm` if muscle memory is strong. 😅
+
+---
+
+### Getting started
+
+Install it globally:
+
+```bash
+npm install -g pnpm@latest-10
+```
+
+Then use it just like npm:
+
+```bash
+pnpm install
+pnpm run dev
+pnpm add axios
+```
+
+Helpful commands:
+
+- `pnpm why <pkg>` – Find out why a package is installed
+- `pnpm update --latest` – Upgrade all deps easily
+- `pnpm dlx <tool>` – Run CLI tools without global install
+
+---
+
+### Final thoughts
+
+Whether you’re building a side project or managing a full monorepo, PNPM is a serious upgrade. It’s faster, cleaner, and helps avoid common dependency issues.
+
+Give it a shot on your next project — your future self (and your disk space) will thank you. ⚡
+
+---
+
+_Let me know on [Twitter](https://x.com/heygauravshukla/status/1946213294764683557) if you try it out — I’d love to hear how it goes!_
