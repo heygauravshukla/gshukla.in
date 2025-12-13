@@ -85,15 +85,29 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         className="my-4 size-full rounded-2xl border"
       />
     ),
-    code: (props: ComponentProps<"code">) => (
-      <code
-        className="bg-muted text-muted-foreground rounded px-1 py-0.5 font-mono text-sm"
-        {...props}
-      />
-    ),
+    code: ({ children, className, ...props }: ComponentProps<"code">) => {
+      const isInline = typeof children === "string";
+
+      if (isInline) {
+        return (
+          <code
+            className="bg-muted text-muted-foreground rounded px-1 py-0.5 font-mono text-sm"
+            {...props}
+          >
+            {children}
+          </code>
+        );
+      }
+
+      return (
+        <code className={className} {...props}>
+          {children}
+        </code>
+      );
+    },
     pre: (props: ComponentProps<"pre">) => (
       <pre
-        className="bg-muted my-4 overflow-x-auto rounded-2xl p-6 font-mono leading-relaxed"
+        className="my-4 overflow-x-auto rounded-2xl p-6 font-mono leading-relaxed"
         {...props}
       />
     ),
