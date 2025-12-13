@@ -78,9 +78,7 @@ export default async function ArticlePage({
           <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
             {metadata.title}
           </h1>
-          <p className="text-muted-foreground mt-6 leading-7 text-pretty">
-            {metadata.summary}
-          </p>
+          <p className="mt-6 leading-7 text-pretty">{metadata.summary}</p>
           <Image
             src={metadata.image}
             alt={metadata.title}

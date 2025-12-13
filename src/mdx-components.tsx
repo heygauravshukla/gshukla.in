@@ -21,10 +21,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <h4 className="mt-8 leading-relaxed font-medium" {...props} />
     ),
     p: (props: ComponentProps<"p">) => (
-      <p
-        className="text-muted-foreground my-4 leading-loose text-pretty"
-        {...props}
-      />
+      <p className="my-4 leading-loose text-pretty" {...props} />
     ),
     ol: (props: ComponentProps<"ol">) => (
       <ol className="my-4 list-decimal pl-6" {...props} />
@@ -33,11 +30,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <ul className="my-4 list-disc pl-6" {...props} />
     ),
     li: (props: ComponentProps<"li">) => (
-      <li className="text-muted-foreground pl-1 leading-loose" {...props} />
+      <li className="pl-1 leading-loose" {...props} />
     ),
-    em: (props: ComponentProps<"em">) => (
-      <em className="text-muted-foreground italic" {...props} />
-    ),
+    em: (props: ComponentProps<"em">) => <em className="italic" {...props} />,
     strong: (props: ComponentProps<"strong">) => (
       <strong className="text-secondary-foreground font-medium" {...props} />
     ),
@@ -91,7 +86,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       if (isInline) {
         return (
           <code
-            className="bg-muted text-muted-foreground rounded px-1 py-0.5 font-mono text-sm"
+            className="bg-muted rounded px-1 py-0.5 font-mono text-sm"
             {...props}
           >
             {children}
