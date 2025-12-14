@@ -1,13 +1,13 @@
-# 🧭 Portfolio
+# Portfolio
 
-A modern, developer-focused portfolio showcasing my **projects**, **articles** (powered by **MDX**), and **curated development resources** — all built with a strong focus on **performance**, **accessibility**, and **scalability**.
+A modern, developer-focused portfolio showcasing my **projects**, **articles** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
 
 ---
 
-## 🗂️ Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
-  - [The Challenge](#the-challenge)
+  - [Features](#features)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My Process](#my-process)
@@ -21,78 +21,67 @@ A modern, developer-focused portfolio showcasing my **projects**, **articles** (
 
 ---
 
-## 🧩 Overview
+## Overview
 
-### 💡 The Challenge
+### Features
 
 The portfolio allows users to:
 
-- Explore the site in **light and dark mode**
-- Read **articles** written in **MDX format** with dynamic routing
+- Explore the site in **light and dark mode** (system preference)
+- Read **articles** written in **MDX format** with syntax highlighting
 - Browse **projects** with descriptions and live links
-- Discover a **curated list of development resources**
-- Contact me via a **validated, fully functional form** powered by EmailJS
+- Explore a **curated list of development resources** (Bookmarks)
+- Navigate smoothly with **Lenis** scrolling and **Framer Motion** animations
 
-### 🖼️ Screenshot
+### Screenshot
 
 ![Screenshot of portfolio](./public/portfolio-screenshot.avif)
 
-### 🔗 Links
+### Links
 
 - **Live Site:** [gshukla.in](https://gshukla.in)
 - **Repository:** [https://github.com/heygauravshukla/portfolio](https://github.com/heygauravshukla/portfolio)
 
 ---
 
-## ⚙️ My Process
+## My Process
 
-### 🛠️ Built With
+### Built With
 
 - **Semantic TSX markup** & mobile-first responsive design
 - **Static Site Generation (SSG)**
 - **Next.js 16 (App Router)** – framework core
 - **React 19** – latest React features
-- **MDX** – Articles with markdown and interactive components
-- **shadcn/ui** – accessible UI component library
-- **Radix UI** – headless UI primitives
-- **Tailwind CSS v4** – utility-first styling
-- **TypeScript** – type-safe development
-- **Motion** – smooth animations & micro-interactions
+- **Tailwind CSS v4** – utility-first styling with CSS variables
+- **MDX** – Articles with markdown and `rehype-pretty-code` for syntax highlighting
+- **Framer Motion** – smooth animations & micro-interactions
 - **Lenis** – smooth scrolling experience
-- **next-themes** – theme management (light/dark mode)
-- **react-hook-form + Zod** – form handling & validation
-- **Sonner** – toast notifications
-- **EmailJS** – client-side email delivery
 - **Lucide React** – icon library
 - **pnpm** – fast, disk space efficient package manager
 
 ---
 
-### 🧠 What I Learned
+### What I Learned
 
-- Working with **MDX** to create articles with dynamic routing and metadata extraction
-- Generating **dynamic sitemaps** that automatically include all articles from the file system
-- Creating **accessible, validated contact forms** with `react-hook-form`, `Zod`, and **EmailJS**
-- Designing **reusable UI components** with `shadcn/ui` and Tailwind CSS
-- Implementing **smooth scrolling** with Lenis for enhanced user experience
-- Implementing **theme switching** (light/dark mode) using `next-themes`
-- Implementing **subtle animations and micro-interactions** using the Motion library
-- Structuring a **scalable project** with modern Next.js features like the App Router
-- Working with **React 19** and **Next.js 16** App Router patterns
+- Implementing **MDX** with `rehype-pretty-code` for beautiful syntax highlighting
+- Using **Tailwind CSS v4** with native CSS variables and `@theme` blocks
+- Generating **dynamic sitemaps** for SEO
+- Implementing **smooth scrolling** with Lenis
+- Structuring a **scalable project** with Next.js 16 App Router
 
 ---
 
-### 🚀 Continued Development
+### Continued Development
 
 Planned improvements include:
 
-- Automating **RSS feed generation**
-- Implementing **project filtering** and **article search**
-- Replacing **EmailJS** with **Nodemailer** for unlimited email sending capabilities
+- **RSS feed generation** for articles
+- **Project filtering** by technology
+- **Search functionality** for articles and bookmarks
 
 ---
 
-### 🚀 Getting Started
+### Getting Started
 
 1. **Clone the repository**
 
@@ -108,14 +97,11 @@ Planned improvements include:
    ```
 
 3. **Set up environment variables**
-   Create a `.env.local` file at the root with the following variables:
+   Create a `.env.local` file at the root with the following variable (optional for dev):
 
    ```env
    NEXT_PUBLIC_BASE_URL=
-   NEXT_PUBLIC_GA_ID=
-   NEXT_PUBLIC_EMAILJS_SERVICE_ID=
-   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=
-   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=
+   NEXT_PUBLIC_GA_ID=your_google_analytics_id
    ```
 
 4. **Run the development server**
@@ -126,11 +112,7 @@ Planned improvements include:
 
    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-   Ensure you've configured your **EmailJS service and template IDs** before running the app.
-
----
-
-### 📚 Useful Resources
+### Useful Resources
 
 - [Inter Font GitHub Repo](https://github.com/rsms/inter) – Inter font files & usage guide
 - [IBM Plex Font GitHub Repo](https://github.com/IBM/plex) – IBM Plex font family resources
@@ -140,7 +122,7 @@ Planned improvements include:
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 - **Website:** [gshukla.in](https://gshukla.in)
 - **GitHub:** [@heygauravshukla](https://github.com/heygauravshukla)
@@ -148,7 +130,7 @@ Planned improvements include:
 
 ---
 
-## 🙌 Acknowledgments
+## Acknowledgments
 
-Special thanks to the [Tailwind CSS Docs](https://github.com/tailwindlabs/tailwindcss.com) repository for insights into **font self-hosting** and structure organization.
+Special thanks to the [Tailwind CSS Docs](https://github.com/tailwindlabs/tailwindcss.com) repository for insights into structure organization.
 The [Spotlight Template](https://tailwindcss.com/plus/templates/spotlight) by Tailwind Labs served as the **initial inspiration** for this portfolio’s layout and design.
