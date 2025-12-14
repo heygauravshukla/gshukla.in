@@ -2,36 +2,29 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { AlignRight } from "lucide-react";
+import { EllipsisVertical, X } from "lucide-react";
 
-import { ThemeToggle } from "@/components/theme-toggle";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Articles", href: "/articles" },
   { name: "Projects", href: "/projects" },
   { name: "Bookmarks", href: "/bookmarks" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "mailto:heygauravshukla@gmail.com" },
 ];
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <header className="bg-background/95 supports-backdrop-filter:bg-background/80 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <div className="container flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-100 bg-white/95 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/85">
+      <div className="container flex h-16 items-center justify-between gap-4 md:h-18">
         {/* Logo */}
-        <Link href="/" aria-label="Go to homepage">
+        <Link href="/" aria-label="Go to homepage" className="shrink-0">
           <Image
             src="/avatar.jpg"
             alt="Gaurav Shukla's avatar"
@@ -41,62 +34,62 @@ export function Header() {
           />
         </Link>
 
-        <div className="flex items-center gap-4 sm:gap-6">
-          {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-6 sm:flex">
+        {/* Desktop Navigation */}
+        <nav className="flex items-center gap-6 max-md:hidden">
+          {navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn("text-sm font-medium transition-colors", {
+                "text-teal-500 dark:text-teal-400": pathname === item.href,
+                "hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-400":
+                  pathname !== item.href,
+              })}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Navigation Toggler */}
+        <button
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
+          className="z-50 md:hidden"
+        >
+          {isMenuOpen ? (
+            <X className="size-4" />
+          ) : (
+            <EllipsisVertical className="size-4" />
+          )}
+        </button>
+
+        {/* Mobile Navigation */}
+        <div
+          className={cn(
+            "fixed inset-0 z-40 min-h-dvh items-center gap-4 bg-zinc-50 dark:bg-zinc-950",
+            {
+              "grid md:hidden": isMenuOpen,
+              hidden: !isMenuOpen,
+            },
+          )}
+        >
+          <nav className="grid place-items-center gap-4">
             {navigation.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hover:text-primary text-sm font-medium transition-colors ${
-                  pathname === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
+                className={cn("text-2xl font-medium transition-colors", {
+                  "text-teal-500 dark:text-teal-400": pathname === item.href,
+                  "hover:text-teal-500 dark:hover:text-teal-400":
+                    pathname !== item.href,
+                })}
               >
                 {item.name}
               </Link>
             ))}
           </nav>
-
-          {/* Mode Toggle */}
-          <ThemeToggle />
-
-          {/* Mobile Navigation */}
-          <Sheet>
-            <SheetTrigger className="sm:hidden">
-              <AlignRight className="size-5" />
-              <span className="sr-only">Toggle Menu</span>
-            </SheetTrigger>
-
-            <SheetContent side="right">
-              <SheetHeader className="sr-only">
-                <SheetTitle>Menu</SheetTitle>
-                <SheetDescription>Browse navigation links</SheetDescription>
-              </SheetHeader>
-
-              <div className="px-6 py-20">
-                <ul className="grid gap-3">
-                  {navigation.map((item) => (
-                    <li key={item.href}>
-                      <SheetClose asChild>
-                        <Link
-                          href={item.href}
-                          className={`text-xl ${
-                            pathname === item.href
-                              ? "text-primary"
-                              : "text-muted-foreground"
-                          }`}
-                        >
-                          {item.name}
-                        </Link>
-                      </SheetClose>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>

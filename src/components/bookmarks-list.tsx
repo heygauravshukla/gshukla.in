@@ -30,17 +30,17 @@ export function BookmarksList() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="bg-card text-card-foreground hover:border-primary relative isolate flex flex-col items-start rounded-2xl border p-4 transition-colors md:p-6"
+                className="relative isolate flex flex-col items-start rounded-2xl p-4 ring ring-zinc-300 transition-colors hover:ring-teal-500 md:p-6 dark:bg-zinc-800 dark:ring-zinc-700 dark:hover:ring-teal-400"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
-                <p className="text-muted-foreground mt-2 text-sm/normal">
+                <p className="mt-2 text-sm/normal text-zinc-600 dark:text-zinc-400">
                   {bookmark.description}
                 </p>
                 <a
                   href={bookmark.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground order-first mb-2 flex items-baseline gap-2 text-xs"
+                  className="order-first mb-2 flex items-baseline gap-2 text-xs text-zinc-600 dark:text-zinc-400"
                 >
                   <span className="absolute inset-0"></span>
                   {bookmark.href.slice(8)}

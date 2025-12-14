@@ -10,8 +10,10 @@ export default function Home() {
     <Layout>
       <main>
         <HeroSection />
-        <hr />
-        <section className="py-20 md:py-32">
+
+        <hr className="text-zinc-200 dark:text-zinc-800" />
+
+        <section className="bg-zinc-50 py-20 md:py-32 dark:bg-zinc-950">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
               heading="Projects"
@@ -21,8 +23,10 @@ export default function Home() {
             <ProjectsList limit={6} />
           </div>
         </section>
-        <hr />
-        <section className="bg-muted/40 py-20 md:py-32">
+
+        <hr className="text-zinc-200 dark:text-zinc-800" />
+
+        <section className="py-20 md:py-32">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
               heading="Articles"
@@ -32,8 +36,10 @@ export default function Home() {
             <ArticlesList limit={4} />
           </div>
         </section>
-        <hr />
-        <section className="py-20 md:py-32">
+
+        <hr className="text-zinc-200 dark:text-zinc-800" />
+
+        <section className="bg-zinc-50 py-20 md:py-32 dark:bg-zinc-950">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
               heading="Timeline"

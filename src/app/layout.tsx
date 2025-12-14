@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const inter = localFont({
@@ -73,18 +71,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${plexMono.variable}`}
+      className={`${inter.variable} ${plexMono.variable} antialiased scheme-light-dark`}
     >
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Toaster />
-        </ThemeProvider>
+      <body className="bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100">
+        {children}
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
     </html>

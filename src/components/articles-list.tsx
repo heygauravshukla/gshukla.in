@@ -48,17 +48,17 @@ export async function ArticlesList({ limit }: { limit?: number }) {
             <h3 className="font-medium tracking-tight">
               <Link href={`/articles/${article.slug}`}>{article.title}</Link>
             </h3>
-            <time className="text-muted-foreground order-first mb-3 flex items-start gap-1.5 text-sm">
+            <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-zinc-600 dark:text-zinc-400">
               <Clock className="h-[1lh] w-4" />
               <TimeAgo date={article.publishedAt} />
             </time>
-            <p className="text-muted-foreground mt-2 line-clamp-3 text-sm/normal">
+            <p className="mt-2 line-clamp-3 text-sm/normal text-zinc-600 dark:text-zinc-400">
               {article.summary}
             </p>
             <div>
               <Link
                 href={`/articles/${article.slug}`}
-                className="text-primary mt-4 inline-flex items-center gap-1 text-sm font-medium"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-500 dark:text-teal-400"
               >
                 Read article <ChevronRight className="size-4" />
               </Link>

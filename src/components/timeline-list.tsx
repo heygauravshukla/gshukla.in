@@ -1,5 +1,5 @@
 import * as motion from "motion/react-client";
-import { BadgeCheck } from "lucide-react";
+import { Star } from "lucide-react";
 
 import { timeline } from "@/data/timeline";
 
@@ -16,7 +16,7 @@ export function TimelineList() {
           className="space-y-8"
         >
           <h3>
-            <span className="border-primary/40 rounded-2xl border px-4 py-2 font-medium">
+            <span className="rounded-md px-4 py-2 font-medium ring ring-teal-500 dark:ring-teal-700">
               {item.year}
             </span>
           </h3>
@@ -34,19 +34,19 @@ export function TimelineList() {
                 viewport={{ once: true }}
                 className="flex items-start gap-x-2"
               >
-                <BadgeCheck className="stroke-primary h-[1lh] w-5 flex-none" />
+                <Star className="h-[1lh] w-4 flex-none stroke-teal-500 dark:stroke-teal-400" />
                 <div>
                   <h4 className="font-medium tracking-tight">
                     {achievement.title}
                   </h4>
                   {achievement.description && (
-                    <p className="text-muted-foreground mt-1 max-w-[70ch] text-sm/normal">
+                    <p className="mt-1 max-w-[70ch] text-sm/normal text-zinc-600 dark:text-zinc-400">
                       {achievement.description}
                     </p>
                   )}
 
                   {achievement.date && (
-                    <p className="text-muted-foreground mt-1 text-xs">
+                    <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
                       {new Date(achievement.date).toLocaleDateString("en-IN", {
                         year: "numeric",
                         month: "short",

@@ -21,10 +21,13 @@ export default function BookmarksPage() {
               description="Explore my collection of bookmarks, from web development resources to online tools that I use regularly."
             />
             <BookmarksList />
-            <p className="text-muted-foreground leading-7">
+            <p className="leading-7 text-zinc-600 dark:text-zinc-400">
               That&apos;s all folks! If you have any suggestions for more
               resources, feel free to{" "}
-              <Link href="/contact" className="text-primary underline">
+              <Link
+                href="mailto:heygauravshukla@gmail.com"
+                className="text-teal-500 underline dark:text-teal-400"
+              >
                 reach out!
               </Link>
             </p>

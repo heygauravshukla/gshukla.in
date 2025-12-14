@@ -3,10 +3,9 @@ import { promises as fs } from "fs";
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, Calendar } from "lucide-react";
+import { Calendar, Undo2 } from "lucide-react";
 
 import Layout from "@/components/layout";
-import { Button } from "@/components/ui/button";
 
 export async function generateMetadata({
   params,
@@ -59,15 +58,17 @@ export default async function ArticlePage({
     <Layout>
       <div className="container space-y-8 py-10 md:py-20">
         <nav>
-          <Button asChild variant="outline" size="icon">
-            <Link href="/articles" aria-label="Back to projects">
-              <ArrowLeft />
-            </Link>
-          </Button>
+          <Link
+            href="/articles"
+            aria-label="Back to projects"
+            className="inline-grid rounded-full bg-zinc-100 p-3 ring ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700"
+          >
+            <Undo2 className="size-4 text-zinc-600 dark:text-zinc-400" />
+          </Link>
         </nav>
 
         <article className="mx-auto max-w-[65ch]">
-          <time className="text-muted-foreground flex items-start gap-2 text-sm">
+          <time className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
             <Calendar className="h-[1lh] w-4" />
             {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
               year: "numeric",
@@ -78,7 +79,9 @@ export default async function ArticlePage({
           <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
             {metadata.title}
           </h1>
-          <p className="mt-6 leading-7 text-pretty">{metadata.summary}</p>
+          <p className="mt-6 leading-7 text-pretty text-zinc-700 dark:text-zinc-300">
+            {metadata.summary}
+          </p>
           <Image
             src={metadata.image}
             alt={metadata.title}

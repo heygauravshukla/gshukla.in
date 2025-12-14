@@ -21,7 +21,7 @@ export function PageIntro({
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-        className="text-muted-foreground mt-6 leading-7 text-pretty"
+        className="mt-6 leading-7 text-pretty text-zinc-600 dark:text-zinc-400"
       >
         {description}
       </motion.p>

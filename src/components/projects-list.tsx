@@ -1,6 +1,6 @@
 import Image from "next/image";
 import * as motion from "motion/react-client";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 import { projects } from "@/data/projects";
 
@@ -19,7 +19,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="group bg-card text-card-foreground relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border focus-within:ring"
+            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl bg-white ring ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
           >
             <div className="flex flex-col gap-1 px-6 py-5">
               <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
@@ -31,11 +31,11 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 >
                   <span className="absolute inset-0 z-10"></span>
                   {project.title}
-                  <ArrowUpRight className="text-primary size-4 origin-center -translate-x-0.5 opacity-0 transition-all duration-100 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
+                  <ExternalLink className="size-4 origin-center -translate-x-0.5 text-teal-500 opacity-0 transition-all duration-100 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
                 </a>
               </h3>
 
-              <p className="text-muted-foreground line-clamp-2 text-sm/normal text-pretty">
+              <p className="line-clamp-2 text-sm/normal text-pretty text-zinc-600 dark:text-zinc-400">
                 {project.description}
               </p>
             </div>
