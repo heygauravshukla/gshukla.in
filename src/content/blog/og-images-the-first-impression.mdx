@@ -1,0 +1,204 @@
+---
+title: "OG images: The first impression most developers ignore"
+description: "Learn how Open Graph and Twitter images can make your project stand out online. A practical guide to setting them up in Next.js and fixing common issues."
+pubDate: "Jul 26 2025"
+heroImage: "../../assets/articles/og-images-the-first-impression.avif"
+tags: ["Web development", "Next.js", "SEO", "Open Graph", "Twitter Cards"]
+---
+
+Have you ever shared a link to your project and noticed how… _meh_ 😒 it looks?
+
+No preview. No image. Just a plain URL with some sad gray text.
+
+That’s what happens when you skip **Open Graph (OG) images** and **Twitter images**. These are one of the most overlooked yet powerful aspects of web development and personal branding.
+
+In this post, I’ll walk you through:
+
+- ✅ Why OG images matter
+- ⚙️ How to set them up correctly
+- 🐞 Common mistakes and how to fix them
+
+---
+
+## What are OG images?
+
+**OG (Open Graph) images** are used by platforms like **Twitter, LinkedIn, Discord, and Facebook** to generate rich link previews when someone shares your site.
+
+They make your link:
+
+- ✅ Clickable
+- ✅ Recognizable
+- ✅ Professional
+
+Think of them as the **hero section** of your link preview.
+
+Here’s how it looks in practice:
+![The difference: With and without OG images](../../assets/articles/with-and-without-og-images.avif)
+
+- ❌ _No OG image_ → Bland, boring link preview
+- ✅ _With OG image_ → Branded, eye-catching, and clickable
+
+---
+
+## Why they matter
+
+### First impressions count
+
+People make click decisions in seconds. OG images can tip that decision in your favor.
+
+### Free marketing
+
+A good preview stands out—especially on platforms like Twitter and LinkedIn where every pixel competes for attention.
+
+### Brand recognition
+
+Consistent visuals like your logo, colors, and tagline across previews reinforce your identity and professionalism.
+
+---
+
+## How to add OG images in Next.js (App Router)
+
+If you're using **Next.js**, you’ve got two options:
+
+### **Option 1: Static images** (simple & fast)
+
+- Place `opengraph-image.jpg` and/or `twitter-image.jpg` inside your `app/` directory or route segment.
+  ![Example OG image placement](../../assets/articles/og-image-placement.avif)
+  Next.js will automatically use these images for OG and Twitter previews.
+- Supported formats: `.jpg`, `.png`, `.gif`.
+- If `twitter-image` is missing, It will fall back to `opengraph-image`.
+
+📄 Full docs: [opengraph-image and twitter-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#image-files-jpg-png-gif)
+
+---
+
+### **Option 2: Dynamic images with `next/og`**
+
+Use the built-in [`ImageResponse`](<https://www.google.com/search?q=%5Bhttps://nextjs.org/docs/app/building-your-application/optimizing/metadata%23generating-og-images-dynamically%5D(https://nextjs.org/docs/app/building-your-application/optimizing/metadata%23generating-og-images-dynamically)>) API from `next/og`.
+
+**Example:**
+`app/about/opengraph-image.tsx`
+
+```ts
+import { ImageResponse } from 'next/og'
+import { readFile } from 'node:fs/promises'
+import { join } from 'node:path'
+
+// Image metadata
+export const alt = 'About Acme'
+export const size = {
+  width: 1200,
+  height: 630,
+}
+
+export const contentType = 'image/png'
+
+// Image generation
+export default async function Image() {
+  // Font loading, process.cwd() is Next.js project directory
+  const interSemiBold = await readFile(
+    join(process.cwd(), 'assets/Inter-SemiBold.ttf')
+  )
+
+  return new ImageResponse(
+    (
+      // ImageResponse JSX element
+      <div
+        style={{
+          fontSize: 128,
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        About Acme
+      </div>
+    ),
+    // ImageResponse options
+    {
+      // For convenience, we can re-use the exported opengraph-image
+      // size config to also set the ImageResponse's width and height.
+      ...size,
+      fonts: [
+        {
+          name: 'Inter',
+          data: interSemiBold,
+          style: 'normal',
+          weight: 400,
+        },
+      ],
+    }
+  )
+}
+```
+
+📄 Full docs: [opengraph-image and twitter-image](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx)
+
+---
+
+## Recommended image sizes
+
+- **Open Graph:** `1200 × 630 px`
+- **Twitter Card:** `1200 × 630 px` (uses `summary_large_image`)
+
+> 👉 Stick to a `1.91:1` aspect ratio to avoid cropping.
+
+---
+
+## Common bugs (and how to fix them)
+
+**1. Image not showing on Twitter?**  
+Use [Twitter Card Validator](https://cards-dev.twitter.com/validator).
+
+**2. Image not showing on LinkedIn?**  
+Use [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/).
+
+**3. Wrong or outdated image?**  
+Clear the cache using the above tools and verify your image URLs and metadata.
+
+**4. Next.js app not detecting the image?**
+
+- Files must be named `opengraph-image.jpg` / `twitter-image.jpg`.
+- Make sure it’s in the correct route folder or root `app/` directory.
+
+---
+
+## Bonus tips for better OG images
+
+- Include **project name**, **logo**, and a **short tagline**.
+- Use **high contrast** and **readable fonts**.
+- Keep images **under 5MB**.
+- **Tools for manual design:**
+  [og.new](https://og.new) | [Photopea](https://photopea.com) | [Canva](https://canva.com) | [Figma](https://figma.com)
+- **Tools for dynamic generation:**
+  `next/og` | [`vercel/og`](<https://www.google.com/search?q=%5Bhttps://vercel.com/docs/functions/og-image-generation%5D(https://vercel.com/docs/functions/og-image-generation)>) | [Satori](https://github.com/vercel/satori)
+
+---
+
+## References
+
+- [Next.js OG & Twitter image docs](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image)
+- [Twitter Card docs](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary)
+
+---
+
+## Final thoughts
+
+You spend hours building a great product so don’t let it fall flat when it’s shared.
+
+**OG images take 5 to 10 minutes to set up** and can drastically improve how your project shows up across the web.
+
+So the next time you launch something, ask yourself:
+
+> **How will this look when someone shares it?**
+
+Because in a world of short attention spans, your link preview _is_ your first impression.
+
+---
+
+_Let me know on [Twitter](https://x.com/heygauravshukla/status/1948772161818427577) if you try it out. I’d love to hear how it goes\!_
+
+**Peace ✌️**

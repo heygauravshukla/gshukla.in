@@ -1,0 +1,66 @@
+---
+title: "The surprising power of the id attribute"
+description: "Learn about the hidden behavior of id attributes in HTML and JavaScript. Common misconceptions and best practices."
+pubDate: "Jun 15 2025"
+heroImage: "../../assets/articles/surprising-power-of-id-attribute.avif"
+tags: ["HTML", "JavaScript", "id attribute in HTML"]
+---
+
+When we think of HTML id attributes, we usually associate them with styling or selecting elements in JavaScript.
+
+But here's a surprising behavior most developers either don’t know — or forgot:
+
+> Adding an id to an HTML element can automatically create a global JavaScript variable.
+
+Yes, really.
+
+## 💡 The hidden behavior
+
+Take this HTML code:
+
+```html
+<p id="preamble"></p>
+```
+
+In JavaScript, you can actually access it like this:
+
+```js
+preamble.textContent = "Hello, world!";
+```
+
+It just works. No `getElementById()`. No `querySelector()`.
+
+Why?
+
+Because the browser attaches elements with ids to the global window object — so window.preamble points directly to the DOM node.
+
+## ⚠️ But don’t rely on it
+
+According to MDN Web Docs:
+
+> “Relying on this behavior is dangerous and discouraged.”
+
+Here’s why:
+
+- Future browser APIs might introduce global variables with the same name.
+- It can conflict with your own global variables.
+- It’s not reliable in strict mode ('use strict';) or modern JavaScript frameworks.
+
+In short:
+
+- ✅ Cool browser quirk
+- ❌ Bad practice for production code
+
+Use this instead:
+
+```js
+document.getElementById("preamble");
+```
+
+## 🧠 Final thoughts
+
+HTML has all sorts of hidden behaviors that even experienced devs overlook. This is one of those small but fascinating quirks that show how deeply intertwined HTML and JavaScript can be.
+
+Until next time
+
+Peace, nerds! ✌️

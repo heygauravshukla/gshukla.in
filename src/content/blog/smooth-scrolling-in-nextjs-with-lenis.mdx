@@ -1,0 +1,123 @@
+---
+title: "Get buttery smooth scrolling in your Next.js app"
+description: "Learn how to achieve silky smooth scrolling in your Next.js 16 app using Lenis, a lightweight and performant smooth scroll library. This step-by-step guide shows how to integrate Lenis into your layout, customize scroll behavior, and enhance your app’s user experience."
+pubDate: "Oct 29 2025"
+heroImage: "../../assets/articles/smooth-scrolling-in-nextjs-with-lenis.avif"
+tags: ["Next.js", "Smooth Scrolling", "Lenis"]
+---
+
+After building my portfolio site, I realized something was missing ~ the feel.
+
+You know that buttery smooth scrolling effect modern websites have? The kind that makes the site feel premium and effortless to use? I wanted that.
+
+That’s when I stumbled upon **Lenis**
+
+## What is Lenis?
+
+According to the official docs:
+
+> Lenis is a lightweight, robust, and performant smooth scroll library. Built by [@darkroom.engineering](https://github.com/darkroomengineering), it’s simple to integrate, optimized for modern browsers, and perfect for creating smooth scrolling experiences ~ from parallax effects to WebGL scroll syncing.
+
+It supports:
+
+- Vanilla JavaScript
+- React
+- Vue
+- Framer
+
+But in this article, we’ll focus on **Next.js (v16).**
+
+## Using Lenis in a Next.js 16 App
+
+> 💡 Tip: Even though Lenis is lightweight, always test on a new branch before pushing to production.
+
+### Install Lenis
+
+Using your preferred package manager:
+
+```bash
+npm install lenis
+# or
+yarn add lenis
+# or
+pnpm add lenis
+```
+
+## Add `<ReactLenis>` to your layout
+
+Head over to your `layout.tsx` (root layout or a custom layout component — recommended).
+
+Import `ReactLenis` component from `lenis/react`:
+
+```tsx
+import { ReactLenis } from "lenis/react";
+```
+
+Call `ReactLenis` before the components:
+
+```tsx
+return (
+  <>
+    <ReactLenis root />
+    {/* content */}
+  </>
+);
+```
+
+For example:
+
+```tsx
+import { ReactLenis } from "lenis/react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+
+export default function Layout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <ReactLenis root />
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+}
+```
+
+That’s it. You now have buttery smooth scrolling in your Next.js app 🧈
+
+## Customizing the Scroll Behavior
+
+You can fine-tune how Lenis behaves by passing options to the `<ReactLenis>` component:
+
+```tsx
+<ReactLenis root options={{ smoothWheel: true, lerp: 0.1 }} />
+```
+
+Here’s what some options mean:
+
+- `smoothWheel`: enables smooth wheel scrolling
+- `lerp`: controls scroll interpolation (lower = smoother but slower)
+
+👉 [Check all available options here](https://github.com/darkroomengineering/lenis?tab=readme-ov-file#settings)
+
+## Bonus: Integrating with Animation Libraries
+
+If you’re using `GSAP` or `Framer Motion`, Lenis can sync scroll positions for advanced effects like parallax or scroll-triggered animations.
+
+This article keeps things simple, but you can explore [Lenis integrations here](https://github.com/darkroomengineering/lenis?tab=readme-ov-file#packages).
+
+## Conclusion
+
+Adding **Lenis** to your Next.js app is quick, minimal, and visibly improves UX, all without sacrificing performance.
+
+Try it out in your project and see the difference for yourself.
+
+Join the discussion on [Twitter](https://x.com/heygauravshukla), I’d love to hear how it worked for you.
+
+Until next time
+
+Peace, nerds! ✌️
