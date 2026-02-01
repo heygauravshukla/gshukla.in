@@ -7,9 +7,6 @@
 }
 
 :root {
-  --ff-base: "Google Sans Flex", sans-serif;
-  --wrapper-size: 1280px;
-
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: hsl(0, 0%, 0%);
 
@@ -33,6 +30,8 @@
   --clr-surface-4: var(--clr-neutral-200);
   --clr-text-1: var(--clr-neutral-800);
   --clr-text-2: var(--clr-neutral-700);
+
+  --ff-base: "Google Sans Flex", sans-serif;
 
   /* @link https://utopia.fyi/type/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
   --fs--2: clamp(0.7813rem, 0.7736rem + 0.0341vw, 0.8rem);
@@ -68,6 +67,9 @@
 
   /* Custom pairs */
   --space-s-l: clamp(1.125rem, 0.5625rem + 2.5vw, 2.5rem);
+
+  --wrapper-size: 1280px;
+  --wrapper-spacing: var(--space-s-l);
 
   @media (prefers-color-scheme: dark) {
     --color-scheme: dark;
@@ -188,7 +190,7 @@ textarea:not([rows]) {
 .wrapper {
   max-inline-size: var(--wrapper-size);
   margin-inline: auto;
-  padding-inline: var(--space-s-l);
+  padding-inline: var(--wrapper-spacing);
 
   @media (width>=640px) {
     max-inline-size: 640px;
@@ -207,6 +209,16 @@ textarea:not([rows]) {
 
 .section-padding {
   padding-block: min(10vh, 2rem);
+}
+
+:focus-visible {
+  outline: 4px dotted var(--clr-brand);
+  outline-offset: 4px;
+}
+
+::selection {
+  background-color: var(--clr-brand);
+  color: var(--clr-surface-1);
 }
 
 .visually-hidden {
