@@ -1,0 +1,33 @@
+---
+import { NAME } from "../consts";
+---
+
+<section class="section-padding">
+  <div class="wrapper prose">
+    <h1>Hello there!</h1>
+    <p>
+      My name is {NAME.slice(0, NAME.indexOf(" "))}, and I'm a software
+      engineer.
+    </p>
+    <p>
+      Welcome to my personal website where I share my thoughts on technology,
+      programming, and software development.
+    </p>
+  </div>
+</section>
+
+<style>
+  section {
+    min-height: min(80svh, 500px);
+    align-content: center;
+  }
+
+  h1 {
+    font-size: var(--fs-5);
+  }
+
+  p {
+    color: var(--clr-text-2);
+    font-size: var(--fs-1);
+  }
+</style>
