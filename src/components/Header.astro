@@ -75,18 +75,14 @@ const subpath = pathname.match(/[^\/]+/g);
     inset-inline: 0;
     top: 0;
 
-    padding-block: 0.75rem;
+    padding-block: var(--space-s);
     background-color: hsl(from var(--clr-surface-1) h s l / 0.8);
     backdrop-filter: blur(16px);
-
-    @media (min-width: 640px) {
-      padding-block: 0.125rem;
-    }
   }
 
   .wrapper {
     display: flex;
-    gap: 1rem;
+    gap: var(--space-m);
     align-items: center;
     justify-content: space-between;
   }
@@ -112,8 +108,8 @@ const subpath = pathname.match(/[^\/]+/g);
     }
 
     & svg {
-      width: 2rem;
-      height: 2rem;
+      width: var(--space-l);
+      height: var(--space-l);
       color: var(--clr-text-1);
     }
   }
@@ -127,7 +123,7 @@ const subpath = pathname.match(/[^\/]+/g);
       align-items: start;
       min-height: 100svh;
       background-color: var(--clr-surface-1);
-      padding: 1.25rem;
+      padding: var(--wrapper-spacing);
 
       display: none;
       transform: translateY(100%);
@@ -157,13 +153,13 @@ const subpath = pathname.match(/[^\/]+/g);
   .internal-links {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-m);
+    margin: 0;
+    padding: 0;
 
     @media (max-width: 640px) {
       display: grid;
       justify-items: center;
-      margin: 0;
-      padding: 0;
     }
 
     & li {
@@ -171,13 +167,13 @@ const subpath = pathname.match(/[^\/]+/g);
     }
 
     & a {
-      font-size: 0.975rem;
+      font-size: var(--fs--1);
       color: currentColor;
       text-decoration: none;
       transition: color 0.2s ease-in-out;
 
       @media (max-width: 640px) {
-        font-size: 1.25rem;
+        font-size: var(--fs-1);
       }
 
       &:not(.contact-btn > a):is(:hover, :focus) {
@@ -189,18 +185,20 @@ const subpath = pathname.match(/[^\/]+/g);
       }
     }
 
-    & .contact-btn {
+    & .contact-btn a {
       color: var(--clr-surface-1);
+      line-height: 1;
       background-color: var(--clr-text-1);
-      padding: 0.5ch 1.5ch;
-      border: 1px solid var(--clr-text-1);
+      display: inline-block;
+      padding: 1ch 2ch;
       border-radius: 1e3px;
-      outline: 2px solid transparent;
-      outline-offset: 2px;
-      transition: outline 0.2s ease-in-out;
+      transition:
+        background-color 150ms ease-in-out,
+        box-shadow 150ms ease-in-out;
 
       &:is(:hover, :focus) {
-        outline-color: var(--clr-brand);
+        background-color: var(--clr-brand);
+        box-shadow: 0px 2px 6px hsl(from var(--clr-brand) h s l / 0.4);
       }
     }
   }
