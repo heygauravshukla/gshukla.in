@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ComponentProps } from "react";
 import type { MDXComponents } from "mdx/types";
+import { CodePen } from "./components/codepen";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -118,6 +119,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {...props}
       />
     ),
+    CodePen,
     ...components,
   };
 }
