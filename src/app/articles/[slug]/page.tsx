@@ -87,7 +87,7 @@ export default async function ArticlePage({
             alt={metadata.title}
             width={800}
             height={600}
-            className="my-8 aspect-video w-full rounded-2xl border object-cover"
+            className="my-8 aspect-video w-full rounded-2xl border border-gray-300 object-cover dark:border-gray-800"
           />
           <Post />
         </article>
