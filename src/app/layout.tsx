@@ -60,6 +60,9 @@ export const metadata: Metadata = {
   },
   description:
     "I’m Gaurav, a software engineer and creator based in India. I do front-end development, build awesome projects and share knowledge through articles.",
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

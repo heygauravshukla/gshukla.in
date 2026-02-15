@@ -26,6 +26,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: `/articles/${slug}`,
+    },
     keywords: keywords.join(", "),
     openGraph: {
       type: "article",

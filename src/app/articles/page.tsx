@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Articles",
   description:
     "Read my latest articles about web development, frontend technologies, and software engineering best practices. Sharing insights and experiences from my journey as a developer.",
+  alternates: {
+    canonical: "/articles",
+  },
 };
 
 export default function ArticlesPage() {

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Bookmarks",
   description:
     "Explore my collection of bookmarks, from web development resources to online tools that I use regularly.",
+  alternates: {
+    canonical: "/bookmarks",
+  },
 };
 
 export default function BookmarksPage() {
