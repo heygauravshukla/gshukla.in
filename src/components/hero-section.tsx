@@ -20,10 +20,9 @@ export function HeroSection() {
           transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
           className="mt-6 max-w-[60ch] leading-7 text-pretty text-zinc-600 dark:text-zinc-400"
         >
-          I&apos;m Gaurav Shukla, a passionate software engineer and creator
-          based in India. I specialize in web development, build awesome
-          projects, and share knowledge through insightful articles and
-          tutorials.
+          I&apos;m Gaurav Shukla, a software engineer and creator based in
+          India. I build production-ready web applications and share practical
+          insights through in-depth articles.
         </motion.p>
         <div className="mt-8">
           <SocialLinks />
