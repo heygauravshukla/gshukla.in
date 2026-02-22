@@ -11,19 +11,53 @@ interface BookmarkCategory {
 
 export const bookmarks: BookmarkCategory[] = [
   {
-    category: "Dev & Design Tools",
+    category: "Software & Tools",
+    items: [
+      {
+        title: "Cursorful – Screen Recorder",
+        href: "https://cursorful.com",
+        description:
+          "A screen recorder with automatic zoom directly inside your browser.",
+      },
+      {
+        title: "Excalidraw – Virtual Whiteboard",
+        href: "https://excalidraw.com",
+        description:
+          "A collaborative virtual whiteboard for sketching hand-drawn-style diagrams.",
+      },
+      {
+        title: "Notion – All-in-one Workspace",
+        href: "https://www.notion.com",
+        description:
+          "A unified workspace for notes, documentation, project management, and wikis.",
+      },
+      {
+        title: "OpenCut – Video Editor",
+        href: "https://opencut.app",
+        description: "An open-source, web-based video editor.",
+      },
+      {
+        title: "Photopea – Online Photo Editor",
+        href: "https://www.photopea.com",
+        description:
+          "An advanced browser-based editor with support for PSD, XD, and Sketch files.",
+      },
+      {
+        title: "Ray.so – Code Snapshot Generator",
+        href: "https://www.ray.so",
+        description:
+          "Generate beautiful, shareable images of your code snippets.",
+      },
+    ],
+  },
+  {
+    category: "Developer Resources",
     items: [
       {
         title: "Clippy – CSS clip-path Maker",
         href: "https://bennettfeely.com/clippy",
         description:
           "A visual tool for creating complex CSS `clip-path` shapes.",
-      },
-      {
-        title: "Excalidraw – Virtual Whiteboard",
-        href: "https://excalidraw.com",
-        description:
-          "Virtual collaborative whiteboard for sketching hand-drawn like diagrams.",
       },
       {
         title: "Favicon Generator",
@@ -49,57 +83,10 @@ export const bookmarks: BookmarkCategory[] = [
         description: "A collection of repeatable SVG background patterns.",
       },
       {
-        title: "Photopea – Online Photo Editor",
-        href: "https://www.photopea.com",
+        title: "InfinityFree – Free Web Hosting",
+        href: "https://infinityfree.com",
         description:
-          "Advanced browser-based editor with support for PSD, XD, and Sketch files.",
-      },
-      {
-        title: "Ray.so – Code Snapshot Generator",
-        href: "https://www.ray.so",
-        description:
-          "Generate beautiful, shareable images of your code snippets.",
-      },
-      {
-        title: "Squoosh – Image Compression",
-        href: "https://squoosh.app",
-        description:
-          "Optimize and compress images with modern codecs in your browser.",
-      },
-      {
-        title: "tweakcn – shadcn/ui Customizer",
-        href: "https://tweakcn.com",
-        description:
-          "A visual tool for customizing shadcn/ui theme tokens and colors.",
-      },
-      {
-        title: "v0 by Vercel – AI UI Generator",
-        href: "https://v0.dev",
-        description:
-          "An AI-powered tool to generate React/Next.js components from text prompts.",
-      },
-    ],
-  },
-  {
-    category: "UI Libraries & Resources",
-    items: [
-      {
-        title: "Aceternity UI",
-        href: "https://ui.aceternity.com",
-        description:
-          "Copy-paste animated UI components built with Tailwind CSS and Framer Motion.",
-      },
-      {
-        title: "Framer Motion",
-        href: "https://www.framer.com/motion/",
-        description:
-          "A production-ready motion library for React to create powerful animations.",
-      },
-      {
-        title: "Freepik",
-        href: "https://www.freepik.com",
-        description:
-          "A large collection of free and premium vectors, stock photos, and design assets.",
+          "A completely free hosting service with support for PHP and MySQL.",
       },
       {
         title: "Open Props",
@@ -108,74 +95,16 @@ export const bookmarks: BookmarkCategory[] = [
           "A CSS custom properties framework for super-charged, rapid UI development.",
       },
       {
-        title: "shadcn/ui",
-        href: "https://ui.shadcn.com",
-        description:
-          "Beautifully designed components built with Radix UI and Tailwind CSS.",
-      },
-    ],
-  },
-  {
-    category: "Icon Libraries",
-    items: [
-      {
-        title: "DEVICON",
-        href: "https://devicon.dev",
-        description:
-          "An icon set for programming languages, design tools, and platforms.",
-      },
-      {
-        title: "Font Awesome",
-        href: "https://fontawesome.com",
-        description:
-          "A comprehensive and widely-used icon library for web projects.",
-      },
-      {
-        title: "Heroicons",
-        href: "https://heroicons.com",
-        description:
-          "A set of hand-crafted SVG icons by the makers of Tailwind CSS.",
-      },
-      {
-        title: "Ionicons",
-        href: "https://ionic.io/ionicons",
-        description:
-          "A premium, open-source icon pack for mobile and web applications.",
-      },
-      {
-        title: "Lucide Icons",
-        href: "https://lucide.dev",
-        description:
-          "A community-maintained, Feather-inspired open-source icon set.",
-      },
-      {
         title: "React Icons",
         href: "https://react-icons.github.io/react-icons",
         description:
           "A library that bundles popular icon sets as easy-to-use React components.",
       },
-    ],
-  },
-  {
-    category: "Fonts",
-    items: [
       {
-        title: "IBM Plex",
-        href: "https://github.com/IBM/plex",
+        title: "Squoosh – Image Compression",
+        href: "https://squoosh.app",
         description:
-          "A versatile and distinctive corporate typeface family by IBM.",
-      },
-      {
-        title: "Inter",
-        href: "https://github.com/rsms/inter",
-        description:
-          "A highly-readable variable font family optimized for user interfaces.",
-      },
-      {
-        title: "Space Grotesk",
-        href: "https://github.com/floriankarsten/space-grotesk",
-        description:
-          "A modern sans-serif typeface inspired by the fixed-width Space Mono.",
+          "Optimize and compress images with modern codecs in your browser.",
       },
     ],
   },
@@ -214,53 +143,7 @@ export const bookmarks: BookmarkCategory[] = [
     ],
   },
   {
-    category: "Hosting & Deployment",
-    items: [
-      {
-        title: "InfinityFree – Free Web Hosting",
-        href: "https://infinityfree.com",
-        description:
-          "Completely free hosting service with support for PHP and MySQL.",
-      },
-      {
-        title: "Netlify – Static Site Hosting",
-        href: "https://www.netlify.com",
-        description:
-          "An all-in-one platform for deploying modern web projects with serverless functions.",
-      },
-      {
-        title: "Vercel – Serverless Deployment",
-        href: "https://vercel.com",
-        description:
-          "A cloud platform for static sites and serverless functions, ideal for Next.js.",
-      },
-    ],
-  },
-  {
     category: "Learning & Practice",
-    items: [
-      {
-        title: "Developer Roadmaps",
-        href: "https://roadmap.sh",
-        description:
-          "Community-curated roadmaps, study plans, and learning paths for developers.",
-      },
-      {
-        title: "Frontend Mentor",
-        href: "https://www.frontendmentor.io",
-        description:
-          "Solve real-world frontend challenges to improve HTML, CSS, and JS skills.",
-      },
-      {
-        title: "Striver's A2Z DSA Course",
-        href: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
-        description:
-          "A comprehensive Data Structures and Algorithms course with practice problems.",
-      },
-    ],
-  },
-  {
-    category: "Articles & Blogs",
     items: [
       {
         title: "Chrome for Developers Blog",
@@ -281,10 +164,34 @@ export const bookmarks: BookmarkCategory[] = [
           "A popular blog covering CSS, layouts, UI tips, and general web development news.",
       },
       {
+        title: "Developer Roadmaps",
+        href: "https://roadmap.sh",
+        description:
+          "Community-curated roadmaps, study plans, and learning paths for developers.",
+      },
+      {
+        title: "Frontend Mentor",
+        href: "https://www.frontendmentor.io",
+        description:
+          "Solve real-world frontend challenges to improve HTML, CSS, and JS skills.",
+      },
+      {
+        title: "GreatFrontEnd",
+        href: "https://www.greatfrontend.com",
+        description:
+          "The front end interview prep platform built to make your interviews much easier.",
+      },
+      {
         title: "Nerdy Dev – Web Development Blog",
         href: "https://nerdy.dev",
         description:
           "A blog covering web development topics, tutorials, and tips.",
+      },
+      {
+        title: "Striver's A2Z DSA Course",
+        href: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
+        description:
+          "A comprehensive Data Structures and Algorithms course with practice problems.",
       },
     ],
   },
@@ -320,29 +227,6 @@ export const bookmarks: BookmarkCategory[] = [
         href: "https://spotlight.tailwindui.com",
         description:
           "A sleek and professional portfolio template built with Tailwind CSS.",
-      },
-    ],
-  },
-  {
-    category: "Productivity Software",
-    items: [
-      {
-        title: "Cursor – AI Code Editor",
-        href: "https://cursor.com",
-        description:
-          "An AI-native code editor designed for pair-programming with AI.",
-      },
-      {
-        title: "Notion – All-in-one Workspace",
-        href: "https://www.notion.com",
-        description:
-          "A unified workspace for notes, documentation, project management, and wikis.",
-      },
-      {
-        title: "VS Code – Code Editor",
-        href: "https://code.visualstudio.com",
-        description:
-          "A powerful and popular open-source code editor with extensive plugin support.",
       },
     ],
   },
