@@ -43,7 +43,7 @@ export function BookmarksList() {
                   className="order-first mb-2 flex items-baseline gap-2 text-xs text-zinc-600 dark:text-zinc-400"
                 >
                   <span className="absolute inset-0"></span>
-                  {bookmark.href.slice(8)}
+                  <span className="line-clamp-1">{bookmark.href.slice(8)}</span>
                   <ExternalLink className="size-3 min-w-fit" />
                 </a>
               </motion.li>
