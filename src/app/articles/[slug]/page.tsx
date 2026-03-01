@@ -1,9 +1,8 @@
 import path from "path";
 import { promises as fs } from "fs";
 
-import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Undo2 } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 import Layout from "@/components/layout";
 
@@ -60,28 +59,29 @@ export default async function ArticlePage({
   return (
     <Layout>
       <div className="container space-y-8 py-10 md:py-20">
-        <nav>
-          <Link
-            href="/articles"
-            aria-label="Back to projects"
-            className="inline-grid rounded-full bg-zinc-100 p-3 ring ring-zinc-200 dark:bg-zinc-800 dark:ring-zinc-700"
-          >
-            <Undo2 className="size-4 text-zinc-600 dark:text-zinc-400" />
-          </Link>
-        </nav>
-
-        <article className="mx-auto max-w-[65ch]">
+        <article className="mx-auto max-w-[70ch]">
           <time className="flex items-start gap-2 text-sm text-zinc-600 dark:text-zinc-400">
-            <Calendar className="h-[1lh] w-4" />
+            <Calendar className="h-lh w-4" />
             {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
             })}
           </time>
-          <h1 className="mt-6 text-4xl/snug font-medium tracking-tight">
+          <h1 className="mt-4 text-4xl leading-snug font-medium tracking-tight sm:text-5xl">
             {metadata.title}
           </h1>
+          <ul className="mt-5 flex flex-wrap items-center gap-2">
+            {metadata.tags.slice(0, 3).map((tag: string) => (
+              <li
+                key={tag}
+                className="rounded-full border border-zinc-500 px-3 py-1 text-xs text-zinc-800 dark:border-zinc-600 dark:text-zinc-200"
+                data-topic={tag}
+              >
+                {tag}
+              </li>
+            ))}
+          </ul>
           <p className="mt-6 leading-7 text-pretty text-zinc-700 dark:text-zinc-300">
             {metadata.summary}
           </p>
