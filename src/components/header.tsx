@@ -30,7 +30,7 @@ export function Header() {
             alt="Gaurav Shukla's avatar"
             width={40}
             height={40}
-            className="size-9 rounded-full"
+            className="size-9 rounded-full object-cover"
           />
         </Link>
 
