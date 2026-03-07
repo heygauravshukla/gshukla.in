@@ -12,6 +12,17 @@ interface TimelineItem {
 
 export const timeline: TimelineItem[] = [
   {
+    year: 2026,
+    achievements: [
+      {
+        date: "2026-03-01",
+        title: "Jr. Frontend Developer at RW Infotech",
+        description:
+          "Promoted to Junior Frontend Developer role, continuing to build responsive web applications and improve user experiences.",
+      },
+    ],
+  },
+  {
     year: 2025,
     achievements: [
       {
