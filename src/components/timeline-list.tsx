@@ -16,7 +16,7 @@ export function TimelineList() {
           className="space-y-8"
         >
           <h3>
-            <span className="rounded-md px-4 py-2 font-medium ring ring-teal-500 dark:ring-teal-700">
+            <span className="rounded-md px-4 py-2 font-mono font-medium ring ring-teal-500 dark:ring-teal-700">
               {item.year}
             </span>
           </h3>
@@ -34,7 +34,7 @@ export function TimelineList() {
                 viewport={{ once: true }}
                 className="flex items-start gap-x-2"
               >
-                <Star className="h-[1lh] w-4 flex-none stroke-teal-500 dark:stroke-teal-400" />
+                <Star className="h-lh w-4 flex-none stroke-teal-500 dark:stroke-teal-400" />
                 <div>
                   <h4 className="font-medium tracking-tight">
                     {achievement.title}
