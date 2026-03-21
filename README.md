@@ -57,7 +57,7 @@ The portfolio allows users to:
 - **Framer Motion** – smooth animations & micro-interactions
 - **Lenis** – smooth scrolling experience
 - **Lucide React** – icon library
-- **pnpm** – fast, disk space efficient package manager
+- **bun** – a fast JavaScript package manager
 
 ---
 
@@ -93,7 +93,7 @@ Planned improvements include:
 2. **Install dependencies**
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. **Set up environment variables**
@@ -107,7 +107,7 @@ Planned improvements include:
 4. **Run the development server**
 
    ```bash
-   pnpm run dev
+   bun run dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
