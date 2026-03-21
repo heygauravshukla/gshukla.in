@@ -22,8 +22,8 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-mist-100 bg-white/95 backdrop-blur-sm dark:border-mist-800 dark:bg-mist-900/85">
-      <div className="container flex h-16 items-center justify-between gap-4 md:h-18">
+    <header className="sticky top-0 z-50 bg-white dark:bg-mist-950">
+      <div className="container flex h-20 items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" aria-label="Go to homepage" className="shrink-0">
           <Image

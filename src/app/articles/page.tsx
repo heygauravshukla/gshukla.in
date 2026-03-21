@@ -16,8 +16,8 @@ export default function ArticlesPage() {
   return (
     <Layout>
       <main>
-        <section className="py-10 md:py-20">
-          <div className="container space-y-10 md:space-y-20">
+        <section className="py-16">
+          <div className="container space-y-16">
             <PageIntro
               title="All articles"
               description="Explore my collection of articles about web development, coding practices, and technology insights. I write about frontend development, React, and modern web technologies."

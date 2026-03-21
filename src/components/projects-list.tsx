@@ -19,7 +19,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl bg-white ring ring-mist-200 dark:bg-mist-900 dark:ring-mist-800"
+            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-mist-300 transition-colors hover:border-teal-500 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
           >
             <div className="flex flex-col gap-1 px-6 py-5">
               <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
@@ -27,11 +27,10 @@ export function ProjectsList({ limit }: { limit?: number }) {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex max-w-max items-center pr-2.5 focus-visible:outline-none"
+                  className="max-w-max focus-visible:outline-none"
                 >
                   <span className="absolute inset-0 z-10"></span>
                   {project.title}
-                  <ExternalLink className="size-4 origin-center -translate-x-0.5 text-teal-500 opacity-0 transition-all duration-100 ease-out group-hover:translate-x-1 group-hover:opacity-100" />
                 </a>
               </h3>
 

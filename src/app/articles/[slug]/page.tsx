@@ -58,7 +58,7 @@ export default async function ArticlePage({
 
   return (
     <Layout>
-      <div className="container space-y-8 py-10 md:py-20">
+      <div className="container py-16">
         <article className="mx-auto max-w-[70ch]">
           <time className="flex items-start gap-2 text-sm text-mist-600 dark:text-mist-400">
             <Calendar className="h-lh w-4" />

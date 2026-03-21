@@ -77,7 +77,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${plexMono.variable} antialiased`}
     >
-      <body className="bg-white text-mist-800 dark:bg-mist-900 dark:text-mist-100">
+      <body className="bg-white text-mist-800 dark:bg-mist-950 dark:text-mist-100">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

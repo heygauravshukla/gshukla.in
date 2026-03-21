@@ -49,7 +49,7 @@ export async function ArticlesList({ limit }: { limit?: number }) {
               <Link href={`/articles/${article.slug}`}>{article.title}</Link>
             </h3>
             <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-mist-600 dark:text-mist-400">
-              <Clock className="h-[1lh] w-4" />
+              <Clock className="h-lh w-4" />
               <TimeAgo date={article.publishedAt} />
             </time>
             <p className="mt-2 line-clamp-3 text-sm/normal text-mist-600 dark:text-mist-400">

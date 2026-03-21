@@ -17,8 +17,8 @@ export default function BookmarksPage() {
   return (
     <Layout>
       <main>
-        <section className="py-10 md:py-20">
-          <div className="container space-y-10 md:space-y-20">
+        <section className="py-16">
+          <div className="container space-y-16">
             <PageIntro
               title="My bookmarks"
               description="Explore my collection of bookmarks, from web development resources to online tools that I use regularly."

@@ -30,7 +30,7 @@ export function BookmarksList() {
                   ease: "easeOut",
                 }}
                 viewport={{ once: true }}
-                className="relative isolate flex flex-col items-start rounded-2xl p-4 ring ring-mist-300 transition-colors hover:ring-teal-500 md:p-6 dark:bg-mist-800 dark:ring-mist-700 dark:hover:ring-teal-400"
+                className="relative isolate flex flex-col items-start rounded-2xl border border-mist-300 p-4 transition-colors hover:border-teal-500 md:p-6 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
                 <p className="mt-2 text-sm/normal text-mist-600 dark:text-mist-400">
