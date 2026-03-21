@@ -89,6 +89,11 @@ export const bookmarks: BookmarkCategory[] = [
           "A completely free hosting service with support for PHP and MySQL.",
       },
       {
+        title: "npmx - Package browser for the npm registry",
+        href: "https://npmx.dev",
+        description: "A fast, modern browser for the npm registry",
+      },
+      {
         title: "Open Props",
         href: "https://open-props.style",
         description:
