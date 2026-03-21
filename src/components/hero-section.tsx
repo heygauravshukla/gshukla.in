@@ -18,7 +18,7 @@ export function HeroSection() {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
-          className="mt-6 max-w-[60ch] leading-7 text-pretty text-zinc-600 dark:text-zinc-400"
+          className="mt-6 max-w-[60ch] leading-7 text-pretty text-mist-600 dark:text-mist-400"
         >
           I&apos;m Gaurav Shukla, a software engineer and creator based in
           India. I build production-ready web applications and share practical

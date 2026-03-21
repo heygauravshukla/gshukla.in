@@ -11,9 +11,9 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <hr className="text-zinc-200 dark:text-zinc-800" />
+        <hr className="text-mist-200 dark:text-mist-800" />
 
-        <section className="bg-zinc-50 py-20 md:py-32 dark:bg-zinc-950">
+        <section className="bg-mist-50 py-20 md:py-32 dark:bg-mist-950">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
               heading="Projects"
@@ -24,7 +24,7 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="text-zinc-200 dark:text-zinc-800" />
+        <hr className="text-mist-200 dark:text-mist-800" />
 
         <section className="py-20 md:py-32">
           <div className="container space-y-12 md:space-y-16">
@@ -37,9 +37,9 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="text-zinc-200 dark:text-zinc-800" />
+        <hr className="text-mist-200 dark:text-mist-800" />
 
-        <section className="bg-zinc-50 py-20 md:py-32 dark:bg-zinc-950">
+        <section className="bg-mist-50 py-20 md:py-32 dark:bg-mist-950">
           <div className="container space-y-12 md:space-y-16">
             <SectionIntro
               heading="Timeline"

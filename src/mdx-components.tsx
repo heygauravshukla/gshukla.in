@@ -23,7 +23,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     p: (props: ComponentProps<"p">) => (
       <p
-        className="my-4 leading-loose text-pretty text-zinc-700 dark:text-zinc-300"
+        className="my-4 leading-loose text-pretty text-mist-700 dark:text-mist-300"
         {...props}
       />
     ),
@@ -35,7 +35,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     li: (props: ComponentProps<"li">) => (
       <li
-        className="pl-1 leading-loose text-zinc-700 dark:text-zinc-300"
+        className="pl-1 leading-loose text-mist-700 dark:text-mist-300"
         {...props}
       />
     ),
@@ -74,7 +74,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     blockquote: (props: ComponentProps<"blockquote">) => (
       <blockquote
-        className="border-l-4 border-zinc-500 bg-zinc-100 px-6 py-2 font-medium italic dark:border-zinc-500 dark:bg-zinc-800"
+        className="border-l-4 border-mist-500 bg-mist-100 px-6 py-2 font-medium italic dark:border-mist-500 dark:bg-mist-800"
         {...props}
       />
     ),
@@ -84,7 +84,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         alt={alt ?? "Image from content"}
         width={1200}
         height={630}
-        className="my-4 size-full rounded-2xl ring ring-zinc-300 dark:ring-zinc-800"
+        className="my-4 size-full rounded-2xl ring ring-mist-300 dark:ring-mist-800"
       />
     ),
     code: ({ children, className, ...props }: ComponentProps<"code">) => {
@@ -93,7 +93,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       if (isInline) {
         return (
           <code
-            className="rounded bg-zinc-200 px-1 py-px font-mono text-sm dark:bg-zinc-700"
+            className="rounded bg-mist-200 px-1 py-px font-mono text-sm dark:bg-mist-700"
             {...props}
           >
             {children}
@@ -115,7 +115,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     hr: (props: ComponentProps<"hr">) => (
       <hr
-        className="my-8 border-t border-zinc-300 dark:border-zinc-700"
+        className="my-8 border-t border-mist-300 dark:border-mist-700"
         {...props}
       />
     ),

@@ -40,13 +40,13 @@ export function TimelineList() {
                     {achievement.title}
                   </h4>
                   {achievement.description && (
-                    <p className="mt-1 max-w-[70ch] text-sm/normal text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-1 max-w-[70ch] text-sm/normal text-mist-600 dark:text-mist-400">
                       {achievement.description}
                     </p>
                   )}
 
                   {achievement.date && (
-                    <p className="mt-1 text-xs text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-1 text-xs text-mist-600 dark:text-mist-400">
                       {new Date(achievement.date).toLocaleDateString("en-IN", {
                         year: "numeric",
                         month: "short",

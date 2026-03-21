@@ -34,7 +34,7 @@ export function SectionIntro({
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mt-4 max-w-xl leading-relaxed text-pretty text-zinc-600 dark:text-zinc-400"
+        className="mt-4 max-w-xl leading-relaxed text-pretty text-mist-600 dark:text-mist-400"
       >
         {paragraph}
       </motion.p>

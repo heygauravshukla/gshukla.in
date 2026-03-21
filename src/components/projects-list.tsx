@@ -19,7 +19,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               ease: "easeOut",
             }}
             viewport={{ once: true }}
-            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl bg-white ring ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800"
+            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl bg-white ring ring-mist-200 dark:bg-mist-900 dark:ring-mist-800"
           >
             <div className="flex flex-col gap-1 px-6 py-5">
               <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
@@ -35,7 +35,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 </a>
               </h3>
 
-              <p className="line-clamp-2 text-sm/normal text-pretty text-zinc-600 dark:text-zinc-400">
+              <p className="line-clamp-2 text-sm/normal text-pretty text-mist-600 dark:text-mist-400">
                 {project.description}
               </p>
             </div>
