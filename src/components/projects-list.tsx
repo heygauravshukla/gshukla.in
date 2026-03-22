@@ -1,7 +1,4 @@
 import Image from "next/image";
-import * as motion from "motion/react-client";
-import { ExternalLink } from "lucide-react";
-
 import { projects } from "@/data/projects";
 
 export function ProjectsList({ limit }: { limit?: number }) {
@@ -9,16 +6,8 @@ export function ProjectsList({ limit }: { limit?: number }) {
     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
       {projects.slice(0, limit).map((project, idx) => {
         return (
-          <motion.article
+          <article
             key={project.title}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: idx * 0.2,
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
             className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-mist-300 transition-colors hover:border-teal-500 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
           >
             <div className="flex flex-col gap-1 px-6 py-5">
@@ -46,7 +35,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
               height={100}
               className="absolute top-28 -right-10 -rotate-6 rounded-2xl border object-cover transition-transform duration-100 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-1 group-hover:-rotate-3"
             />
-          </motion.article>
+          </article>
         );
       })}
     </div>

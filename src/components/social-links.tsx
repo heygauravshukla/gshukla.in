@@ -1,5 +1,3 @@
-import * as motion from "motion/react-client";
-
 import { Icons } from "@/components/icons";
 
 interface SocialLink {
@@ -28,12 +26,7 @@ export function SocialLinks() {
     },
   ];
   return (
-    <motion.ul
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ delay: 0.4, duration: 0.5, ease: "easeOut" }}
-      className="flex items-center gap-8"
-    >
+    <ul className="flex items-center gap-8">
       {socialLinks.map((item) => {
         const IconComponent = item.icon;
         return (
@@ -49,6 +42,6 @@ export function SocialLinks() {
           </li>
         );
       })}
-    </motion.ul>
+    </ul>
   );
 }

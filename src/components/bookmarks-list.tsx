@@ -1,35 +1,18 @@
-import * as motion from "motion/react-client";
 import { ExternalLink } from "lucide-react";
-
 import { bookmarks } from "@/data/bookmarks";
 
 export function BookmarksList() {
   return (
     <ul className="space-y-12 md:space-y-16">
-      {bookmarks.map((item, idx) => (
-        <motion.li
-          key={item.category}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.1, duration: 0.3, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="space-y-6"
-        >
+      {bookmarks.map((item) => (
+        <li key={item.category} className="space-y-6">
           <h3 className="text-sm font-medium tracking-widest uppercase">
             {item.category}
           </h3>
           <ul className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-            {item.items.map((bookmark, idx) => (
-              <motion.li
+            {item.items.map((bookmark) => (
+              <li
                 key={bookmark.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: idx * 0.1,
-                  duration: 0.4,
-                  ease: "easeOut",
-                }}
-                viewport={{ once: true }}
                 className="relative isolate flex flex-col items-start rounded-2xl border border-mist-300 p-4 transition-colors hover:border-teal-500 md:p-6 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
@@ -46,10 +29,10 @@ export function BookmarksList() {
                   <span className="line-clamp-1">{bookmark.href.slice(8)}</span>
                   <ExternalLink className="size-3 min-w-fit" />
                 </a>
-              </motion.li>
+              </li>
             ))}
           </ul>
-        </motion.li>
+        </li>
       ))}
     </ul>
   );

@@ -31,7 +31,6 @@ This site allows users to:
 - Read **articles** written in **MDX format** with syntax highlighting
 - Browse **projects** with descriptions and live links
 - Explore a **curated list of development resources** (Bookmarks)
-- Navigate smoothly with **Lenis** scrolling and **Framer Motion** animations
 
 ### Screenshot
 
@@ -54,8 +53,6 @@ This site allows users to:
 - **React 19** – latest React features
 - **Tailwind CSS v4** – utility-first styling with CSS variables
 - **MDX** – Articles with markdown and `rehype-pretty-code` for syntax highlighting
-- **Framer Motion** – smooth animations & micro-interactions
-- **Lenis** – smooth scrolling experience
 - **Lucide React** – icon library
 - **bun** – a fast JavaScript package manager
 
@@ -66,7 +63,6 @@ This site allows users to:
 - Implementing **MDX** with `rehype-pretty-code` for beautiful syntax highlighting
 - Using **Tailwind CSS v4** with native CSS variables and `@theme` blocks
 - Generating **dynamic sitemaps** for SEO
-- Implementing **smooth scrolling** with Lenis
 - Structuring a **scalable project** with Next.js 16 App Router
 
 ---

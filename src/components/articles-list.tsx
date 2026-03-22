@@ -2,7 +2,6 @@ import path from "path";
 import { promises as fs } from "fs";
 
 import Link from "next/link";
-import * as motion from "motion/react-client";
 import { ChevronRight, Clock } from "lucide-react";
 
 import { TimeAgo } from "@/components/time-ago";
@@ -33,16 +32,8 @@ export async function ArticlesList({ limit }: { limit?: number }) {
     <div className="grid gap-12 lg:grid-cols-2">
       {sortedArticles.map((article, idx) => {
         return (
-          <motion.article
+          <article
             key={article.title}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: idx * 0.2,
-              duration: 0.5,
-              ease: "easeOut",
-            }}
-            viewport={{ once: true }}
             className="relative isolate flex max-w-xl flex-col items-start"
           >
             <h3 className="font-medium tracking-tight">
@@ -63,7 +54,7 @@ export async function ArticlesList({ limit }: { limit?: number }) {
                 Read article <ChevronRight className="size-4" />
               </Link>
             </div>
-          </motion.article>
+          </article>
         );
       })}
     </div>
