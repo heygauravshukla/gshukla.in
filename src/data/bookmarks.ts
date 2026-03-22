@@ -14,6 +14,12 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Software & Tools",
     items: [
       {
+        title: "Awesome Screenshot",
+        href: "https://www.awesomescreenshot.com",
+        description:
+          "A browser extension for screen recording and screen capturing.",
+      },
+      {
         title: "Cursorful – Screen Recorder",
         href: "https://cursorful.com",
         description:
