@@ -1,6 +1,6 @@
-# Portfolio
+# Personal site
 
-A modern, developer-focused portfolio showcasing my **projects**, **articles** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
+A modern, developer-focused personal site showcasing my **projects**, **articles** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
 
 ---
 
@@ -25,7 +25,7 @@ A modern, developer-focused portfolio showcasing my **projects**, **articles** (
 
 ### Features
 
-The portfolio allows users to:
+This site allows users to:
 
 - Explore the site in **light and dark mode** (system preference)
 - Read **articles** written in **MDX format** with syntax highlighting
@@ -35,12 +35,12 @@ The portfolio allows users to:
 
 ### Screenshot
 
-![Screenshot of portfolio](./public/portfolio-screenshot.avif)
+![Screenshot of personal site](./public/personal-site-screenshot.png)
 
 ### Links
 
 - **Live Site:** [gshukla.in](https://gshukla.in)
-- **Repository:** [https://github.com/heygauravshukla/portfolio](https://github.com/heygauravshukla/portfolio)
+- **Repository:** [https://github.com/heygauravshukla/gshukla.in](https://github.com/heygauravshukla/gshukla.in)
 
 ---
 
@@ -86,8 +86,8 @@ Planned improvements include:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/heygauravshukla/portfolio.git
-   cd portfolio
+   git clone https://github.com/heygauravshukla/gshukla.in.git
+   cd gshukla.in
    ```
 
 2. **Install dependencies**
@@ -133,4 +133,4 @@ Planned improvements include:
 ## Acknowledgments
 
 Special thanks to the [Tailwind CSS Docs](https://github.com/tailwindlabs/tailwindcss.com) repository for insights into structure organization.
-The [Spotlight Template](https://tailwindcss.com/plus/templates/spotlight) by Tailwind Labs served as the **initial inspiration** for this portfolio’s layout and design.
+The [Spotlight Template](https://tailwindcss.com/plus/templates/spotlight) by Tailwind Labs served as the **initial inspiration** for this site's layout and design.
