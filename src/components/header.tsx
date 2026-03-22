@@ -61,6 +61,7 @@ export function Header() {
               setIsMenuOpen(!isMenuOpen);
             }}
             className="z-50 md:hidden"
+            title="Toggle mobile menu"
           >
             {isMenuOpen ? (
               <X className="size-4" />
