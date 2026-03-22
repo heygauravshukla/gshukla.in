@@ -4,10 +4,45 @@
 @theme inline {
   --font-sans: var(--font-inter);
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+
   --font-mono: var(--font-plex-mono);
   --font-mono--font-feature-settings: "ss02", "zero";
 }
 
 @utility container {
   @apply mx-auto px-5 md:px-10 lg:max-w-5xl;
+}
+
+
+/* https://rehype-pretty.pages.dev/ */
+pre {
+  overflow-x: auto;
+  display: grid;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+pre code {
+
+  padding: calc(var(--spacing) * 5) 0;
+}
+
+pre [data-line] {
+  padding: 0 calc(var(--spacing) * 5);
+}
+
+code[data-theme*=" "],
+code[data-theme*=" "] span {
+  --shiki-light-bg: var(--color-mist-50);
+
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+}
+
+.dark code[data-theme*=" "],
+.dark code[data-theme*=" "] span {
+  color: var(--shiki-dark);
+  background-color: var(--shiki-dark-bg);
 }

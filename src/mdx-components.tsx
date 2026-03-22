@@ -109,7 +109,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     },
     pre: (props: ComponentProps<"pre">) => (
       <pre
-        className="my-4 overflow-x-auto rounded-2xl p-6 font-mono leading-relaxed"
+        className="my-4 rounded-lg border border-mist-200 font-mono leading-relaxed dark:border-mist-900"
         {...props}
       />
     ),

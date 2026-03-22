@@ -9,7 +9,17 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   options: {
-    rehypePlugins: [["rehype-pretty-code", { theme: "github-dark" }]],
+    rehypePlugins: [
+      [
+        "rehype-pretty-code",
+        {
+          theme: {
+            dark: "github-dark-default",
+            light: "github-light-default",
+          },
+        },
+      ],
+    ],
   },
 });
 
