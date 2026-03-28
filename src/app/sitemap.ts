@@ -1,16 +1,17 @@
-import path from "path";
-import { promises as fs } from "fs";
 import type { MetadataRoute } from "next";
+
+import { sanityFetch } from "@/sanity/lib/live";
+import { POST_SLUGS_QUERY } from "@/sanity/lib/queries";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch all articles from the articles directory
-  const articlesDir = path.join(process.cwd(), "src/content/articles");
-  const articleFiles = await fs.readdir(articlesDir);
-  const articles = articleFiles
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => file.replace(".mdx", ""));
+  const { data: slugs } = await sanityFetch({
+    query: POST_SLUGS_QUERY,
+    perspective: "published",
+    stega: false,
+  });
+  const articles: string[] = slugs ?? [];
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

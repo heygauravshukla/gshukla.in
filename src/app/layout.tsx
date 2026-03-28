@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SanityLive } from "@/sanity/lib/live";
 
 import "./globals.css";
 
@@ -85,6 +86,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <SanityLive />
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
