@@ -22,7 +22,7 @@ export async function generateMetadata({
   });
 
   if (!post) {
-    return { title: "Article" };
+    notFound();
   }
 
   const postImageUrl = post.image
