@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 
 import { ArticlePortableText } from "@/components/article-portable-text";
 import Layout from "@/components/layout";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlFor } from "@/sanity/lib/image";
 import { POST_BY_SLUG_QUERY, POST_SLUGS_QUERY } from "@/sanity/lib/queries";
+import type { PostBySlug } from "@/sanity/types";
 
 export async function generateMetadata({
   params,
@@ -14,7 +15,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { data: post } = await sanityFetch({
+  const { data: post } = await sanityFetch<PostBySlug | null>({
     query: POST_BY_SLUG_QUERY,
     params: { slug },
     stega: false,
@@ -63,7 +64,7 @@ export default async function ArticlePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { data: post } = await sanityFetch({
+  const { data: post } = await sanityFetch<PostBySlug | null>({
     query: POST_BY_SLUG_QUERY,
     params: { slug },
     stega: false,
@@ -130,7 +131,7 @@ export default async function ArticlePage({
 }
 
 export async function generateStaticParams() {
-  const { data: slugs } = await sanityFetch({
+  const { data: slugs } = await sanityFetch<string[] | null>({
     query: POST_SLUGS_QUERY,
     perspective: "published",
     stega: false,
@@ -139,4 +140,5 @@ export async function generateStaticParams() {
   return (slugs ?? []).map((s: string) => ({ slug: s }));
 }
 
+/** Only slugs from the last build exist; new posts require redeploy. */
 export const dynamicParams = false;

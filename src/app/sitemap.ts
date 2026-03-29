@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
 
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { POST_SLUGS_QUERY } from "@/sanity/lib/queries";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { data: slugs } = await sanityFetch({
+  const { data: slugs } = await sanityFetch<string[] | null>({
     query: POST_SLUGS_QUERY,
     perspective: "published",
     stega: false,

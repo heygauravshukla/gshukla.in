@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronRight, Clock } from "lucide-react";
 
 import { TimeAgo } from "@/components/time-ago";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { POSTS_LIST_QUERY } from "@/sanity/lib/queries";
 import type { PostListItem } from "@/sanity/types";
 
