@@ -54,7 +54,7 @@ This site allows users to:
 - **Tailwind CSS v4** – utility-first styling with CSS variables
 - **MDX** – Articles with markdown and `rehype-pretty-code` for syntax highlighting
 - **Lucide React** – icon library
-- **bun** – a fast JavaScript package manager
+- **pnpm** – Lightning-fast installation speeds and a smarter, safer way to manage dependencies
 
 ---
 
@@ -89,7 +89,7 @@ Planned improvements include:
 2. **Install dependencies**
 
    ```bash
-   bun install
+   pnpm install
    ```
 
 3. **Set up environment variables**
@@ -103,7 +103,7 @@ Planned improvements include:
 4. **Run the development server**
 
    ```bash
-   bun run dev
+   pnpm run dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
