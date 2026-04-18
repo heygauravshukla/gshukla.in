@@ -1,10 +1,16 @@
 export const metadata = {
-  title: "Working with Agent Skills: A Practical Guide",
+  title: "How to make use of Agent Skills",
   publishedAt: "2026-04-12T12:01:00+05:30",
   summary:
-    "Learn how agent skills work, how they differ from traditional agent files, and how to use them to create reusable, domain-specific AI workflows.",
+    "Learn how agent skills work, how they differ from agent files, and how to use them for reusable AI workflows.",
   image: "/articles/agent-skills.jpg",
-  tags: ["Development", "Agent", "Skills", "VS Code", "Claude", "Cursor"],
+  tags: [
+    "AI Development",
+    "Agent Skills",
+    "Prompt Engineering",
+    "Developer Tools",
+    "Claude",
+  ],
 };
 
 We have come a long way in the world of AI. We've seen chat-based interfaces, MCP servers, and agent markdown files (AGENTS.md, CLAUDE.md). Now, we have a new concept called **agent skills**.
@@ -17,54 +23,55 @@ Claude's initiative, **Agent Skills**, refers to special markdown files that ext
 
 Unlike regular agent files like AGENTS.md and CLAUDE.md, which are referenced on every prompt to provide context, skills are loaded **on demand** when needed.
 
-They don’t provide full project context like regular agent files. Instead, they are used for domain-specific tasks such as:
+They don't provide full project context like regular agent files. Instead, they are used for domain-specific tasks such as:
 
 - Design guidelines for creating unique frontends
 - Following React best practices when writing code
+- Automating document workflows with specific formatting rules
 - etc.
 
-Skills are portable and can be reused across projects.
+Skills are also **portable**, you don't need to provide the same guidelines or best practices to your agents in every project. Instead, you can reuse the same SKILL files across projects and they will work out of the box.
 
-You don’t need to provide the same guidelines or best practices to your agents in every project. Instead, you can reuse the same SKILL files across projects, and they will work out of the box.
+And crucially, they're **cross-platform**: the same `SKILL.md` format works across Claude Code, Cursor, Gemini CLI, Codex CLI, Antigravity IDE, and more.
+
+Learn [how Skills compares to prompts, Projects, MCP, and subagents](https://claude.com/blog/skills-explained) on the Claude blog.
 
 ## How to create agent skills?
 
-To start working with agent skills, follow this folder structure:
+1. Visit [skills.sh](https://skills.sh), the open agent skills ecosystem backed by the [VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills) community repository.
+2. Browse and find the skill you need.
+3. Copy and run the installation command.
+4. Choose the installation scope: Global or Project specific.
 
-1. For a single skill:
+Or you can manually create skill files yourself by following the folder structure below.
 
-```bash
-root/
-  ├── .agents/
-  │   └── skills/
-  │       └── frontend-design/
-  │           └── SKILL.md
-  ├── /public
-  ├── /src
-```
+### The folder structure
 
-2. For multiple skills:
+Here's how agent skills are installed in your project:
 
 ```bash
 root/
   ├── .agents/
   │   └── skills/
   │       ├── frontend-design/
+  │       │   ├── LICENSE.txt
   │       │   └── SKILL.md
   │       ├── composition-patterns/
+  │       │   ├── LICENSE.txt
   │       │   ├── SKILL.md
   │       │   └── metadata.json
   │       └── react-best-practices/
+  │           ├── LICENSE.txt
   │           └── SKILL.md
   ├── /public
   ├── /src
 ```
 
-Skill folders can also contain additional files besides SKILL.md, such as **metadata.json**, to provide references to agents.
+Each skill folder commonly includes a **SKILL.md** file, which is the only required file. Other files like scripts and templates are optional.
 
 ## Breaking down the SKILL.md structure
 
-Here is the basic structure of a SKILL.md file according to Claude’s documentation:
+Here is the basic structure of a SKILL.md file according to Claude's documentation:
 
 ```md
 ---
@@ -87,72 +94,68 @@ description: A clear description of what this skill does and when to use it
 - Guideline 2
 ```
 
-If you want to dive deeper into the structure of a SKILL.md file, you can refer to the official [Claude documentation.](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#skill-structure)
+If you want to dive deeper into the structure of a SKILL.md file, you can refer to the official [Claude documentation](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#skill-structure).
 
-You don’t always have to create SKILL files yourself, you can also use ones from open-source GitHub repositories.
+You don't always have to create SKILL files yourself, you can also use ones from open-source GitHub repositories or the skills marketplace.
 
-## Open-source agent skills
+## Security warning: always inspect skills before installing
 
-Here are some open-source agent skills you can use in your projects:
+Before blindly installing skills from the internet, be aware: a February 2026 Snyk audit of publicly available skills found that over 36% had at least one security flaw, and 13.4% had critical issues including malware distribution, prompt injection attacks, and exposed secrets.
 
-- [Agent skills from Anthropic](https://github.com/anthropics/skills)
-- [Agent skills from Vercel](https://github.com/vercel-labs/agent-skills)
+**Always inspect the contents of a SKILL.md file and any bundled scripts before installation**, treat community skills like any open-source code.
 
 ## How to use agent skills in your projects?
 
-Using skills is simpler than you might think. Once you have created the SKILL.md file, you just need to instruct your agent to perform a specific task.
+Let's create a landing page for a custom SaaS using the [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) skill from Claude Code.
 
-For example, let’s create a landing page for a custom SaaS.
+We'll use Antigravity as our IDE with the model **Claude Sonnet 4.6 (Thinking)**. Since we are using a skill designed for Claude, using a Claude model makes more sense.
 
-We’ll use the [frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) skill from Claude Code for this demo, and we’ll use Antigravity as our IDE with the model **Claude Sonnet 4.6 (Thinking)**. Since we are using a skill designed for Claude, using a Claude model makes more sense.
+> Pro tip: When working with the frontend-design skill from Claude Code, I recommend using a Claude model for better output.
 
-> Why? While preparing this demo, I tried using other models like Gemini 3.1 High with the frontend-design skill, but the results were not as good. So, I recommend using this skill with a Claude model.
+### Step 1: Adding a SKILL file to your project
 
-### Step 1: Add a SKILL file to your project
+Using the skills CLI:
 
-- Copy the frontend-design skill file from the official Claude Code skills repository.
-- Create a new file at `.agents/skills/frontend-design/SKILL.md`.
-- Paste the copied file into SKILL.md. You can modify it based on your needs.
-  ![Add skill file](/articles/add-skill-file.jpg)
+```bash
+npx skills add https://github.com/anthropics/skills --skill frontend-design
+```
 
-### Step 2: Prompt your agent to perform the task
+### Step 2: Prompting the agent to perform the task
 
-Choose your agent and write a clear, purposeful prompt. Weak prompts may not produce the desired results, so make sure your intent is well-defined.
-
-Let’s ask it to build a landing page for a URL shortener app:
+Let's ask it to build a landing page for a URL shortener app:
 
 > I built a URL shortener web application where users can convert long URLs into short, shareable links. I want to generate a landing page to promote this app.
 
-![Prompt your agent](/articles/prompt-your-agent.jpg)
-
-Here’s how the agent began processing the request:
+Here's how the agent began processing the request:
 ![Agent reading skill file](/articles/agent-reading-skill-file.jpg)
 
-As shown in the response, it first referenced the SKILL file before generating any output.
+Notice here the agent first referenced the **SKILL.md** file before generating any output.
 
-Here’s the chat response:
+Here's the chat response:
 ![Chat response from Agent](/articles/chat-response.jpg)
 
-And here’s the generated landing page:
+And here's the generated landing page:
 ![Snip landing page screenshot](/articles/snip-landing-page-screenshot.jpg)
 
 You can explore the [source code](https://github.com/heygauravshukla/landing-page) and view the [live preview](https://landing-page-gshukla.vercel.app) of this output.
 
-### Remarks:
+### Remarks
 
 **Design:** I found it to be a solid homepage design and a good starting point for many developers.
 
 **Responsiveness:** The page worked well on desktop and tablet devices, but it was not as polished on mobile.
 
-**Code quality:** Since the skill file didn’t specify using React and Tailwind, the agent generated everything in a single `page.tsx` file with inline styling.
+**Code quality:** Since the skill file didn't specify using React and Tailwind, the agent generated everything in a single `page.tsx` file with inline styling.
 
 Despite these limitations, the result was quite good for a first attempt without modifying the skill file. With better instructions, you can easily guide the agent to follow your preferred coding style.
 
-I hope this gives you a clear idea of how to use agent skills effectively.
-
 ## Conclusion
 
-Agent skills can significantly improve how we guide agents for domain-specific tasks. While frontend design often requires iterations, other skills like react-best-practices or deployment-guides can produce excellent results.
+Agent skills can significantly improve how we guide agents for domain-specific tasks. The ecosystem is evolving fast, from Anthropic's official skills to thousands of community contributions compatible across every major AI coding tool.
+
+While frontend design often requires iterations, other skills like `react-best-practices` or `deployment-guides` can produce excellent results right out of the box.
+
+Just remember to always review skill files before installing, especially in environments with access to sensitive data or credentials.
 
 I hope this article helped you understand how to leverage agent skills. If you have any suggestions or improvements, feel free to share them.
 
