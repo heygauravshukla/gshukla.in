@@ -1,6 +1,6 @@
 # Personal site
 
-A modern, developer-focused personal site showcasing my **projects**, **articles** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
+A modern, developer-focused personal site showcasing my **projects**, **blog posts** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
 
 ---
 
@@ -28,7 +28,7 @@ A modern, developer-focused personal site showcasing my **projects**, **articles
 This site allows users to:
 
 - Explore the site in **light and dark mode** (system preference)
-- Read **articles** written in **MDX format** with syntax highlighting
+- Read **blog posts** written in **MDX format** with syntax highlighting
 - Browse **projects** with descriptions and live links
 - Explore a **curated list of development resources** (Bookmarks)
 
@@ -52,7 +52,7 @@ This site allows users to:
 - **Next.js 16 (App Router)** – framework core
 - **React 19** – latest React features
 - **Tailwind CSS v4** – utility-first styling with CSS variables
-- **MDX** – Articles with markdown and `rehype-pretty-code` for syntax highlighting
+- **MDX** – Blog posts with markdown and `rehype-pretty-code` for syntax highlighting
 - **Lucide React** – icon library
 - **pnpm** – Lightning-fast installation speeds and a smarter, safer way to manage dependencies
 
@@ -71,9 +71,9 @@ This site allows users to:
 
 Planned improvements include:
 
-- **RSS feed generation** for articles
+- **RSS feed generation** for blog posts
 - **Project filtering** by technology
-- **Search functionality** for articles and bookmarks
+- **Search functionality** for blog posts and bookmarks
 
 ---
 

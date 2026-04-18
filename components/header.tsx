@@ -11,7 +11,7 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   { name: "About", href: "/about" },
-  { name: "Articles", href: "/articles" },
+  { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
   { name: "Bookmarks", href: "/bookmarks" },
   { name: "Contact", href: "mailto:heygauravshukla@gmail.com" },

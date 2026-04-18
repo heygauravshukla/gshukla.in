@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s - Gaurav Shukla",
   },
   description:
-    "I’m Gaurav, a software engineer and creator based in India. I do front-end development, build awesome projects and share knowledge through articles.",
+    "I’m Gaurav, a software engineer and creator based in India. I do front-end development, build awesome projects and share knowledge through blog posts.",
   alternates: {
     canonical: "/",
   },

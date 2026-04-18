@@ -13,7 +13,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const { metadata } = await import(`@/content/articles/${slug}.mdx`);
+  const { metadata } = await import(`@/content/blog/${slug}.mdx`);
 
   const {
     title,
@@ -27,13 +27,13 @@ export async function generateMetadata({
     title,
     description,
     alternates: {
-      canonical: `/articles/${slug}`,
+      canonical: `/blog/${slug}`,
     },
     keywords: keywords.join(", "),
     openGraph: {
       type: "article",
       publishedTime,
-      url: `/articles/${slug}`,
+      url: `/blog/${slug}`,
       images: [
         {
           url: image,
@@ -47,14 +47,14 @@ export async function generateMetadata({
   };
 }
 
-export default async function ArticlePage({
+export default async function BlogPostPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const { default: Post, metadata } = await import(
-    `@/content/articles/${slug}.mdx`
+    `@/content/blog/${slug}.mdx`
   );
 
   return (
@@ -103,7 +103,7 @@ export default async function ArticlePage({
 
 export async function generateStaticParams() {
   const filenames = await fs.readdir(
-    path.join(process.cwd(), "content/articles"),
+    path.join(process.cwd(), "content/blog"),
   );
 
   const staticSlugs = filenames.map((filename) => {

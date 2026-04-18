@@ -10,7 +10,7 @@ export function HeroSection() {
         <p className="mt-6 max-w-[60ch] leading-7 text-pretty text-neutral-600 dark:text-neutral-400">
           I&apos;m Gaurav Shukla, a software engineer and creator based in
           India. I build production-ready web applications and share practical
-          insights through in-depth articles.
+          insights through in-depth blog posts.
         </p>
         <div className="mt-8">
           <SocialLinks />

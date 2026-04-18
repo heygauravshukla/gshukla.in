@@ -2,7 +2,7 @@ import Layout from "@/components/layout";
 import { HeroSection } from "@/components/hero-section";
 import { SectionIntro } from "@/components/section-intro";
 import { ProjectsList } from "@/components/projects-list";
-import { ArticlesList } from "@/components/articles-list";
+import { BlogList } from "@/components/blog-list";
 import { TimelineList } from "@/components/timeline-list";
 
 export default function Home() {
@@ -25,11 +25,11 @@ export default function Home() {
         <section className="py-16">
           <div className="container space-y-16">
             <SectionIntro
-              heading="Articles"
+              heading="Blog"
               subheading="I love sharing knowledge."
-              paragraph="Here are some of the articles I've written."
+              paragraph="Here are some of the blog posts I've written."
             />
-            <ArticlesList limit={4} />
+            <BlogList limit={4} />
           </div>
         </section>
 

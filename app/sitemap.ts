@@ -5,10 +5,10 @@ import type { MetadataRoute } from "next";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch all articles from the articles directory
-  const articlesDir = path.join(process.cwd(), "content/articles");
-  const articleFiles = await fs.readdir(articlesDir);
-  const articles = articleFiles
+  // Fetch all posts from the blog directory
+  const blogDir = path.join(process.cwd(), "content/blog");
+  const postFiles = await fs.readdir(blogDir);
+  const posts = postFiles
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => file.replace(".mdx", ""));
 
@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/articles`,
+      url: `${BASE_URL}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
@@ -46,13 +46,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic article pages
-  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${BASE_URL}/articles/${article}`,
+  // Dynamic blog post pages
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
+    url: `${BASE_URL}/blog/${post}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
 
-  return [...staticPages, ...articlePages];
+  return [...staticPages, ...blogPages];
 }
