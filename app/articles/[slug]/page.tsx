@@ -60,7 +60,7 @@ export default async function ArticlePage({
   return (
     <Layout>
       <div className="container py-16">
-        <article className="mx-auto max-w-[70ch]">
+        <article>
           <CustomProse>
             <time className="not-prose mb-4 flex items-start gap-2 text-sm text-mist-600 dark:text-mist-400">
               <Calendar className="h-lh w-4" />
