@@ -101,7 +101,7 @@ export default async function ArticlePage({
 
 export async function generateStaticParams() {
   const filenames = await fs.readdir(
-    path.join(process.cwd(), "src/content/articles"),
+    path.join(process.cwd(), "content/articles"),
   );
 
   const staticSlugs = filenames.map((filename) => {

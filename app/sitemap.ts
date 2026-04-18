@@ -6,7 +6,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all articles from the articles directory
-  const articlesDir = path.join(process.cwd(), "src/content/articles");
+  const articlesDir = path.join(process.cwd(), "content/articles");
   const articleFiles = await fs.readdir(articlesDir);
   const articles = articleFiles
     .filter((file) => file.endsWith(".mdx"))

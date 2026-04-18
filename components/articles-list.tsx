@@ -8,7 +8,7 @@ import { TimeAgo } from "@/components/time-ago";
 
 export async function ArticlesList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(
-    path.join(process.cwd(), "src/content/articles"),
+    path.join(process.cwd(), "content/articles"),
   );
   const articles = await Promise.all(
     filenames.map(async (filename) => {
