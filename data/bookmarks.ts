@@ -32,6 +32,12 @@ export const bookmarks: BookmarkCategory[] = [
           "A collaborative virtual whiteboard for sketching hand-drawn-style diagrams.",
       },
       {
+        title: "Free image resizer",
+        href: "https://www.adobe.com/express/feature/image/resize",
+        description:
+          "Easily resize your images in one click using Adobe Express.",
+      },
+      {
         title: "Notion – All-in-one Workspace",
         href: "https://www.notion.com",
         description:
@@ -110,6 +116,11 @@ export const bookmarks: BookmarkCategory[] = [
         href: "https://react-icons.github.io/react-icons",
         description:
           "A library that bundles popular icon sets as easy-to-use React components.",
+      },
+      {
+        title: "SKILLS - The open agent skills ecosystem",
+        href: "https://skills.sh",
+        description: "Browse and install agent skills with ease.",
       },
       {
         title: "Squoosh – Image Compression",
@@ -216,6 +227,12 @@ export const bookmarks: BookmarkCategory[] = [
           "A clean, single-page developer portfolio with a focus on project presentation.",
       },
       {
+        title: "Chánh Đại – Developer Portfolio",
+        href: "https://chanhdai.com",
+        description:
+          "A minimal portfolio featuring a grid-based UI with subtle scanline and noise overlays.",
+      },
+      {
         title: "Lee Robinson – Developer Portfolio",
         href: "https://leerob.com",
         description:
@@ -226,12 +243,6 @@ export const bookmarks: BookmarkCategory[] = [
         href: "https://manuarora.in",
         description:
           "A minimal and elegant freelancer portfolio with smooth animations.",
-      },
-      {
-        title: "Ram Maheshwari – Developer Portfolio",
-        href: "https://www.rammaheshwari.com",
-        description:
-          "An interactive developer portfolio featuring GSAP animations and a clean layout.",
       },
       {
         title: "Spotlight – Portfolio Template",
