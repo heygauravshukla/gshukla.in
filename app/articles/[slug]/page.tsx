@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Calendar } from "lucide-react";
 
 import Layout from "@/components/layout";
+import { CustomProse } from "@/components/custom-prose";
 
 export async function generateMetadata({
   params,
@@ -60,39 +61,40 @@ export default async function ArticlePage({
     <Layout>
       <div className="container py-16">
         <article className="mx-auto max-w-[70ch]">
-          <time className="flex items-start gap-2 text-sm text-mist-600 dark:text-mist-400">
-            <Calendar className="h-lh w-4" />
-            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
-          <h1 className="mt-4 text-4xl leading-snug font-medium tracking-tight sm:text-5xl">
-            {metadata.title}
-          </h1>
-          <ul className="mt-5 flex flex-wrap items-center gap-2">
-            {metadata.tags.slice(0, 3).map((tag: string) => (
-              <li
-                key={tag}
-                className="rounded-full border border-mist-500 px-3 py-1 text-xs text-mist-800 dark:border-mist-600 dark:text-mist-200"
-                data-topic={tag}
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 leading-7 text-pretty text-mist-700 dark:text-mist-300">
-            {metadata.summary}
-          </p>
-          <Image
-            src={metadata.image}
-            alt={metadata.title}
-            width={800}
-            height={600}
-            className="my-8 aspect-video w-full rounded-2xl border border-gray-300 object-cover dark:border-gray-800"
-          />
-          <Post />
+          <CustomProse>
+            <time className="not-prose mb-4 flex items-start gap-2 text-sm text-mist-600 dark:text-mist-400">
+              <Calendar className="h-lh w-4" />
+              {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </time>
+
+            <h1 className="mb-4 md:mb-6">{metadata.title}</h1>
+
+            <ul className="not-prose flex flex-wrap items-center gap-2">
+              {metadata.tags.slice(0, 3).map((tag: string) => (
+                <li
+                  key={tag}
+                  className="rounded-full border border-mist-500 px-3 py-1 text-xs text-mist-800 dark:border-mist-600 dark:text-mist-200"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+
+            <p>{metadata.summary}</p>
+
+            <Image
+              src={metadata.image}
+              alt={metadata.title}
+              width={800}
+              height={600}
+            />
+
+            <Post />
+          </CustomProse>
         </article>
       </div>
     </Layout>
