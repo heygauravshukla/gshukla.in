@@ -13,17 +13,17 @@ export function BookmarksList() {
             {item.items.map((bookmark) => (
               <li
                 key={bookmark.title}
-                className="relative isolate flex flex-col items-start rounded-2xl border border-mist-300 p-4 transition-colors hover:border-teal-500 md:p-6 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
+                className="relative isolate flex flex-col items-start rounded-2xl border border-neutral-300 p-4 transition-colors hover:border-teal-500 md:p-6 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-teal-400"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
-                <p className="mt-2 text-sm/normal text-mist-600 dark:text-mist-400">
+                <p className="mt-2 text-sm/normal text-neutral-600 dark:text-neutral-400">
                   {bookmark.description}
                 </p>
                 <a
                   href={bookmark.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="order-first mb-2 flex items-baseline gap-2 text-xs text-mist-600 dark:text-mist-400"
+                  className="order-first mb-2 flex items-baseline gap-2 text-xs text-neutral-600 dark:text-neutral-400"
                 >
                   <span className="absolute inset-0"></span>
                   <span className="line-clamp-1">{bookmark.href.slice(8)}</span>

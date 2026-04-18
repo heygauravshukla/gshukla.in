@@ -15,7 +15,7 @@ export function SectionIntro({
       <p className="mt-3 text-2xl font-medium tracking-tight sm:text-4xl">
         {subheading}
       </p>
-      <p className="mt-4 max-w-xl leading-relaxed text-pretty text-mist-600 dark:text-mist-400">
+      <p className="mt-4 max-w-xl leading-relaxed text-pretty text-neutral-600 dark:text-neutral-400">
         {paragraph}
       </p>
     </div>

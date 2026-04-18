@@ -22,7 +22,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-white dark:bg-mist-950">
+    <header className="sticky top-0 z-50 bg-white dark:bg-neutral-950">
       <div className="container flex h-20 items-center justify-between gap-4">
         {/* Logo */}
         <Link href="/" aria-label="Go to homepage" className="shrink-0">
@@ -44,7 +44,7 @@ export function Header() {
                 href={item.href}
                 className={cn("text-sm font-medium transition-colors", {
                   "text-teal-500 dark:text-teal-400": pathname === item.href,
-                  "hover:text-teal-500 dark:text-mist-200 dark:hover:text-teal-400":
+                  "hover:text-teal-500 dark:text-neutral-200 dark:hover:text-teal-400":
                     pathname !== item.href,
                 })}
               >
@@ -73,7 +73,7 @@ export function Header() {
           {/* Mobile Navigation */}
           <div
             className={cn(
-              "fixed inset-0 z-40 min-h-dvh items-center gap-4 bg-mist-50 dark:bg-mist-950",
+              "fixed inset-0 z-40 min-h-dvh items-center gap-4 bg-neutral-50 dark:bg-neutral-950",
               {
                 "grid md:hidden": isMenuOpen,
                 hidden: !isMenuOpen,

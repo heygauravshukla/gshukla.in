@@ -37,7 +37,7 @@ export function SocialLinks() {
               rel="noopener noreferrer"
               aria-label={`Visit my ${item.platform} profile`}
             >
-              <IconComponent className="size-5 fill-mist-500 transition-colors hover:fill-mist-600 md:size-6 dark:fill-mist-400 dark:hover:fill-mist-300" />
+              <IconComponent className="size-5 fill-neutral-500 transition-colors hover:fill-neutral-600 md:size-6 dark:fill-neutral-400 dark:hover:fill-neutral-300" />
             </a>
           </li>
         );

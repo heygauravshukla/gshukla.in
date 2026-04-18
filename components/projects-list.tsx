@@ -8,7 +8,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
         return (
           <article
             key={project.title}
-            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-mist-300 transition-colors hover:border-teal-500 dark:border-mist-800 dark:bg-mist-900 dark:hover:border-teal-400"
+            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-neutral-300 transition-colors hover:border-teal-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-teal-400"
           >
             <div className="flex flex-col gap-1 px-6 py-5">
               <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
@@ -23,7 +23,7 @@ export function ProjectsList({ limit }: { limit?: number }) {
                 </a>
               </h3>
 
-              <p className="line-clamp-2 text-sm/normal text-pretty text-mist-600 dark:text-mist-400">
+              <p className="line-clamp-2 text-sm/normal text-pretty text-neutral-600 dark:text-neutral-400">
                 {project.description}
               </p>
             </div>

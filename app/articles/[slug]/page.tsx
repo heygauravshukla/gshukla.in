@@ -62,7 +62,7 @@ export default async function ArticlePage({
       <div className="container py-16">
         <article>
           <CustomProse>
-            <time className="not-prose mb-4 flex items-start gap-2 text-sm text-mist-600 dark:text-mist-400">
+            <time className="not-prose mb-4 flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
               <Calendar className="h-lh w-4" />
               {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -77,7 +77,7 @@ export default async function ArticlePage({
               {metadata.tags.slice(0, 3).map((tag: string) => (
                 <li
                   key={tag}
-                  className="rounded-full border border-mist-500 px-3 py-1 text-xs text-mist-800 dark:border-mist-600 dark:text-mist-200"
+                  className="rounded-full border border-neutral-500 px-3 py-1 text-xs text-neutral-800 dark:border-neutral-600 dark:text-neutral-200"
                 >
                   {tag}
                 </li>

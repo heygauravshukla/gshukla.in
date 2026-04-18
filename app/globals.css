@@ -10,8 +10,8 @@
   --font-mono--font-feature-settings: "ss02", "zero";
 
   /* Syntax Highlighting Variables */
-  --hljs-bg: var(--color-mist-50);
-  --hljs-border: var(--color-mist-200);
+  --hljs-bg: var(--color-neutral-50);
+  --hljs-border: var(--color-neutral-200);
   --hljs-text: #24292e;
   --hljs-comment: #6a737d;
   --hljs-keyword: #d73a49;
@@ -22,8 +22,8 @@
 }
 
 .dark {
-  --hljs-bg: var(--color-mist-900);
-  --hljs-border: var(--color-mist-800);
+  --hljs-bg: var(--color-neutral-900);
+  --hljs-border: var(--color-neutral-800);
   --hljs-text: #c9d1d9;
   --hljs-comment: #8b949e;
   --hljs-keyword: #ff7b72;
@@ -115,7 +115,7 @@ pre code {
 /* Anchor links for headings */
 .anchor {
   @apply ml-2 no-underline opacity-0 transition-opacity;
-  color: var(--color-mist-400);
+  color: var(--color-neutral-400);
 }
 
 .anchor:hover {
