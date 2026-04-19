@@ -1,8 +1,8 @@
 import path from "path";
 import { promises as fs } from "fs";
-
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
 
 export async function BlogList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
@@ -30,7 +30,13 @@ export async function BlogList({ limit }: { limit?: number }) {
         return (
           <article key={post.title} className="relative isolate grid">
             <div className="flex flex-col gap-1 md:flex-row md:justify-between">
-              <h3 className="font-medium tracking-tight">{post.title}</h3>
+              <Typography
+                variant="h3"
+                as="h3"
+                className="text-base font-medium"
+              >
+                {post.title}
+              </Typography>
               <time className="flex items-start gap-1.5 text-sm text-neutral-600 tabular-nums dark:text-neutral-400">
                 {new Date(post.publishedAt)
                   .toLocaleDateString("en-GB", {
@@ -42,9 +48,12 @@ export async function BlogList({ limit }: { limit?: number }) {
               </time>
             </div>
 
-            <p className="mt-2 line-clamp-3 text-sm/normal text-neutral-600 dark:text-neutral-400">
+            <Typography
+              variant="muted"
+              className="mt-2 line-clamp-3 text-sm/normal"
+            >
               {post.summary}
-            </p>
+            </Typography>
 
             <Link
               href={`/blog/${post.slug}`}

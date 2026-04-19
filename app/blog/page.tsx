@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Layout from "@/components/layout";
-import { PageIntro } from "@/components/page-intro";
+import { Typography } from "@/components/ui/typography";
 import { BlogList } from "@/components/blog-list";
 
 export const metadata: Metadata = {
@@ -16,10 +16,18 @@ export default function BlogPage() {
   return (
     <Layout>
       <main>
-        <PageIntro
-          title="Blog"
-          description="Explore my collection of blog posts about web development, coding practices, and technology insights. I write about frontend development, React, and modern web technologies."
-        />
+        <section className="mt-12">
+          <div className="container">
+            <Typography as="h1" variant="h1">
+              Blog
+            </Typography>
+            <Typography variant="lead" className="mt-6 max-w-2xl">
+              Explore my collection of blog posts about web development, coding
+              practices, and technology insights. I write about frontend
+              development, React, and modern web technologies.
+            </Typography>
+          </div>
+        </section>
 
         <section className="my-12">
           <div className="container">

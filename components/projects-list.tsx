@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Typography } from "@/components/ui/typography";
 import { projects } from "@/data/projects";
 
 export function ProjectsList({ limit }: { limit?: number }) {
@@ -11,7 +12,11 @@ export function ProjectsList({ limit }: { limit?: number }) {
             className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-neutral-300 transition-colors hover:border-blue-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-blue-400"
           >
             <div className="flex flex-col gap-1 p-4">
-              <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
+              <Typography
+                as="h3"
+                variant="h3"
+                className="overflow-hidden text-base font-medium text-ellipsis whitespace-nowrap"
+              >
                 <a
                   href={project.link}
                   target="_blank"
@@ -21,11 +26,11 @@ export function ProjectsList({ limit }: { limit?: number }) {
                   <span className="absolute inset-0 z-10"></span>
                   {project.title}
                 </a>
-              </h3>
+              </Typography>
 
-              <p className="line-clamp-2 text-sm/normal text-pretty text-neutral-600 dark:text-neutral-400">
+              <Typography variant="muted" className="line-clamp-2">
                 {project.description}
-              </p>
+              </Typography>
             </div>
 
             <Image

@@ -8,6 +8,7 @@ import { PanelRight, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Typography } from "@/components/ui/typography";
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -39,17 +40,19 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="flex items-center gap-6 max-md:hidden">
             {navigation.map((item) => (
-              <Link
+              <Typography
                 key={item.href}
+                as={Link}
                 href={item.href}
-                className={cn("text-sm font-medium transition-colors", {
+                variant="small"
+                className={cn("transition-colors", {
                   "text-blue-500 dark:text-blue-400": pathname === item.href,
                   "hover:text-blue-500 dark:text-neutral-200 dark:hover:text-blue-400":
                     pathname !== item.href,
                 })}
               >
                 {item.name}
-              </Link>
+              </Typography>
             ))}
           </nav>
 
@@ -82,17 +85,19 @@ export function Header() {
           >
             <nav className="grid place-items-center gap-4">
               {navigation.map((item) => (
-                <Link
+                <Typography
                   key={item.href}
+                  as={Link}
                   href={item.href}
-                  className={cn("text-2xl font-medium transition-colors", {
+                  variant="h3"
+                  className={cn("transition-colors", {
                     "text-blue-500 dark:text-blue-400": pathname === item.href,
                     "hover:text-blue-500 dark:hover:text-blue-400":
                       pathname !== item.href,
                   })}
                 >
                   {item.name}
-                </Link>
+                </Typography>
               ))}
             </nav>
           </div>

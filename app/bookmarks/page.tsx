@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import Layout from "@/components/layout";
-import { PageIntro } from "@/components/page-intro";
+import { Typography } from "@/components/ui/typography";
 import { BookmarksList } from "@/components/bookmarks-list";
 
 export const metadata: Metadata = {
@@ -17,10 +17,17 @@ export default function BookmarksPage() {
   return (
     <Layout>
       <main>
-        <PageIntro
-          title="Bookmarks"
-          description="Explore my collection of bookmarks, from web development resources to online tools that I use regularly."
-        />
+        <section className="mt-12">
+          <div className="container">
+            <Typography as="h1" variant="h1">
+              Bookmarks
+            </Typography>
+            <Typography variant="lead" className="mt-6 max-w-2xl">
+              Explore my collection of bookmarks, from web development resources
+              to online tools that I use regularly.
+            </Typography>
+          </div>
+        </section>
 
         <section className="mt-12">
           <div className="container">
@@ -30,7 +37,7 @@ export default function BookmarksPage() {
 
         <section className="my-12">
           <div className="container">
-            <p className="leading-7 text-neutral-600 dark:text-neutral-400">
+            <Typography variant="p">
               That&apos;s all folks! If you have any suggestions for more
               resources, feel free to{" "}
               <Link
@@ -39,7 +46,7 @@ export default function BookmarksPage() {
               >
                 reach out!
               </Link>
-            </p>
+            </Typography>
           </div>
         </section>
       </main>

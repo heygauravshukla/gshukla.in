@@ -1,26 +1,32 @@
 import Link from "next/link";
 import Layout from "@/components/layout";
+import { Typography } from "@/components/ui/typography";
 import { ProjectsList } from "@/components/projects-list";
 import { BlogList } from "@/components/blog-list";
 import { TimelineList } from "@/components/timeline-list";
-import { PageIntro } from "@/components/page-intro";
 
 export default function Home() {
   return (
     <Layout>
       <main>
-        <PageIntro
-          title="Gaurav Shukla"
-          description="I'm a design engineer and creator based in India. I build
+        <section className="mt-12">
+          <div className="container">
+            <Typography as="h1" variant="h1">
+              Gaurav Shukla
+            </Typography>
+            <Typography variant="lead" className="mt-6 max-w-2xl">
+              I'm a design engineer and creator based in India. I build
               production-ready web applications and share practical insights
-              through in-depth blog posts."
-        />
+              through in-depth blog posts.
+            </Typography>
+          </div>
+        </section>
 
         <section className="mt-16">
           <div className="container">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight">
+            <Typography as="h2" variant="h2" className="mb-6">
               Projects
-            </h2>
+            </Typography>
 
             <ProjectsList limit={4} />
 
@@ -35,7 +41,9 @@ export default function Home() {
 
         <section className="mt-16">
           <div className="container">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight">Blog</h2>
+            <Typography as="h2" variant="h2" className="mb-6">
+              Blog
+            </Typography>
 
             <BlogList limit={4} />
 
@@ -50,9 +58,9 @@ export default function Home() {
 
         <section className="my-16">
           <div className="container">
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight">
+            <Typography as="h2" variant="h2" className="mb-6">
               Achievements
-            </h2>
+            </Typography>
 
             <TimelineList />
           </div>

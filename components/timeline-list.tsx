@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { Typography } from "@/components/ui/typography";
 import { timeline } from "@/data/timeline";
 
 export function TimelineList() {
@@ -6,32 +7,35 @@ export function TimelineList() {
     <ul className="space-y-8">
       {timeline.map((item) => (
         <li key={item.year}>
-          <h3 className="inline-block rounded-md px-3 py-1 font-mono font-medium ring ring-neutral-500 dark:ring-neutral-700">
+          <Typography
+            as="h3"
+            className="inline-block rounded-md px-3 py-1 font-mono font-medium ring ring-neutral-500 dark:ring-neutral-700"
+          >
             {item.year}
-          </h3>
+          </Typography>
 
           <ul className="mt-6 space-y-6 pl-6">
             {item.achievements.map((achievement) => (
               <li key={achievement.title} className="flex items-start gap-x-2">
                 <Star className="h-lh w-4 flex-none stroke-blue-500 dark:stroke-blue-400" />
                 <div>
-                  <h4 className="font-medium tracking-tight">
+                  <Typography as="h4" variant="h4" className="text-base">
                     {achievement.title}
-                  </h4>
+                  </Typography>
                   {achievement.description && (
-                    <p className="mt-1 max-w-[70ch] text-sm/normal text-neutral-600 dark:text-neutral-400">
+                    <Typography variant="muted" className="mt-1 max-w-[70ch]">
                       {achievement.description}
-                    </p>
+                    </Typography>
                   )}
 
                   {achievement.date && (
-                    <p className="mt-1 text-xs text-neutral-600 tabular-nums dark:text-neutral-400">
+                    <Typography variant="tiny" className="mt-1 tabular-nums">
                       {new Date(achievement.date).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
                       })}
-                    </p>
+                    </Typography>
                   )}
                 </div>
               </li>
