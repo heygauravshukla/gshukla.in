@@ -9,11 +9,12 @@ export function BookmarksList() {
           <h3 className="text-sm font-medium tracking-widest uppercase">
             {item.category}
           </h3>
-          <ul className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
+
+          <ul className="grid gap-4 sm:grid-cols-2 md:gap-6">
             {item.items.map((bookmark) => (
               <li
                 key={bookmark.title}
-                className="relative isolate flex flex-col items-start rounded-2xl border border-neutral-300 p-4 transition-colors hover:border-teal-500 md:p-6 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-teal-400"
+                className="relative isolate flex flex-col items-start rounded-2xl border border-neutral-300 p-4 transition-colors hover:border-blue-500 md:p-6 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-blue-400"
               >
                 <h4 className="font-medium tracking-tight">{bookmark.title}</h4>
                 <p className="mt-2 text-sm/normal text-neutral-600 dark:text-neutral-400">

@@ -3,14 +3,14 @@ import { projects } from "@/data/projects";
 
 export function ProjectsList({ limit }: { limit?: number }) {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-      {projects.slice(0, limit).map((project, idx) => {
+    <div className="grid gap-4 sm:grid-cols-2">
+      {projects.slice(0, limit).map((project) => {
         return (
           <article
             key={project.title}
-            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-neutral-300 transition-colors hover:border-teal-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-teal-400"
+            className="group relative isolate h-50 min-w-60 overflow-hidden rounded-2xl border border-neutral-300 transition-colors hover:border-blue-500 dark:border-neutral-800 dark:bg-neutral-900 dark:hover:border-blue-400"
           >
-            <div className="flex flex-col gap-1 px-6 py-5">
+            <div className="flex flex-col gap-1 p-4">
               <h3 className="overflow-hidden font-medium tracking-tight text-ellipsis whitespace-nowrap">
                 <a
                   href={project.link}

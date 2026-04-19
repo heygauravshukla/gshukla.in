@@ -73,17 +73,6 @@ export default async function BlogPostPage({
 
             <h1 className="mb-4 md:mb-6">{metadata.title}</h1>
 
-            <ul className="not-prose flex flex-wrap items-center gap-2">
-              {metadata.tags.slice(0, 3).map((tag: string) => (
-                <li
-                  key={tag}
-                  className="rounded-full border border-neutral-500 px-3 py-1 text-xs text-neutral-800 dark:border-neutral-600 dark:text-neutral-200"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
-
             <p>{metadata.summary}</p>
 
             <Image
@@ -102,9 +91,7 @@ export default async function BlogPostPage({
 }
 
 export async function generateStaticParams() {
-  const filenames = await fs.readdir(
-    path.join(process.cwd(), "content/blog"),
-  );
+  const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
 
   const staticSlugs = filenames.map((filename) => {
     return { slug: filename.replace(".mdx", "") };

@@ -1,18 +1,27 @@
 export function PageIntro({
   title,
   description,
+  children,
 }: {
   title: string;
-  description: string;
+  description?: string;
+  children?: React.ReactNode;
 }) {
   return (
-    <header className="max-w-2xl">
-      <h1 className="text-4xl leading-tight font-medium tracking-tight sm:text-5xl md:text-6xl md:text-balance">
-        {title}
-      </h1>
-      <p className="mt-6 leading-7 text-pretty text-neutral-600 dark:text-neutral-400">
-        {description}
-      </p>
-    </header>
+    <section className="mt-12">
+      <div className="container">
+        <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+          {title}
+        </h1>
+
+        {description && (
+          <p className="mt-6 max-w-2xl text-lg leading-7 text-pretty text-neutral-600 dark:text-neutral-400">
+            {description}
+          </p>
+        )}
+
+        {children}
+      </div>
+    </section>
   );
 }

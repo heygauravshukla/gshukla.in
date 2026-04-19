@@ -16,12 +16,13 @@ export default function BlogPage() {
   return (
     <Layout>
       <main>
-        <section className="py-16">
-          <div className="container space-y-16">
-            <PageIntro
-              title="Blog"
-              description="Explore my collection of blog posts about web development, coding practices, and technology insights. I write about frontend development, React, and modern web technologies."
-            />
+        <PageIntro
+          title="Blog"
+          description="Explore my collection of blog posts about web development, coding practices, and technology insights. I write about frontend development, React, and modern web technologies."
+        />
+
+        <section className="my-12">
+          <div className="container">
             <BlogList />
           </div>
         </section>

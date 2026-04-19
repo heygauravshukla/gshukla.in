@@ -31,7 +31,7 @@
 }
 
 @utility container {
-  @apply mx-auto px-5 md:px-10 lg:max-w-5xl;
+  @apply mx-auto px-4 md:max-w-3xl md:px-8;
 }
 
 /* Custom styles for code blocks */

@@ -2,14 +2,10 @@ import path from "path";
 import { promises as fs } from "fs";
 
 import Link from "next/link";
-import { ChevronRight, Clock } from "lucide-react";
-
-import { TimeAgo } from "@/components/time-ago";
+import { ChevronRight } from "lucide-react";
 
 export async function BlogList({ limit }: { limit?: number }) {
-  const filenames = await fs.readdir(
-    path.join(process.cwd(), "content/blog"),
-  );
+  const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
   const posts = await Promise.all(
     filenames.map(async (filename) => {
       const { metadata } = await import(`@/content/blog/${filename}`);
@@ -29,31 +25,33 @@ export async function BlogList({ limit }: { limit?: number }) {
     .slice(0, limit);
 
   return (
-    <div className="grid gap-12 lg:grid-cols-2">
-      {sortedPosts.map((post, idx) => {
+    <div className="grid gap-8">
+      {sortedPosts.map((post) => {
         return (
-          <article
-            key={post.title}
-            className="relative isolate flex max-w-xl flex-col items-start"
-          >
-            <h3 className="font-medium tracking-tight">
-              <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-            </h3>
-            <time className="order-first mb-3 flex items-start gap-1.5 text-sm text-neutral-600 dark:text-neutral-400">
-              <Clock className="h-lh w-4" />
-              <TimeAgo date={post.publishedAt} />
-            </time>
+          <article key={post.title} className="relative isolate grid">
+            <div className="flex flex-col gap-1 md:flex-row md:justify-between">
+              <h3 className="font-medium tracking-tight">{post.title}</h3>
+              <time className="flex items-start gap-1.5 text-sm text-neutral-600 tabular-nums dark:text-neutral-400">
+                {new Date(post.publishedAt)
+                  .toLocaleDateString("en-GB", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })
+                  .replace(/\//g, "-")}
+              </time>
+            </div>
+
             <p className="mt-2 line-clamp-3 text-sm/normal text-neutral-600 dark:text-neutral-400">
               {post.summary}
             </p>
-            <div>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-teal-500 dark:text-teal-400"
-              >
-                Read post <ChevronRight className="size-4" />
-              </Link>
-            </div>
+
+            <Link
+              href={`/blog/${post.slug}`}
+              className="mt-4 flex max-w-fit items-center gap-1 text-sm font-medium text-blue-500 dark:text-blue-400"
+            >
+              Read post <ChevronRight className="size-4" />
+            </Link>
           </article>
         );
       })}

@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import Layout from "@/components/layout";
 import { PageIntro } from "@/components/page-intro";
 import { ProjectsList } from "@/components/projects-list";
@@ -17,12 +16,16 @@ export default function ProjectsPage() {
   return (
     <Layout>
       <main>
-        <section className="py-16">
-          <div className="container space-y-16">
-            <PageIntro
-              title="All projects"
-              description="Discover my portfolio of web development projects, showcasing full-stack applications, modern frontend solutions, and innovative web technologies. From React applications to complete web platforms."
-            />
+        <PageIntro
+          title="Projects"
+          description="Discover my portfolio of web development projects, showcasing
+              full-stack applications, modern frontend solutions, and innovative
+              web technologies. From React applications to complete web
+              platforms."
+        />
+
+        <section className="my-12">
+          <div className="container">
             <ProjectsList />
           </div>
         </section>

@@ -1,45 +1,59 @@
+import Link from "next/link";
 import Layout from "@/components/layout";
-import { HeroSection } from "@/components/hero-section";
-import { SectionIntro } from "@/components/section-intro";
 import { ProjectsList } from "@/components/projects-list";
 import { BlogList } from "@/components/blog-list";
 import { TimelineList } from "@/components/timeline-list";
+import { PageIntro } from "@/components/page-intro";
 
 export default function Home() {
   return (
     <Layout>
       <main>
-        <HeroSection />
+        <PageIntro
+          title="Gaurav Shukla"
+          description="I'm a design engineer and creator based in India. I build
+              production-ready web applications and share practical insights
+              through in-depth blog posts."
+        />
 
-        <section className="py-16">
-          <div className="container space-y-16">
-            <SectionIntro
-              heading="Projects"
-              subheading="I love building things."
-              paragraph="Here are some of the projects I've worked on."
-            />
-            <ProjectsList limit={6} />
+        <section className="mt-16">
+          <div className="container">
+            <h2 className="mb-6 text-3xl font-semibold tracking-tight">
+              Projects
+            </h2>
+
+            <ProjectsList limit={4} />
+
+            <Link
+              href="/projects"
+              className="mt-8 inline-block text-sm font-semibold tracking-wider uppercase underline decoration-blue-600 decoration-2 underline-offset-4"
+            >
+              View all
+            </Link>
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container space-y-16">
-            <SectionIntro
-              heading="Blog"
-              subheading="I love sharing knowledge."
-              paragraph="Here are some of the blog posts I've written."
-            />
+        <section className="mt-16">
+          <div className="container">
+            <h2 className="mb-6 text-3xl font-semibold tracking-tight">Blog</h2>
+
             <BlogList limit={4} />
+
+            <Link
+              href="/blog"
+              className="mt-8 inline-block text-sm font-semibold tracking-wider uppercase underline decoration-blue-600 decoration-2 underline-offset-4"
+            >
+              View all
+            </Link>
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container space-y-16">
-            <SectionIntro
-              heading="Timeline"
-              subheading="My life changelog."
-              paragraph="Here's a timeline of my achievements."
-            />
+        <section className="my-16">
+          <div className="container">
+            <h2 className="mb-6 text-3xl font-semibold tracking-tight">
+              Achievements
+            </h2>
+
             <TimelineList />
           </div>
         </section>
