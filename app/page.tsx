@@ -15,7 +15,7 @@ export default function Home() {
               Gaurav Shukla
             </Typography>
             <Typography variant="lead" className="mt-6 max-w-2xl">
-              I'm a design engineer and creator based in India. I build
+              I'm a software engineer and creator based in India. I build
               production-ready web applications and share practical insights
               through in-depth blog posts.
             </Typography>

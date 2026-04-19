@@ -60,31 +60,29 @@ export default async function BlogPostPage({
   return (
     <Layout>
       <div className="container py-16">
-        <article>
-          <CustomProse>
-            <time className="not-prose mb-4 flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-              <Calendar className="h-lh w-4" />
-              {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </time>
+        <CustomProse>
+          <time className="not-prose mb-4 flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+            <Calendar className="h-lh w-4" />
+            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
 
-            <h1 className="mb-4 md:mb-6">{metadata.title}</h1>
+          <h1 className="mb-4 md:mb-6">{metadata.title}</h1>
 
-            <p>{metadata.summary}</p>
+          <p>{metadata.summary}</p>
 
-            <Image
-              src={metadata.image}
-              alt={metadata.title}
-              width={800}
-              height={600}
-            />
+          <Image
+            src={metadata.image}
+            alt={metadata.title}
+            width={800}
+            height={600}
+          />
 
-            <Post />
-          </CustomProse>
-        </article>
+          <Post />
+        </CustomProse>
       </div>
     </Layout>
   );
