@@ -4,6 +4,15 @@ import createMDX from "@next/mdx";
 const nextConfig: NextConfig = {
   /* config options here */
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+  async redirects() {
+    return [
+      {
+        source: "/articles/:path*",
+        destination: "/blog/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
@@ -18,7 +27,13 @@ const withMDX = createMDX({
     rehypePlugins: [
       "rehype-highlight",
       "rehype-slug",
-      ["rehype-autolink-headings", { behavior: "append", properties: { ariaLabel: "Link to section", className: ["anchor"] } }]
+      [
+        "rehype-autolink-headings",
+        {
+          behavior: "append",
+          properties: { ariaLabel: "Link to section", className: ["anchor"] },
+        },
+      ],
     ],
   },
 });
