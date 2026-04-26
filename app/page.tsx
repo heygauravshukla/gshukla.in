@@ -45,7 +45,7 @@ export default function Home() {
               Blog
             </Typography>
 
-            <BlogList limit={4} />
+            <BlogList limit={5} />
 
             <Link
               href="/blog"

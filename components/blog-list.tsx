@@ -1,7 +1,6 @@
 import path from "path";
 import { promises as fs } from "fs";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { Typography } from "@/components/ui/typography";
 
 export async function BlogList({ limit }: { limit?: number }) {
@@ -25,42 +24,37 @@ export async function BlogList({ limit }: { limit?: number }) {
     .slice(0, limit);
 
   return (
-    <div className="grid gap-8">
+    <div className="grid gap-4">
       {sortedPosts.map((post) => {
         return (
-          <article key={post.title} className="relative isolate grid">
-            <div className="flex flex-col gap-1 md:flex-row md:justify-between">
-              <Typography
-                variant="h3"
-                as="h3"
-                className="text-base font-medium"
-              >
+          <article
+            key={post.title}
+            className="group relative isolate flex flex-col gap-0.5 py-1 sm:flex-row sm:justify-between sm:gap-6"
+          >
+            <Typography
+              variant="p"
+              as="h3"
+              className="transition-colors group-hover:text-blue-600"
+            >
+              <Link href={`/blog/${post.slug}`}>
                 {post.title}
-              </Typography>
-              <time className="flex items-start gap-1.5 text-sm text-neutral-600 tabular-nums dark:text-neutral-400">
-                {new Date(post.publishedAt)
-                  .toLocaleDateString("en-GB", {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric",
-                  })
-                  .replace(/\//g, "-")}
-              </time>
-            </div>
+                <span className="absolute inset-0"></span>
+              </Link>
+            </Typography>
 
             <Typography
               variant="muted"
-              className="mt-2 line-clamp-3 text-sm/normal"
+              as="time"
+              className="min-w-fit font-mono transition-colors group-hover:text-blue-600"
             >
-              {post.summary}
+              {new Date(post.publishedAt)
+                .toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })
+                .replace(/\//g, "-")}
             </Typography>
-
-            <Link
-              href={`/blog/${post.slug}`}
-              className="mt-4 flex max-w-fit items-center gap-1 text-sm font-medium text-blue-500 dark:text-blue-400"
-            >
-              Read post <ChevronRight className="size-4" />
-            </Link>
           </article>
         );
       })}
