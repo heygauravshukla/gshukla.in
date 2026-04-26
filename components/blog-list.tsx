@@ -29,7 +29,7 @@ export async function BlogList({ limit }: { limit?: number }) {
         return (
           <article
             key={post.title}
-            className="group relative isolate flex flex-col gap-0.5 py-1 sm:flex-row sm:justify-between sm:gap-6"
+            className="group relative isolate flex flex-col gap-0.5 py-0.5 sm:flex-row sm:justify-between sm:gap-6"
           >
             <Typography
               variant="p"
