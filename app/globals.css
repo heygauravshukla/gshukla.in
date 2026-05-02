@@ -3,8 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
+  --default-font-family: var(--font-serif);
 
   /* Syntax Highlighting Variables */
   --hljs-bg: var(--color-neutral-50);
