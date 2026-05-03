@@ -4,7 +4,6 @@ import { promises as fs } from "fs";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 
-import Layout from "@/components/layout";
 import { CustomProse } from "@/components/custom-prose";
 
 export async function generateMetadata({
@@ -58,33 +57,31 @@ export default async function BlogPostPage({
   );
 
   return (
-    <Layout>
-      <div className="container py-16">
-        <CustomProse>
-          <time className="not-prose mb-4 flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-            <Calendar className="h-lh w-4" />
-            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </time>
+    <div className="container py-16">
+      <CustomProse>
+        <h1>{metadata.title}</h1>
 
-          <h1 className="mb-4 md:mb-6">{metadata.title}</h1>
+        <small className="flex items-start gap-2">
+          <Calendar className="h-lh w-4" />
+          {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </small>
 
-          <p>{metadata.summary}</p>
+        <p>{metadata.summary}</p>
 
-          <Image
-            src={metadata.image}
-            alt={metadata.title}
-            width={800}
-            height={600}
-          />
+        <Image
+          src={metadata.image}
+          alt={metadata.title}
+          width={800}
+          height={600}
+        />
 
-          <Post />
-        </CustomProse>
-      </div>
-    </Layout>
+        <Post />
+      </CustomProse>
+    </div>
   );
 }
 

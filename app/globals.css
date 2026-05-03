@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-serif: var(--font-merriweather);
@@ -19,16 +18,18 @@
   --hljs-class: #e36209;
 }
 
-.dark {
-  --hljs-bg: var(--color-neutral-900);
-  --hljs-border: var(--color-neutral-800);
-  --hljs-text: #c9d1d9;
-  --hljs-comment: #8b949e;
-  --hljs-keyword: #ff7b72;
-  --hljs-string: #a5d6ff;
-  --hljs-function: #d2a8ff;
-  --hljs-number: #79c0ff;
-  --hljs-class: #ffa657;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --hljs-bg: var(--color-neutral-900);
+    --hljs-border: var(--color-neutral-800);
+    --hljs-text: #c9d1d9;
+    --hljs-comment: #8b949e;
+    --hljs-keyword: #ff7b72;
+    --hljs-string: #a5d6ff;
+    --hljs-function: #d2a8ff;
+    --hljs-number: #79c0ff;
+    --hljs-class: #ffa657;
+  }
 }
 
 @utility container {

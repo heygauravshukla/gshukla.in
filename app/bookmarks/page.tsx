@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { Metadata } from "next";
-import Layout from "@/components/layout";
-import { Typography } from "@/components/ui/typography";
-import { BookmarksList } from "@/components/bookmarks-list";
+import { CustomProse } from "@/components/custom-prose";
+import { ExternalLink } from "lucide-react";
+import { bookmarks } from "@/data/bookmarks";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -15,41 +15,32 @@ export const metadata: Metadata = {
 
 export default function BookmarksPage() {
   return (
-    <Layout>
-      <main>
-        <section className="mt-12">
-          <div className="container">
-            <Typography as="h1" variant="h1">
-              Bookmarks
-            </Typography>
-            <Typography variant="lead" className="mt-6 max-w-2xl">
-              Explore my collection of bookmarks, from web development resources
-              to online tools that I use regularly.
-            </Typography>
-          </div>
-        </section>
+    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
+      <CustomProse>
+        <h1>Bookmarks</h1>
 
-        <section className="mt-12">
-          <div className="container">
-            <BookmarksList />
-          </div>
-        </section>
+        <p>Explore my collection of bookmarks.</p>
 
-        <section className="my-12">
-          <div className="container">
-            <Typography variant="p">
-              That&apos;s all folks! If you have any suggestions for more
-              resources, feel free to{" "}
-              <Link
-                href="mailto:heygauravshukla@gmail.com"
-                className="text-blue-500 underline dark:text-blue-400"
-              >
-                reach out!
-              </Link>
-            </Typography>
+        {bookmarks.map((bookmark) => (
+          <div key={bookmark.category}>
+            <h3>{bookmark.category}</h3>
+
+            <ol>
+              {bookmark.items.map((item) => (
+                <li key={item.title}>
+                  <Link
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ol>
           </div>
-        </section>
-      </main>
-    </Layout>
+        ))}
+      </CustomProse>
+    </main>
   );
 }

@@ -1,7 +1,6 @@
 interface Bookmark {
   title: string;
   href: string;
-  description?: string;
 }
 
 interface BookmarkCategory {
@@ -14,51 +13,36 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Software & Tools",
     items: [
       {
-        title: "Awesome Screenshot",
+        title: "Awesome Screenshot - Screen Capture & Recorder",
         href: "https://www.awesomescreenshot.com",
-        description:
-          "A browser extension for screen recording and screen capturing.",
       },
       {
-        title: "Cursorful – Screen Recorder",
+        title: "Cursorful - Browser Screen Recorder with Auto Zoom",
         href: "https://cursorful.com",
-        description:
-          "A screen recorder with automatic zoom directly inside your browser.",
       },
       {
-        title: "Excalidraw – Virtual Whiteboard",
+        title: "Excalidraw - Collaborative Whiteboard",
         href: "https://excalidraw.com",
-        description:
-          "A collaborative virtual whiteboard for sketching hand-drawn-style diagrams.",
       },
       {
-        title: "Free image resizer",
+        title: "Adobe Express - Image Resizer",
         href: "https://www.adobe.com/express/feature/image/resize",
-        description:
-          "Easily resize your images in one click using Adobe Express.",
       },
       {
-        title: "Notion – All-in-one Workspace",
+        title: "Notion - Notes, Docs, Project Management Workspace",
         href: "https://www.notion.com",
-        description:
-          "A unified workspace for notes, documentation, project management, and wikis.",
       },
       {
-        title: "OpenCut – Video Editor",
+        title: "OpenCut - Web-based Video Editor",
         href: "https://opencut.app",
-        description: "An open-source, web-based video editor.",
       },
       {
-        title: "Photopea – Online Photo Editor",
+        title: "Photopea - Online PSD/XD/Sketch Editor",
         href: "https://www.photopea.com",
-        description:
-          "An advanced browser-based editor with support for PSD, XD, and Sketch files.",
       },
       {
-        title: "Ray.so – Code Snapshot Generator",
+        title: "Ray.so - Code Screenshot Generator",
         href: "https://www.ray.so",
-        description:
-          "Generate beautiful, shareable images of your code snippets.",
       },
     ],
   },
@@ -66,101 +50,64 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Developer Resources",
     items: [
       {
-        title: "Clippy – CSS clip-path Maker",
+        title: "Clippy - CSS clip-path Generator",
         href: "https://bennettfeely.com/clippy",
-        description:
-          "A visual tool for creating complex CSS `clip-path` shapes.",
       },
       {
-        title: "Favicon Generator",
+        title: "Favicon Generator - Multi-format Icons",
         href: "https://redketchup.io/favicon-generator",
-        description:
-          "Generate favicons in various formats for websites and applications.",
       },
       {
-        title: "Fluid Typography Calculator",
+        title: "Fluid Typography Calculator - CSS clamp Generator",
         href: "https://royalfig.github.io/fluid-typography-calculator",
-        description:
-          "Generate CSS `clamp()` values for responsive and fluid typography.",
       },
       {
-        title: "Google Webfonts Helper",
+        title: "Google Webfonts Helper - Self-host Fonts",
         href: "https://gwfh.mranftl.com/fonts",
-        description:
-          "Easily self-host Google Fonts and get `@font-face` snippets.",
       },
       {
-        title: "Hero Patterns",
+        title: "Hero Patterns - SVG Background Patterns",
         href: "https://heropatterns.com",
-        description: "A collection of repeatable SVG background patterns.",
       },
       {
-        title: "InfinityFree – Free Web Hosting",
+        title: "InfinityFree - Free PHP/MySQL Hosting",
         href: "https://infinityfree.com",
-        description:
-          "A completely free hosting service with support for PHP and MySQL.",
       },
+      { title: "npmx - npm Package Explorer", href: "https://npmx.dev" },
       {
-        title: "npmx - Package browser for the npm registry",
-        href: "https://npmx.dev",
-        description: "A fast, modern browser for the npm registry",
-      },
-      {
-        title: "Open Props",
+        title: "Open Props - CSS Variables Framework",
         href: "https://open-props.style",
-        description:
-          "A CSS custom properties framework for super-charged, rapid UI development.",
       },
       {
-        title: "React Icons",
+        title: "React Icons - Icon Library for React",
         href: "https://react-icons.github.io/react-icons",
-        description:
-          "A library that bundles popular icon sets as easy-to-use React components.",
       },
       {
-        title: "SKILLS - The open agent skills ecosystem",
+        title: "Skills.sh - Agent Skills Directory",
         href: "https://skills.sh",
-        description: "Browse and install agent skills with ease.",
       },
       {
-        title: "Squoosh – Image Compression",
+        title: "Squoosh - Image Compression Tool",
         href: "https://squoosh.app",
-        description:
-          "Optimize and compress images with modern codecs in your browser.",
       },
     ],
   },
   {
     category: "Free APIs",
     items: [
+      { title: "EmailJS - Client-side Email API", href: "https://emailjs.com" },
+      { title: "IPify - Geolocation API", href: "https://geo.ipify.org" },
       {
-        title: "EmailJS – Client-side Email Service",
-        href: "https://emailjs.com",
-        description:
-          "Send emails directly from client-side JavaScript without a server.",
-      },
-      {
-        title: "IP Geolocation API",
-        href: "https://geo.ipify.org",
-        description:
-          "A free API to retrieve IP-based geolocation data like city, country, and ISP.",
-      },
-      {
-        title: "JSON Placeholder",
+        title: "JSONPlaceholder - Fake REST API",
         href: "https://jsonplaceholder.typicode.com",
-        description:
-          "A fake REST API for testing and prototyping frontend applications.",
       },
       {
-        title: "OpenWeatherMap API",
+        title: "OpenWeatherMap - Weather API",
         href: "https://openweathermap.org",
-        description:
-          "Provides current weather data and forecasts via a free API.",
       },
       {
-        title: "spoo.me – URL Shortener API",
+        title: "Spoo.me - URL Shortener API",
         href: "https://docs.spoo.me/introduction",
-        description: "A free and simple link shortener with a developer API.",
       },
     ],
   },
@@ -168,52 +115,30 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Learning & Practice",
     items: [
       {
-        title: "Chrome for Developers Blog",
+        title: "Chrome for Developers - Blog",
         href: "https://developer.chrome.com/blog",
-        description:
-          "Official updates, features, and performance tips from the Google Chrome team.",
       },
       {
-        title: "Consistent Fluid Type & Spacing",
+        title: "Consistent Fluid Type & Spacing - CSS-Tricks Guide",
         href: "https://css-tricks.com/consistent-fluidly-scaling-type-and-spacing",
-        description:
-          "An article on creating robust fluid typography and spacing systems with CSS.",
       },
       {
-        title: "CSS-Tricks",
+        title: "CSS-Tricks - Web Dev Articles & Guides",
         href: "https://css-tricks.com",
-        description:
-          "A popular blog covering CSS, layouts, UI tips, and general web development news.",
       },
+      { title: "Developer Roadmaps - roadmap.sh", href: "https://roadmap.sh" },
       {
-        title: "Developer Roadmaps",
-        href: "https://roadmap.sh",
-        description:
-          "Community-curated roadmaps, study plans, and learning paths for developers.",
-      },
-      {
-        title: "Frontend Mentor",
+        title: "Frontend Mentor - Frontend Challenges",
         href: "https://www.frontendmentor.io",
-        description:
-          "Solve real-world frontend challenges to improve HTML, CSS, and JS skills.",
       },
       {
-        title: "GreatFrontEnd",
+        title: "GreatFrontEnd - Frontend Interview Prep",
         href: "https://www.greatfrontend.com",
-        description:
-          "The front end interview prep platform built to make your interviews much easier.",
       },
+      { title: "Nerdy Dev - Web Dev Blog", href: "https://nerdy.dev" },
       {
-        title: "Nerdy Dev – Web Development Blog",
-        href: "https://nerdy.dev",
-        description:
-          "A blog covering web development topics, tutorials, and tips.",
-      },
-      {
-        title: "Striver's A2Z DSA Course",
+        title: "Striver’s A2Z DSA - Sheet",
         href: "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2",
-        description:
-          "A comprehensive Data Structures and Algorithms course with practice problems.",
       },
     ],
   },
@@ -221,34 +146,24 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Portfolio Inspirations",
     items: [
       {
-        title: "Brittany Chiang – Developer Portfolio",
+        title: "Brittany Chiang - Developer Portfolio",
         href: "https://brittanychiang.com",
-        description:
-          "A clean, single-page developer portfolio with a focus on project presentation.",
       },
       {
-        title: "Chánh Đại – Developer Portfolio",
+        title: "Chánh Đại - Developer Portfolio",
         href: "https://chanhdai.com",
-        description:
-          "A minimal portfolio featuring a grid-based UI with subtle scanline and noise overlays.",
       },
       {
-        title: "Lee Robinson – Developer Portfolio",
+        title: "Lee Robinson - Developer Portfolio",
         href: "https://leerob.com",
-        description:
-          "A super minimal portfolio website built with Tailwind CSS.",
       },
       {
-        title: "Manu Arora – Freelancer Portfolio",
+        title: "Manu Arora - Freelancer Portfolio",
         href: "https://manuarora.in",
-        description:
-          "A minimal and elegant freelancer portfolio with smooth animations.",
       },
       {
-        title: "Spotlight – Portfolio Template",
+        title: "Spotlight - Tailwind Portfolio Template",
         href: "https://spotlight.tailwindui.com",
-        description:
-          "A sleek and professional portfolio template built with Tailwind CSS.",
       },
     ],
   },
@@ -256,10 +171,8 @@ export const bookmarks: BookmarkCategory[] = [
     category: "Templates & Resumes",
     items: [
       {
-        title: "Jake's Resume – LaTeX Template",
+        title: "Jake’s Resume - LaTeX Template",
         href: "https://www.overleaf.com/latex/templates/jakes-resume-anonymous/cstpnrbkhndn",
-        description:
-          "A clean, single-column LaTeX resume template ideal for software engineers.",
       },
     ],
   },

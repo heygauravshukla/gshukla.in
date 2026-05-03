@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import Layout from "@/components/layout";
-import { Typography } from "@/components/ui/typography";
+import { CustomProse } from "@/components/custom-prose";
 import { BlogList } from "@/components/blog-list";
 
 export const metadata: Metadata = {
@@ -14,27 +13,17 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <Layout>
-      <main>
-        <section className="mt-12">
-          <div className="container">
-            <Typography as="h1" variant="h1">
-              Blog
-            </Typography>
-            <Typography variant="lead" className="mt-6 max-w-2xl">
-              Explore my collection of blog posts about web development, coding
-              practices, and technology insights. I write about frontend
-              development, React, and modern web technologies.
-            </Typography>
-          </div>
-        </section>
+    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
+      <CustomProse>
+        <h1>Blog</h1>
 
-        <section className="my-12">
-          <div className="container">
-            <BlogList />
-          </div>
-        </section>
-      </main>
-    </Layout>
+        <p>
+          I write about frontend development, React, and modern web
+          technologies.
+        </p>
+
+        <BlogList />
+      </CustomProse>
+    </main>
   );
 }
