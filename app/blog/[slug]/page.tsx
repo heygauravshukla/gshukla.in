@@ -57,9 +57,9 @@ export default async function BlogPostPage({
   );
 
   return (
-    <div className="container py-16">
+    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
       <CustomProse>
-        <h1>{metadata.title}</h1>
+        <h1 className="mb-4">{metadata.title}</h1>
 
         <small className="flex items-start gap-2">
           <Calendar className="h-lh w-4" />
@@ -77,11 +77,12 @@ export default async function BlogPostPage({
           alt={metadata.title}
           width={800}
           height={600}
+          className="ring-1 ring-neutral-100 dark:ring-neutral-800"
         />
 
         <Post />
       </CustomProse>
-    </div>
+    </main>
   );
 }
 
