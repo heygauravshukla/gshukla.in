@@ -1,0 +1,81 @@
+---
+title: "contrast-color() in CSS"
+publishedAt: "2026-05-26T05:15:00+05:30"
+summary: "Learn how the new CSS contrast-color() function automatically chooses readable text colors based on the background."
+image: "/blog/contrast-color-css.jpg"
+tags:
+  - "Modern CSS"
+  - "CSS Color Functions"
+  - "contrast-color()"
+  - "Frontend Development"
+---
+
+The new **`contrast-color()`** function in CSS is now a Baseline feature, which means you can use it in modern browsers without worrying much about support.
+
+It automatically returns a readable contrasting color for a given input color.
+
+```css
+contrast-color(blue);   /* white */
+contrast-color(yellow); /* black */
+contrast-color(var(--color-primary));
+```
+
+In simple terms:
+
+- Dark backgrounds → `white`
+- Light backgrounds → `black`
+
+This becomes especially useful when colors are dynamic or user-defined.
+
+## Example
+
+Suppose a button receives its background color from a CSS variable.
+
+```css
+button {
+  color: black;
+  background-color: var(--btn-bg);
+}
+```
+
+## The Problem
+
+If `--btn-bg` contains a light color like yellow or pink, the black text remains readable.
+
+![Without using contrast-color()](/blog/without-contrast-color.jpg)
+
+But if the background becomes a darker color like blue or green, the text may lose readability and create accessibility issues.
+
+## The Fix
+
+Using `contrast-color()` allows CSS to automatically choose a readable text color.
+
+```css
+button {
+  color: contrast-color(var(--btn-bg));
+  background-color: var(--btn-bg);
+}
+```
+
+![With contrast-color()](/blog/with-contrast-color.jpg)
+
+Now the text color updates automatically:
+
+- White text for darker backgrounds
+- Black text for lighter backgrounds
+
+This makes components more flexible and accessible without manually managing color combinations.
+
+## Caveats
+
+`contrast-color()` works well for clearly light or dark colors, but it can sometimes produce less ideal results for mid-tone colors.
+
+So while it's a great utility for many use cases, you may still want to manually test important UI elements for accessibility and contrast compliance.
+
+## Learn More
+
+Read the official MDN documentation:
+
+[MDN — contrast-color()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/contrast-color?utm_source=chatgpt.com)
+
+That's it.
