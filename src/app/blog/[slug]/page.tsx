@@ -87,7 +87,9 @@ export default async function BlogPostPage({
 }
 
 export async function generateStaticParams() {
-  const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
+  const filenames = await fs.readdir(
+    path.join(process.cwd(), "src/content/blog"),
+  );
 
   const staticSlugs = filenames.map((filename) => {
     return { slug: filename.replace(".mdx", "") };
