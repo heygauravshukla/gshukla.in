@@ -5,30 +5,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.typeset-docs {
-  --typeset-font-body: var(--font-merriweather);
-  --typeset-font-heading: var(--font-merriweather);
-  --typeset-font-mono: var(--font-geist-mono);
-  --typeset-size: 16px;
-  --typeset-leading: 1.75;
-  --typeset-flow: 1.25em;
-}
-
 @theme inline {
   --font-serif: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
   --default-font-family: var(--font-serif);
-
-  /* Syntax Highlighting Variables */
-  --hljs-bg: var(--color-neutral-50);
-  --hljs-border: var(--color-neutral-200);
-  --hljs-text: #24292e;
-  --hljs-comment: #6a737d;
-  --hljs-keyword: #d73a49;
-  --hljs-string: #032f62;
-  --hljs-function: #6f42c1;
-  --hljs-number: #005cc5;
-  --hljs-class: #e36209;
 
   --font-heading: var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -71,122 +51,6 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --hljs-bg: var(--color-neutral-900);
-    --hljs-border: var(--color-neutral-800);
-    --hljs-text: #c9d1d9;
-    --hljs-comment: #8b949e;
-    --hljs-keyword: #ff7b72;
-    --hljs-string: #a5d6ff;
-    --hljs-function: #d2a8ff;
-    --hljs-number: #79c0ff;
-    --hljs-class: #ffa657;
-  }
-}
-
-@utility container {
-  @apply mx-auto px-4 md:max-w-3xl md:px-8;
-}
-
-/* Custom styles for code blocks */
-pre {
-  overflow-x: auto;
-  padding: 1.25rem;
-  border-radius: 0.75rem;
-  background-color: var(--hljs-bg);
-  border: 1px solid var(--hljs-border);
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--hljs-text);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-pre code {
-  font-size: 0.875rem;
-  line-height: 1.7142857;
-  padding: 0 !important;
-  background: transparent !important;
-  font-family: var(--font-mono);
-}
-
-/* Highlight.js Color Mapping */
-.hljs-comment,
-.hljs-quote {
-  color: var(--hljs-comment);
-  font-style: italic;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: var(--hljs-keyword);
-  font-weight: 600;
-}
-
-.hljs-string,
-.hljs-doctag,
-.hljs-type,
-.hljs-attr,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-built_in,
-.hljs-addition {
-  color: var(--hljs-string);
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id,
-.hljs-selector-class {
-  color: var(--hljs-function);
-  font-weight: 600;
-}
-
-.hljs-number,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-link {
-  color: var(--hljs-number);
-}
-
-.hljs-params,
-.hljs-attribute {
-  color: var(--hljs-text);
-}
-
-.hljs-variable {
-  color: var(--hljs-class);
-}
-
-/* Anchor links for headings */
-.anchor {
-  @apply ml-2 no-underline opacity-0 transition-opacity;
-  color: var(--color-neutral-400);
-}
-
-.anchor:hover {
-  @apply text-teal-500 dark:text-teal-400;
-}
-
-h1:hover .anchor,
-h2:hover .anchor,
-h3:hover .anchor,
-h4:hover .anchor,
-h5:hover .anchor,
-h6:hover .anchor {
-  @apply opacity-100;
-}
-
-.anchor::after {
-  content: "#";
-}
-
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -220,6 +84,17 @@ h6:hover .anchor {
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Syntax Highlighting Variables */
+  --hljs-bg: var(--color-neutral-50);
+  --hljs-border: var(--color-neutral-200);
+  --hljs-text: #24292e;
+  --hljs-comment: #6a737d;
+  --hljs-keyword: #d73a49;
+  --hljs-string: #032f62;
+  --hljs-function: #6f42c1;
+  --hljs-number: #005cc5;
+  --hljs-class: #e36209;
 }
 
 .dark {
@@ -254,6 +129,17 @@ h6:hover .anchor {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* Syntax Highlighting Variables */
+  --hljs-bg: var(--color-neutral-900);
+  --hljs-border: var(--color-neutral-800);
+  --hljs-text: #c9d1d9;
+  --hljs-comment: #8b949e;
+  --hljs-keyword: #ff7b72;
+  --hljs-string: #a5d6ff;
+  --hljs-function: #d2a8ff;
+  --hljs-number: #79c0ff;
+  --hljs-class: #ffa657;
 }
 
 @layer base {
@@ -266,4 +152,117 @@ h6:hover .anchor {
   html {
     @apply font-serif;
   }
+}
+
+@layer components {
+  .typeset-docs {
+    --typeset-font-body: var(--font-merriweather);
+    --typeset-font-heading: var(--font-merriweather);
+    --typeset-font-mono: var(--font-geist-mono);
+    --typeset-size: 15px;
+    --typeset-leading: 1.75;
+    --typeset-flow: 1.25em;
+  }
+
+  /* Custom styles for code blocks */
+  pre {
+    overflow-x: auto;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    background-color: var(--hljs-bg);
+    border: 1px solid var(--hljs-border);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--hljs-text);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  pre code {
+    font-size: 0.875rem;
+    line-height: 1.7142857;
+    padding: 0 !important;
+    background: transparent !important;
+    font-family: var(--font-mono);
+  }
+
+  /* Highlight.js Color Mapping */
+  .hljs-comment,
+  .hljs-quote {
+    color: var(--hljs-comment);
+    font-style: italic;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-subst {
+    color: var(--hljs-keyword);
+    font-weight: 600;
+  }
+
+  .hljs-string,
+  .hljs-doctag,
+  .hljs-type,
+  .hljs-attr,
+  .hljs-symbol,
+  .hljs-bullet,
+  .hljs-built_in,
+  .hljs-addition {
+    color: var(--hljs-string);
+  }
+
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-id,
+  .hljs-selector-class {
+    color: var(--hljs-function);
+    font-weight: 600;
+  }
+
+  .hljs-number,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag,
+  .hljs-name,
+  .hljs-link {
+    color: var(--hljs-number);
+  }
+
+  .hljs-params,
+  .hljs-attribute {
+    color: var(--hljs-text);
+  }
+
+  .hljs-variable {
+    color: var(--hljs-class);
+  }
+
+  /* Anchor links for headings */
+  .anchor {
+    @apply ml-2 no-underline opacity-0 transition-opacity;
+    color: var(--color-neutral-400);
+  }
+
+  .anchor:hover {
+    @apply text-teal-500 dark:text-teal-400;
+  }
+
+  h1:hover .anchor,
+  h2:hover .anchor,
+  h3:hover .anchor,
+  h4:hover .anchor,
+  h5:hover .anchor,
+  h6:hover .anchor {
+    @apply opacity-100;
+  }
+
+  .anchor::after {
+    content: "#";
+  }
+}
+
+@utility container {
+  @apply mx-auto px-4 md:max-w-3xl md:px-8;
 }
