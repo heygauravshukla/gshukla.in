@@ -8,7 +8,6 @@
 @theme inline {
   --font-serif: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
-  --default-font-family: var(--font-serif);
 
   --font-heading: var(--font-serif);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -147,7 +146,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground selection:bg-primary selection:text-primary-foreground;
   }
   html {
     @apply font-serif;

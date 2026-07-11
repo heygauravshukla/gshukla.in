@@ -38,9 +38,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${merriweather.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="selection:bg-blue-800/10 selection:text-blue-600">
-        {children}
-      </body>
+      <body>{children}</body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
     </html>
   );
