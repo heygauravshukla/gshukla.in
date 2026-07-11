@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { CustomProse } from "@/components/custom-prose";
 import { ProjectsList } from "@/components/projects-list";
 
 export const metadata: Metadata = {
@@ -13,8 +12,8 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
+    <main className="container my-20 md:my-24">
+      <div className="typeset typeset-docs mx-auto max-w-[42em]">
         <h1>Projects</h1>
 
         <p>Explore my portfolio of web development projects.</p>
@@ -22,7 +21,7 @@ export default function ProjectsPage() {
         <div className="not-prose">
           <ProjectsList />
         </div>
-      </CustomProse>
+      </div>
     </main>
   );
 }

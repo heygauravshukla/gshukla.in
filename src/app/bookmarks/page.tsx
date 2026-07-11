@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import { CustomProse } from "@/components/custom-prose";
-import { ExternalLink } from "lucide-react";
 import { bookmarks } from "@/data/bookmarks";
 import Link from "next/link";
 
@@ -15,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function BookmarksPage() {
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
+    <main className="container my-20 md:my-24">
+      <div className="typeset typeset-docs mx-auto max-w-[42em]">
         <h1>Bookmarks</h1>
 
         <p>Explore my collection of bookmarks.</p>
@@ -40,7 +38,7 @@ export default function BookmarksPage() {
             </ol>
           </div>
         ))}
-      </CustomProse>
+      </div>
     </main>
   );
 }

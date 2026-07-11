@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { CustomProse } from "@/components/custom-prose";
 
 export default function Home() {
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
+    <main className="container my-20 md:my-24">
+      <div className="typeset typeset-docs mx-auto max-w-[42em]">
         <h1>Gaurav Shukla</h1>
         <p>
           I'm a <Link href="/about">developer and writer</Link> based in India.
@@ -62,7 +61,7 @@ export default function Home() {
           or <Link href="mailto:heygauravshukla@gmail.com">reach out</Link> if
           you want to collaborate.
         </p>
-      </CustomProse>
+      </div>
     </main>
   );
 }

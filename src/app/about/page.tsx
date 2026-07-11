@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { CustomProse } from "@/components/custom-prose";
 import { timeline } from "@/data/timeline";
 
 export const metadata: Metadata = {
@@ -14,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
+    <main className="container my-20 md:my-24">
+      <div className="typeset typeset-docs mx-auto max-w-[42em]">
         <h1>About</h1>
 
         <p>
@@ -209,7 +208,7 @@ export default function AboutPage() {
             </ul>
           </div>
         ))}
-      </CustomProse>
+      </div>
     </main>
   );
 }

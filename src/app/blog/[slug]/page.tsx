@@ -4,8 +4,6 @@ import { promises as fs } from "fs";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
 
-import { CustomProse } from "@/components/custom-prose";
-
 export async function generateMetadata({
   params,
 }: {
@@ -57,8 +55,8 @@ export default async function BlogPostPage({
   );
 
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
+    <main className="container my-20 md:my-24">
+      <div className="typeset typeset-docs mx-auto max-w-[42em]">
         <h1 className="mb-4">{metadata.title}</h1>
 
         <small className="flex items-start gap-2">
@@ -81,7 +79,7 @@ export default async function BlogPostPage({
         />
 
         <Post />
-      </CustomProse>
+      </div>
     </main>
   );
 }

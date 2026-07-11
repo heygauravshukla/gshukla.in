@@ -1,9 +1,18 @@
 @import "tailwindcss";
+@import "./typeset.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
-@plugin "@tailwindcss/typography";
+
+.typeset-docs {
+  --typeset-font-body: var(--font-merriweather);
+  --typeset-font-heading: var(--font-merriweather);
+  --typeset-font-mono: var(--font-geist-mono);
+  --typeset-size: 16px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+}
 
 @theme inline {
   --font-serif: var(--font-merriweather);
