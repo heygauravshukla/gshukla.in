@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 import { Menu, SquareArrowOutUpRight } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   { label: "About", href: "/about" },
@@ -33,7 +34,7 @@ export function Header() {
           />
         </Link>
 
-        <nav>
+        <nav className="flex items-center gap-3">
           {/* Desktop nav */}
           <ul className="flex items-center gap-5 max-md:hidden">
             {navigation.map((item) => (
@@ -45,11 +46,13 @@ export function Header() {
             ))}
           </ul>
 
+          <ThemeToggle />
+
           {/* Mobile nav */}
           <Sheet>
             <SheetTrigger className="md:hidden">
               <span className="sr-only">Menu</span>
-              <Menu className="size-5" />
+              <Menu className="size-4" />
             </SheetTrigger>
             <SheetContent>
               <ul className="mt-16 grid gap-5 p-6">
