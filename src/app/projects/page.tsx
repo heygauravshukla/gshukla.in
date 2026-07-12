@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Layout from "@/components/layout";
 import { ProjectsList } from "@/components/projects-list";
 
 export const metadata: Metadata = {
@@ -12,16 +13,18 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="container my-20 md:my-24">
-      <div className="typeset typeset-docs mx-auto max-w-[42em]">
-        <h1>Projects</h1>
+    <Layout>
+      <main className="container my-12">
+        <div className="typeset typeset-docs">
+          <h1>Projects</h1>
 
-        <p>Explore my portfolio of web development projects.</p>
+          <p>Explore my portfolio of web development projects.</p>
 
-        <div className="not-prose">
-          <ProjectsList />
+          <div className="not-prose">
+            <ProjectsList />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </Layout>
   );
 }

@@ -1,6 +1,7 @@
-import { Metadata } from "next";
-import { bookmarks } from "@/data/bookmarks";
 import Link from "next/link";
+import { Metadata } from "next";
+import Layout from "@/components/layout";
+import { bookmarks } from "@/data/bookmarks";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -13,32 +14,34 @@ export const metadata: Metadata = {
 
 export default function BookmarksPage() {
   return (
-    <main className="container my-20 md:my-24">
-      <div className="typeset typeset-docs mx-auto max-w-[42em]">
-        <h1>Bookmarks</h1>
+    <Layout>
+      <main className="container my-12">
+        <div className="typeset typeset-docs">
+          <h1>Bookmarks</h1>
 
-        <p>Explore my collection of bookmarks.</p>
+          <p>Explore my collection of bookmarks.</p>
 
-        {bookmarks.map((bookmark) => (
-          <div key={bookmark.category}>
-            <h3>{bookmark.category}</h3>
+          {bookmarks.map((bookmark) => (
+            <div key={bookmark.category}>
+              <h3>{bookmark.category}</h3>
 
-            <ol>
-              {bookmark.items.map((item) => (
-                <li key={item.title}>
-                  <Link
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {item.title}
-                  </Link>
-                </li>
-              ))}
-            </ol>
-          </div>
-        ))}
-      </div>
-    </main>
+              <ol>
+                {bookmark.items.map((item) => (
+                  <li key={item.title}>
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </main>
+    </Layout>
   );
 }

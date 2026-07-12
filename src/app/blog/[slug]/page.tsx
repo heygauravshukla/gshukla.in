@@ -3,6 +3,7 @@ import { promises as fs } from "fs";
 
 import Image from "next/image";
 import { Calendar } from "lucide-react";
+import Layout from "@/components/layout";
 
 export async function generateMetadata({
   params,
@@ -55,32 +56,34 @@ export default async function BlogPostPage({
   );
 
   return (
-    <main className="container my-20 md:my-24">
-      <div className="typeset typeset-docs mx-auto max-w-[42em]">
-        <h1 className="mb-4">{metadata.title}</h1>
+    <Layout>
+      <main className="container my-12">
+        <div className="typeset typeset-docs">
+          <h1 className="mb-4">{metadata.title}</h1>
 
-        <small className="flex items-start gap-2">
-          <Calendar className="h-lh w-4" />
-          {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </small>
+          <small className="flex items-start gap-2">
+            <Calendar className="h-lh w-4" />
+            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </small>
 
-        <p>{metadata.summary}</p>
+          <p>{metadata.summary}</p>
 
-        <Image
-          src={metadata.image}
-          alt={metadata.title}
-          width={800}
-          height={600}
-          className="ring-1 ring-neutral-100 dark:ring-neutral-800"
-        />
+          <Image
+            src={metadata.image}
+            alt={metadata.title}
+            width={800}
+            height={600}
+            className="ring-1 ring-neutral-100 dark:ring-neutral-800"
+          />
 
-        <Post />
-      </div>
-    </main>
+          <Post />
+        </div>
+      </main>
+    </Layout>
   );
 }
 
