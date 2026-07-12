@@ -23,7 +23,9 @@ export default function BlogPage() {
             technologies.
           </p>
 
-          <BlogList />
+          <section className="not-typeset mt-6">
+            <BlogList />
+          </section>
         </div>
       </main>
     </Layout>

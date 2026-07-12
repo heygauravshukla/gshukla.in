@@ -21,25 +21,27 @@ export default function BookmarksPage() {
 
           <p>Explore my collection of bookmarks.</p>
 
-          {bookmarks.map((bookmark) => (
-            <div key={bookmark.category}>
-              <h3>{bookmark.category}</h3>
+          <section className="mt-6">
+            {bookmarks.map((bookmark) => (
+              <div key={bookmark.category}>
+                <h3>{bookmark.category}</h3>
 
-              <ol>
-                {bookmark.items.map((item) => (
-                  <li key={item.title}>
-                    <Link
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.title}
-                    </Link>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          ))}
+                <ol>
+                  {bookmark.items.map((item) => (
+                    <li key={item.title}>
+                      <Link
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ))}
+          </section>
         </div>
       </main>
     </Layout>

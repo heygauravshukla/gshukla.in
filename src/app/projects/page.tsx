@@ -20,9 +20,9 @@ export default function ProjectsPage() {
 
           <p>Explore my portfolio of web development projects.</p>
 
-          <div className="not-prose">
+          <section className="not-typeset mt-6">
             <ProjectsList />
-          </div>
+          </section>
         </div>
       </main>
     </Layout>
