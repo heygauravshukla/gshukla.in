@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { CustomProse } from "@/components/custom-prose";
+import Layout from "@/components/layout";
 
 export const metadata: Metadata = {
   title: "Socials",
@@ -37,27 +37,29 @@ const socialLinks: SocialLink[] = [
 
 export default function SocialsPage() {
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
-        <h1>Socials</h1>
+    <Layout>
+      <main className="container my-12">
+        <div className="typeset typeset-docs">
+          <h1>Socials</h1>
 
-        <p>You can find me on:</p>
+          <p>You can find me on:</p>
 
-        <ul>
-          {socialLinks.map((item) => (
-            <li key={item.platform}>
-              <Link
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visit my ${item.platform} profile`}
-              >
-                {item.platform}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </CustomProse>
-    </main>
+          <ul>
+            {socialLinks.map((item) => (
+              <li key={item.platform}>
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit my ${item.platform} profile`}
+                >
+                  {item.platform}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
+    </Layout>
   );
 }

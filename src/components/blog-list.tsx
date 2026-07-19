@@ -3,7 +3,9 @@ import { promises as fs } from "fs";
 import Link from "next/link";
 
 export async function BlogList({ limit }: { limit?: number }) {
-  const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
+  const filenames = await fs.readdir(
+    path.join(process.cwd(), "src/content/blog"),
+  );
   const posts = await Promise.all(
     filenames.map(async (filename) => {
       const { metadata } = await import(`@/content/blog/${filename}`);

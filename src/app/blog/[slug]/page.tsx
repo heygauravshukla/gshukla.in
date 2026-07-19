@@ -3,8 +3,7 @@ import { promises as fs } from "fs";
 
 import Image from "next/image";
 import { Calendar } from "lucide-react";
-
-import { CustomProse } from "@/components/custom-prose";
+import Layout from "@/components/layout";
 
 export async function generateMetadata({
   params,
@@ -57,37 +56,41 @@ export default async function BlogPostPage({
   );
 
   return (
-    <main className="mx-auto my-20 max-w-2xl px-4 md:my-24">
-      <CustomProse>
-        <h1 className="mb-4">{metadata.title}</h1>
+    <Layout>
+      <main className="container my-12">
+        <div className="typeset typeset-docs">
+          <h1 className="mb-4">{metadata.title}</h1>
 
-        <small className="flex items-start gap-2">
-          <Calendar className="h-lh w-4" />
-          {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </small>
+          <small className="flex items-start gap-2">
+            <Calendar className="h-lh w-4" />
+            {new Date(metadata.publishedAt).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </small>
 
-        <p>{metadata.summary}</p>
+          <p>{metadata.summary}</p>
 
-        <Image
-          src={metadata.image}
-          alt={metadata.title}
-          width={800}
-          height={600}
-          className="ring-1 ring-neutral-100 dark:ring-neutral-800"
-        />
+          <Image
+            src={metadata.image}
+            alt={metadata.title}
+            width={800}
+            height={600}
+            className="ring-1 ring-neutral-100 dark:ring-neutral-800"
+          />
 
-        <Post />
-      </CustomProse>
-    </main>
+          <Post />
+        </div>
+      </main>
+    </Layout>
   );
 }
 
 export async function generateStaticParams() {
-  const filenames = await fs.readdir(path.join(process.cwd(), "content/blog"));
+  const filenames = await fs.readdir(
+    path.join(process.cwd(), "src/content/blog"),
+  );
 
   const staticSlugs = filenames.map((filename) => {
     return { slug: filename.replace(".mdx", "") };
