@@ -1,6 +1,8 @@
 import path from "path";
 import { promises as fs } from "fs";
 import Link from "next/link";
+import Image from "next/image";
+import { formatTimeAgo } from "@/lib/utils";
 
 export async function BlogList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(
@@ -25,27 +27,36 @@ export async function BlogList({ limit }: { limit?: number }) {
     .slice(0, limit);
 
   return (
-    <div className="grid gap-3">
+    <div className="grid gap-4 md:grid-cols-2 md:gap-6">
       {sortedPosts.map((post) => {
         return (
           <article
             key={post.title}
-            className="group relative isolate flex flex-col gap-0.5 py-0.5 sm:flex-row sm:justify-between sm:gap-6"
+            className="hover:bg-card @container relative overflow-hidden rounded-lg border transition-colors"
           >
-            <Link href={`/blog/${post.slug}`}>
-              {post.title}
-              <span className="absolute inset-0"></span>
-            </Link>
+            <div className="flex flex-col @lg:grid @lg:grid-cols-[40%_minmax(0,1fr)]">
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={338}
+                height={190}
+                className="aspect-video h-auto w-full object-cover @max-lg:border-b @lg:border-r"
+              />
 
-            <time className="font-mono text-sm">
-              {new Date(post.publishedAt)
-                .toLocaleDateString("en-In", {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                })
-                .replace(/\//g, "-")}
-            </time>
+              <div className="flex flex-col p-4">
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="font-semibold @xl:line-clamp-2"
+                >
+                  {post.title}
+                  <span className="absolute inset-0"></span>
+                </Link>
+
+                <time className="text-muted-foreground mt-2 text-xs">
+                  {formatTimeAgo(post.publishedAt)}
+                </time>
+              </div>
+            </div>
           </article>
         );
       })}
