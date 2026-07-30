@@ -2,7 +2,7 @@ import path from "path";
 import { promises as fs } from "fs";
 import Link from "next/link";
 import Image from "next/image";
-import { formatTimeAgo } from "@/lib/utils";
+import { TimeAgo } from "@/components/time-ago";
 
 export async function BlogList({ limit }: { limit?: number }) {
   const filenames = await fs.readdir(
@@ -52,9 +52,10 @@ export async function BlogList({ limit }: { limit?: number }) {
                   <span className="absolute inset-0"></span>
                 </Link>
 
-                <time className="text-muted-foreground mt-2 text-xs">
-                  {formatTimeAgo(post.publishedAt)}
-                </time>
+                <TimeAgo
+                  date={post.publishedAt}
+                  className="text-muted-foreground mt-2 text-xs"
+                />
               </div>
             </div>
           </article>
