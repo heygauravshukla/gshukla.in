@@ -18,6 +18,7 @@ export default function AboutPage() {
       <main className="container my-12">
         <div className="typeset typeset-docs">
           <h1>About</h1>
+          <p>A bit about who I am, what I do, and how I ended up here.</p>
 
           <p>
             After completing my senior secondary education in 2020, I watched a{" "}

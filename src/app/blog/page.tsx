@@ -19,8 +19,8 @@ export default function BlogPage() {
           <h1>Blog</h1>
 
           <p>
-            I write about frontend development, React, and modern web
-            technologies.
+            I write about frontend development, CSS, and things I learn building
+            for the web.
           </p>
 
           <section className="not-typeset mt-6">

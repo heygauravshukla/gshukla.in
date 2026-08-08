@@ -19,7 +19,7 @@ export default function BookmarksPage() {
         <div className="typeset typeset-docs">
           <h1>Bookmarks</h1>
 
-          <p>Explore my collection of bookmarks.</p>
+          <p>Tools, articles, and resources I keep coming back to.</p>
 
           <section className="mt-6">
             {bookmarks.map((bookmark) => (

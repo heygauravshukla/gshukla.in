@@ -43,7 +43,7 @@ export default function SocialsPage() {
         <div className="typeset typeset-docs">
           <h1>Socials</h1>
 
-          <p>You can find me on:</p>
+          <p>Where to find me around the internet.</p>
 
           <ul>
             {socialLinks.map((item) => (

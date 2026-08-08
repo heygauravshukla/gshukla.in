@@ -18,7 +18,10 @@ export default function ProjectsPage() {
         <div className="typeset typeset-docs">
           <h1>Projects</h1>
 
-          <p>Explore my portfolio of web development projects.</p>
+          <p>
+            A collection of things I've built, from Frontend Mentor challenges
+            to full apps.
+          </p>
 
           <section className="not-typeset mt-6">
             <ProjectsList />
