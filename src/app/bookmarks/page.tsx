@@ -6,7 +6,7 @@ import { bookmarks } from "@/data/bookmarks";
 export const metadata: Metadata = {
   title: "Bookmarks",
   description:
-    "Explore my collection of bookmarks, from web development resources to online tools that I use regularly.",
+    "A curated list of web development resources, tools, and articles that Gaurav Shukla reads and recommends.",
   alternates: {
     canonical: "/bookmarks",
   },

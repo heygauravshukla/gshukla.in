@@ -5,7 +5,7 @@ import { ProjectsList } from "@/components/projects-list";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Explore my portfolio of web development projects, from full-stack applications to modern frontend solutions. Showcasing my expertise in React, Next.js, and innovative web technologies.",
+    "A collection of web projects by Gaurav Shukla, built with React, Next.js, and TypeScript — from Frontend Mentor challenges to full apps.",
   alternates: {
     canonical: "/projects",
   },

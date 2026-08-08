@@ -4,7 +4,8 @@ import Layout from "@/components/layout";
 
 export const metadata: Metadata = {
   title: "Socials",
-  description: "Check out all my social media accounts.",
+  description:
+    "Find Gaurav Shukla on Twitter, GitHub, LinkedIn, and other platforms.",
   alternates: {
     canonical: "/socials",
   },

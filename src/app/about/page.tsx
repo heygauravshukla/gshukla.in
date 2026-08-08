@@ -6,7 +6,7 @@ import { timeline } from "@/data/timeline";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Self-taught frontend developer passionate about building modern web experiences with Next.js, React, and thoughtful design systems.",
+    "Learn about Gaurav Shukla, a self-taught frontend developer from India building web experiences with Next.js, React, and Tailwind CSS.",
   alternates: {
     canonical: "/about",
   },

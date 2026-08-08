@@ -5,7 +5,7 @@ import { BlogList } from "@/components/blog-list";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Read my latest blog posts about web development, frontend technologies, and software engineering best practices. Sharing insights and experiences from my journey as a developer.",
+    "Articles on CSS, JavaScript, and frontend development — practical tips and lessons from building for the web, by Gaurav Shukla.",
   alternates: {
     canonical: "/blog",
   },

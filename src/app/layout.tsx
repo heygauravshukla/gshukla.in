@@ -17,11 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.gshukla.in"),
   title: {
-    default: "Gaurav Shukla - Software engineer, creator, and tech enthusiast",
-    template: "%s - Gaurav Shukla",
+    default: "Gaurav Shukla | Frontend Developer & Technical Writer",
+    template: "%s | Gaurav Shukla",
   },
   description:
-    "I’m Gaurav, a software engineer and creator based in India. I do front-end development, build awesome projects and share knowledge through blog posts.",
+    "Gaurav Shukla is a frontend developer based in India, building for the web and writing about CSS, JavaScript, and frontend tooling.",
   alternates: {
     canonical: "/",
   },

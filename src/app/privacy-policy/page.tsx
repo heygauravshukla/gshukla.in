@@ -5,9 +5,13 @@ import Layout from "@/components/layout";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read the Privacy Policy for gshukla.in, explaining how Gaurav Shukla collects, uses, and protects your information when you visit the site.",
+    "How Gaurav Shukla collects, uses, and protects your information on gshukla.in.",
   alternates: {
     canonical: "/privacy-policy",
+  },
+  robots: {
+    index: false,
+    follow: true,
   },
 };
 
