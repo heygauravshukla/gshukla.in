@@ -38,9 +38,9 @@ export async function BlogList({ limit }: { limit?: number }) {
               <Image
                 src={post.image}
                 alt={post.title}
-                width={338}
-                height={190}
-                className="aspect-video h-auto w-full object-cover @max-lg:border-b @lg:border-r"
+                width={500}
+                height={260}
+                className="aspect-1200/630 h-auto w-full object-cover @max-lg:border-b @lg:border-r"
               />
 
               <div className="flex flex-col p-4">

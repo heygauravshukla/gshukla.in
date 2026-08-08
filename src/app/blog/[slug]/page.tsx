@@ -75,9 +75,9 @@ export default async function BlogPostPage({
           <Image
             src={metadata.image}
             alt={metadata.title}
-            width={800}
-            height={600}
-            className="ring-1 ring-neutral-100 dark:ring-neutral-800"
+            width={704}
+            height={370}
+            className="aspect-1200/630 h-auto w-full object-cover ring-1 ring-neutral-100 dark:ring-neutral-800"
           />
 
           <Post />
