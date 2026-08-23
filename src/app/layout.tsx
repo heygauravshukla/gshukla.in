@@ -38,7 +38,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${merriweather.variable} ${geistMono.variable} antialiased`}
     >
-      <body>
+      <body className="bg-white text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -32,7 +32,7 @@ export async function BlogList({ limit }: { limit?: number }) {
         return (
           <article
             key={post.title}
-            className="hover:bg-card @container relative overflow-hidden rounded-lg border transition-colors"
+            className="hover:bg-card @container relative overflow-hidden rounded-lg border border-neutral-200 transition-colors dark:border-neutral-800"
           >
             <div className="flex flex-col @lg:grid @lg:grid-cols-[40%_minmax(0,1fr)]">
               <Image
