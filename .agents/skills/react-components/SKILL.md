@@ -1,6 +1,6 @@
 ---
 name: react-components
-description: Use this skill when the user asks to build/modify React components, pages.
+description: Use this skill when the user asks to build/modify React components, pages, or layouts in a Next.js + TypeScript + Tailwind CSS project.
 ---
 
 This skill guides the creation of production-grade React using Next.js + TypeScript + Tailwind CSS. Implement real, working code with exceptional attention to scalability, accessibility, and performance.
@@ -12,7 +12,8 @@ This skill guides the creation of production-grade React using Next.js + TypeScr
 - Keep component names PascalCase.
 - Keep content-related data in a `@data` folder located at the same level as the `app` directory.
 - When creating global components like a header/footer, put them in a custom `layout.tsx` file inside the `components` folder and use them in the page files, rather than putting everything into `RootLayout`.
-- Only things that aren't possible in a custom layout should be kept in the root layout. Putting things like state management providers into the root layout can sometimes cause structured schemas to fail, so avoid that.
+- If you ever create this custom layout file, name the component `Layout`, not `CustomLayout`.
+- Only things that aren't possible in a custom layout should be kept in the root layout.
 - If a component is getting too large, break it into smaller components. If a smaller component isn't reused elsewhere, keep it in the same file; if it is reused, give it its own file.
 
 ## Code style
@@ -22,7 +23,17 @@ This skill guides the creation of production-grade React using Next.js + TypeScr
 - Organize imports in this order: React/Next.js imports first, then third-party library imports, then local file imports.
 - Set proper types for props received by a component and avoid using the `any` type.
 - When mapping over items, never use the index as a key. Use a stable, unique id instead.
-- Use optional chaining (`?.`) to avoid runtime errors.
+- Use optional chaining (`?.`) to guard against runtime errors when accessing potentially undefined values — e.g. object props that may be missing, or items in a list that hasn't loaded yet.
+
+### Post-write checks
+
+- After writing a component, check `current_problems` in the terminal for lint warnings about Tailwind class refactoring — they sometimes suggest fixes like turning `bg-gradient-to-r` into `bg-linear-to-r`. Apply those fixes.
+- If you find any unused imports or declarations in the file, remove them and inform the user.
+
+### Component reuse
+
+- If multiple elements share several common classes (roughly 5+), extract them into an in-file component that accepts a `className` prop for customization, rather than repeating the class list on every instance.
+- For reusable UI primitives like inputs, buttons, links, etc. — create the component once and reuse it via props, rather than duplicating markup and styles across instances.
 
 ## UI rules
 
@@ -82,6 +93,11 @@ Prefer:
 
 - When building an interactive element that isn't achievable with raw JSX/CSS, prefer a Base UI component — for drawers, off-canvas panels, modals, etc.
 - Prefer the GSAP library when the user needs animation on components.
+
+### Icons
+
+- Before implementing icons, check whether an icon library is already installed. If none is installed, ask the user whether they'd prefer an external library or custom SVG components.
+- If the user prefers custom SVGs (or doesn't specify), create icon components that accept `size` and `className` props for dynamic customization, rather than hardcoding dimensions or styles inline.
 
 ## Accessibility rules
 
