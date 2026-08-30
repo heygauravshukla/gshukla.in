@@ -3,6 +3,32 @@
 
 @custom-variant dark (&:is(.dark *));
 
+:root {
+  /* Syntax Highlighting Variables */
+  --hljs-bg: var(--color-neutral-50);
+  --hljs-border: var(--color-neutral-200);
+  --hljs-text: #24292e;
+  --hljs-comment: #6a737d;
+  --hljs-keyword: #d73a49;
+  --hljs-string: #032f62;
+  --hljs-function: #6f42c1;
+  --hljs-number: #005cc5;
+  --hljs-class: #e36209;
+}
+
+.dark {
+  /* Syntax Highlighting Variables */
+  --hljs-bg: var(--color-neutral-900);
+  --hljs-border: var(--color-neutral-800);
+  --hljs-text: #c9d1d9;
+  --hljs-comment: #8b949e;
+  --hljs-keyword: #ff7b72;
+  --hljs-string: #a5d6ff;
+  --hljs-function: #d2a8ff;
+  --hljs-number: #79c0ff;
+  --hljs-class: #ffa657;
+}
+
 @theme inline {
   --font-serif: var(--font-merriweather);
   --font-mono: var(--font-geist-mono);
