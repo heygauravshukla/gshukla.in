@@ -1,64 +1,95 @@
-# Personal site
+# Personal Site
 
-A modern, developer-focused personal site showcasing my **projects**, **blog posts** (powered by **MDX**), and **bookmarks** — all built with a strong focus on **performance**, **accessibility**, and **design**.
+A modern, developer-focused personal site showcasing my **projects**, **blog posts** (powered by **MDX**), and **bookmarks** — built with a strong focus on **performance**, **accessibility**, and **design**.
+
+> This app lives inside the [`gshukla.in` monorepo](../../README.md). For repository-level setup (cloning, installing dependencies, running all apps), refer to the root README.
+
+- **Live Site:** [gshukla.in](https://gshukla.in)
+- **Repository:** [github.com/heygauravshukla/gshukla.in](https://github.com/heygauravshukla/gshukla.in)
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
-  - [Features](#features)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My Process](#my-process)
-  - [Built With](#built-with)
-  - [What I Learned](#what-i-learned)
-  - [Continued Development](#continued-development)
-  - [Getting Started](#-getting-started)
-  - [Useful Resources](#useful-resources)
+- [Features](#features)
+- [Screenshot](#screenshot)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [What I Learned](#what-i-learned)
+- [Continued Development](#continued-development)
+- [Useful Resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ---
 
-## Overview
+## Features
 
-### Features
+- **Light & dark mode** based on system preference
+- **Blog posts** written in MDX with syntax highlighting via `rehype-pretty-code`
+- **Projects** showcase with descriptions and live links
+- **Bookmarks** — a curated list of development resources
 
-This site allows users to:
+---
 
-- Explore the site in **light and dark mode** (system preference)
-- Read **blog posts** written in **MDX format** with syntax highlighting
-- Browse **projects** with descriptions and live links
-- Explore a **curated list of development resources** (Bookmarks)
-
-### Screenshot
+## Screenshot
 
 ![Screenshot of personal site](./public/personal-site-screenshot.png)
 
-### Links
+---
 
-- **Live Site:** [gshukla.in](https://gshukla.in)
-- **Repository:** [https://github.com/heygauravshukla/gshukla.in](https://github.com/heygauravshukla/gshukla.in)
+## Built With
+
+- **[Next.js 16](https://nextjs.org)** (App Router) — framework core with Static Site Generation
+- **[React 19](https://react.dev)** — latest React features
+- **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first styling with native CSS variables
+- **[MDX](https://mdxjs.com)** + **[rehype-pretty-code](https://rehype-pretty-code.netlify.app)** — blog posts with rich syntax highlighting
+- **[Lucide React](https://lucide.dev)** — icon library
+- **[pnpm](https://pnpm.io)** — fast, workspace-aware package manager
+- **TypeScript** — static type safety throughout
 
 ---
 
-## My Process
+## Getting Started
 
-### Built With
+> Make sure you've completed the [monorepo setup](../../README.md#getting-started) first (clone + `pnpm install`).
 
-- **Semantic TSX markup** & mobile-first responsive design
-- **Static Site Generation (SSG)**
-- **Next.js 16 (App Router)** – framework core
-- **React 19** – latest React features
-- **Tailwind CSS v4** – utility-first styling with CSS variables
-- **MDX** – Blog posts with markdown and `rehype-pretty-code` for syntax highlighting
-- **Lucide React** – icon library
-- **pnpm** – Lightning-fast installation speeds and a smarter, safer way to manage dependencies
+### Run only this app
+
+From the **repository root**:
+
+```sh
+pnpm dev --filter=web
+```
+
+Or from this directory (`apps/web`):
+
+```sh
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-### What I Learned
+## Environment Variables
+
+Create a `.env.local` file inside `apps/web/` with the following variables:
+
+```env
+NEXT_PUBLIC_BASE_URL=https://gshukla.in
+NEXT_PUBLIC_GA_ID=your_google_analytics_id
+```
+
+| Variable               | Required        | Description                             |
+| ---------------------- | --------------- | --------------------------------------- |
+| `NEXT_PUBLIC_BASE_URL` | Optional in dev | Base URL used for sitemap & OG metadata |
+| `NEXT_PUBLIC_GA_ID`    | Optional        | Google Analytics measurement ID         |
+
+---
+
+## What I Learned
 
 - Implementing **MDX** with `rehype-pretty-code` for beautiful syntax highlighting
 - Using **Tailwind CSS v4** with native CSS variables and `@theme` blocks
@@ -67,7 +98,7 @@ This site allows users to:
 
 ---
 
-### Continued Development
+## Continued Development
 
 Planned improvements include:
 
@@ -77,44 +108,13 @@ Planned improvements include:
 
 ---
 
-### Getting Started
+## Useful Resources
 
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/heygauravshukla/gshukla.in.git
-   cd gshukla.in
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   pnpm install
-   ```
-
-3. **Set up environment variables**
-   Create a `.env.local` file at the root with the following variable (optional for dev):
-
-   ```env
-   NEXT_PUBLIC_BASE_URL=
-   NEXT_PUBLIC_GA_ID=your_google_analytics_id
-   ```
-
-4. **Run the development server**
-
-   ```bash
-   pnpm run dev
-   ```
-
-   Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
-
-### Useful Resources
-
-- [Inter Font GitHub Repo](https://github.com/rsms/inter) – Inter font files & usage guide
-- [IBM Plex Font GitHub Repo](https://github.com/IBM/plex) – IBM Plex font family resources
-- [Squoosh](https://squoosh.app) – Image compression and optimization
-- [og.new](https://og.new) – Dynamic Open Graph image generator
-- [RedKetchup Favicon Generator](https://redketchup.io/favicon-generator) – Favicon creation tool
+- [Inter Font GitHub Repo](https://github.com/rsms/inter) — Inter font files & usage guide
+- [IBM Plex Font GitHub Repo](https://github.com/IBM/plex) — IBM Plex font family resources
+- [Squoosh](https://squoosh.app) — Image compression and optimization
+- [og.new](https://og.new) — Dynamic Open Graph image generator
+- [RedKetchup Favicon Generator](https://redketchup.io/favicon-generator) — Favicon creation tool
 
 ---
 

@@ -1,23 +1,16 @@
-# Turborepo starter
+# gshukla.in
 
-This Turborepo starter is maintained by the Turborepo core team.
+A **Turborepo**-powered monorepo for [gshukla.in](https://gshukla.in) — my personal site and associated packages, managed with **pnpm workspaces**.
 
-## Using this example
+- **Live Site:** [gshukla.in](https://gshukla.in)
+- **Repository:** [github.com/heygauravshukla/gshukla.in](https://github.com/heygauravshukla/gshukla.in)
 
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
+---
 
 ### Apps and Packages
 
 - `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
+- `web`: Personal site (Next.js)
 - `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `@next/eslint-plugin-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
@@ -157,3 +150,9 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.dev/docs/reference/configuration)
 - [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+
+## Author
+
+- **Website:** [gshukla.in](https://gshukla.in)
+- **GitHub:** [@heygauravshukla](https://github.com/heygauravshukla)
+- **Twitter/X:** [@heygauravshukla](https://twitter.com/heygauravshukla)
