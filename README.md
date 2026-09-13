@@ -9,9 +9,9 @@ A **Turborepo**-powered monorepo for [gshukla.in](https://gshukla.in) — my per
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: Personal site (Next.js)
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `frontend`: Personal site (Next.js)
+- `studio`: Sanity Studio CMS for content management
+- `@repo/ui`: a stub React component library shared by both `frontend` and `studio` applications
 - `@repo/eslint-config`: `eslint` configurations (includes `@next/eslint-plugin-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -32,16 +32,14 @@ To build all apps and packages, run the following command:
 With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
 
 ```sh
-cd my-turborepo
+cd gshukla.in
 turbo build
 ```
 
 Without global `turbo`, use your package manager:
 
 ```sh
-cd my-turborepo
-npx turbo build
-pnpm exec turbo build
+cd gshukla.in
 pnpm exec turbo build
 ```
 
@@ -50,15 +48,13 @@ You can build a specific package by using a [filter](https://turborepo.dev/docs/
 With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
 
 ```sh
-turbo build --filter=docs
+turbo build --filter=frontend
 ```
 
 Without global `turbo`:
 
 ```sh
-npx turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+pnpm exec turbo build --filter=frontend
 ```
 
 ### Develop
@@ -68,16 +64,14 @@ To develop all apps and packages, run the following command:
 With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
 
 ```sh
-cd my-turborepo
+cd gshukla.in
 turbo dev
 ```
 
 Without global `turbo`, use your package manager:
 
 ```sh
-cd my-turborepo
-npx turbo dev
-pnpm exec turbo dev
+cd gshukla.in
 pnpm exec turbo dev
 ```
 
@@ -86,15 +80,13 @@ You can develop a specific package by using a [filter](https://turborepo.dev/doc
 With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
 
 ```sh
-turbo dev --filter=web
+turbo dev --filter=frontend
 ```
 
 Without global `turbo`:
 
 ```sh
-npx turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
+pnpm exec turbo dev --filter=frontend
 ```
 
 ### Remote Caching
@@ -109,16 +101,14 @@ By default, Turborepo will cache locally. To enable Remote Caching you will need
 With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
 
 ```sh
-cd my-turborepo
+cd gshukla.in
 turbo login
 ```
 
 Without global `turbo`, use your package manager:
 
 ```sh
-cd my-turborepo
-npx turbo login
-pnpm exec turbo login
+cd gshukla.in
 pnpm exec turbo login
 ```
 
@@ -135,8 +125,6 @@ turbo link
 Without global `turbo`:
 
 ```sh
-npx turbo link
-pnpm exec turbo link
 pnpm exec turbo link
 ```
 

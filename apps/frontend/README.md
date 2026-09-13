@@ -60,10 +60,10 @@ A modern, developer-focused personal site showcasing my **projects**, **blog pos
 From the **repository root**:
 
 ```sh
-pnpm dev --filter=web
+pnpm dev --filter=frontend
 ```
 
-Or from this directory (`apps/web`):
+Or from this directory (`apps/frontend`):
 
 ```sh
 pnpm dev
@@ -75,7 +75,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Environment Variables
 
-Create a `.env.local` file inside `apps/web/` with the following variables:
+Create a `.env.local` file inside `apps/frontend/` with the following variables:
 
 ```env
 NEXT_PUBLIC_BASE_URL=https://gshukla.in
