@@ -4,3 +4,13 @@ packages:
 allowBuilds:
   esbuild: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - '@sanity/access-ui@6.14.1'
+  - '@sanity/diff@6.14.1'
+  - '@sanity/mutator@6.14.1'
+  - '@sanity/schema@6.14.1'
+  - '@sanity/types@6.14.1'
+  - '@sanity/util@6.14.1'
+  - '@sanity/validation@6.14.1'
+  - '@sanity/vision@6.14.1'
+  - sanity@6.14.1
