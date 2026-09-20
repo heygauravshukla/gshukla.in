@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import Layout from "@/components/layout";
-import { timeline } from "@/data/timeline";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { timelineQuery, TimelineQueryResult } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,7 +13,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const timeline = await sanityFetch<TimelineQueryResult>({
+    query: timelineQuery,
+  });
+
   return (
     <Layout>
       <main className="container my-12">
@@ -191,7 +196,7 @@ export default function AboutPage() {
           <p>Here are some of the milestones I have achieved in my journey:</p>
 
           {timeline.map((item) => (
-            <div key={item.year}>
+            <div key={item._id}>
               <h3>{item.year}</h3>
 
               <ul>

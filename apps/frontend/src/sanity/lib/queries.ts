@@ -43,3 +43,23 @@ export type BookmarksQueryResult = Array<{
     href: string;
   }>;
 }>;
+
+export const timelineQuery = defineQuery(`
+  *[_type == "timelineYear"] | order(year desc) {
+    _id,
+    year,
+    achievements[] {
+      title,
+      date
+    }
+  }
+`);
+
+export type TimelineQueryResult = Array<{
+  _id: string;
+  year: number;
+  achievements: Array<{
+    title: string;
+    date?: string;
+  }>;
+}>;
