@@ -63,3 +63,60 @@ export type TimelineQueryResult = Array<{
     date?: string;
   }>;
 }>;
+
+export const postsQuery = defineQuery(`
+  *[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    publishedAt,
+    tags,
+    "coverImageUrl": coverImage.asset->url
+  }
+`);
+
+export type PostsQueryResult = Array<{
+  _id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  publishedAt: string;
+  tags?: string[];
+  coverImageUrl: string;
+}>;
+
+export const postBySlugQuery = defineQuery(`
+  *[_type == "post" && slug.current == $slug][0] {
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    publishedAt,
+    tags,
+    "coverImageUrl": coverImage.asset->url,
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        "asset": asset->{url, metadata}
+      }
+    }
+  }
+`);
+
+export type PostBySlugQueryResult = {
+  _id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  publishedAt: string;
+  tags?: string[];
+  coverImageUrl: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  body: any[];
+} | null;
+
+export const postSlugsQuery = defineQuery(`
+  *[_type == "post"] { "slug": slug.current }
+`);

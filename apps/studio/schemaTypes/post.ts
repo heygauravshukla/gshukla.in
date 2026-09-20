@@ -9,6 +9,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -18,31 +19,35 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: 'summary',
+      title: 'Summary',
+      type: 'text',
+      rows: 3,
+      description: 'Used for meta description and blog card subtitle.',
+      validation: (Rule) => Rule.required().max(300),
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'coverImage',
+      title: 'Cover image',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {layout: 'tags'},
     }),
     defineField({
       name: 'body',
@@ -54,12 +59,16 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name',
-      media: 'mainImage',
-    },
-    prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      subtitle: 'summary',
+      media: 'coverImage',
     },
   },
+
+  orderings: [
+    {
+      title: 'Newest First',
+      name: 'publishedAtDesc',
+      by: [{field: 'publishedAt', direction: 'desc'}],
+    },
+  ],
 })

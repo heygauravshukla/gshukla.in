@@ -1,67 +1,227 @@
-import {defineType, defineArrayMember} from 'sanity'
+import {defineType, defineArrayMember, defineField} from 'sanity'
 
-/**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
- */
 export default defineType({
   title: 'Block Content',
   name: 'blockContent',
   type: 'array',
   of: [
+    // ─── Standard text block ─────────────────────────────────────────────────
     defineArrayMember({
       title: 'Block',
       type: 'block',
-      // Styles let you set what your user can mark up blocks with. These
-      // correspond with HTML tags, but you can set any title or value
-      // you want and decide how you want to deal with it where you want to
-      // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
         {title: 'H4', value: 'h4'},
         {title: 'Quote', value: 'blockquote'},
       ],
-      lists: [{title: 'Bullet', value: 'bullet'}],
-      // Marks let you mark up inline text in the block editor.
+      lists: [
+        {title: 'Bullet', value: 'bullet'},
+        {title: 'Numbered', value: 'number'},
+      ],
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting by editors.
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Code', value: 'code'},
+          {title: 'Underline', value: 'underline'},
+          {title: 'Strike', value: 'strike-through'},
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
           {
-            title: 'URL',
+            title: 'Link',
             name: 'link',
             type: 'object',
             fields: [
-              {
-                title: 'URL',
+              defineField({
                 name: 'href',
+                title: 'URL',
                 type: 'url',
-              },
+                validation: (Rule) =>
+                  Rule.uri({scheme: ['http', 'https', 'mailto', 'tel']}),
+              }),
+              defineField({
+                name: 'blank',
+                title: 'Open in new tab',
+                type: 'boolean',
+                initialValue: true,
+              }),
             ],
           },
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
+
+    // ─── Image ───────────────────────────────────────────────────────────────
     defineArrayMember({
       type: 'image',
       options: {hotspot: true},
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt text',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'caption',
+          title: 'Caption',
+          type: 'string',
+        }),
+      ],
+    }),
+
+    // ─── Code snippet ─────────────────────────────────────────────────────────
+    // Requires @sanity/code-input plugin
+    defineArrayMember({
+      type: 'code',
+      title: 'Code snippet',
+      options: {
+        language: 'javascript',
+        languageAlternatives: [
+          {title: 'Bash / Shell', value: 'bash'},
+          {title: 'CSS', value: 'css'},
+          {title: 'HTML', value: 'html'},
+          {title: 'JavaScript', value: 'javascript'},
+          {title: 'JSON', value: 'json'},
+          {title: 'JSX', value: 'jsx'},
+          {title: 'Markdown', value: 'markdown'},
+          {title: 'SCSS', value: 'scss'},
+          {title: 'TypeScript', value: 'typescript'},
+          {title: 'TSX', value: 'tsx'},
+          {title: 'YAML', value: 'yaml'},
+        ],
+        withFilename: true,
+      },
+    }),
+
+    // ─── CodePen embed ────────────────────────────────────────────────────────
+    defineArrayMember({
+      name: 'codePen',
+      title: 'CodePen embed',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'slugHash',
+          title: 'Pen slug hash',
+          type: 'string',
+          description: 'The short hash from the CodePen URL (e.g. LEWYmeO)',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'penTitle',
+          title: 'Pen title',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'userName',
+          title: 'CodePen username',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'height',
+          title: 'Height (px)',
+          type: 'number',
+          initialValue: 300,
+        }),
+        defineField({
+          name: 'defaultTab',
+          title: 'Default tab',
+          type: 'string',
+          initialValue: 'result',
+          options: {
+            list: [
+              {title: 'Result', value: 'result'},
+              {title: 'HTML', value: 'html'},
+              {title: 'CSS', value: 'css'},
+              {title: 'JavaScript', value: 'js'},
+              {title: 'HTML + Result', value: 'html,result'},
+              {title: 'CSS + Result', value: 'css,result'},
+              {title: 'JS + Result', value: 'js,result'},
+            ],
+          },
+        }),
+      ],
+      preview: {
+        select: {
+          title: 'penTitle',
+          subtitle: 'slugHash',
+        },
+        prepare({title, subtitle}) {
+          return {title: `CodePen: ${title}`, subtitle}
+        },
+      },
+    }),
+
+    // ─── Callout ─────────────────────────────────────────────────────────────
+    defineArrayMember({
+      name: 'callout',
+      title: 'Callout',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'type',
+          title: 'Type',
+          type: 'string',
+          initialValue: 'note',
+          options: {
+            list: [
+              {title: '📝 Note', value: 'note'},
+              {title: '💡 Tip', value: 'tip'},
+              {title: '⚠️ Warning', value: 'warning'},
+              {title: '❗ Important', value: 'important'},
+            ],
+            layout: 'radio',
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'content',
+          title: 'Content',
+          type: 'text',
+          rows: 3,
+          validation: (Rule) => Rule.required(),
+        }),
+      ],
+      preview: {
+        select: {type: 'type', content: 'content'},
+        prepare({type, content}) {
+          const icons: Record<string, string> = {
+            note: '📝',
+            tip: '💡',
+            warning: '⚠️',
+            important: '❗',
+          }
+          return {
+            title: `${icons[type] ?? ''} ${type?.toUpperCase()}`,
+            subtitle: content,
+          }
+        },
+      },
+    }),
+
+    // ─── Horizontal rule ─────────────────────────────────────────────────────
+    defineArrayMember({
+      name: 'divider',
+      title: 'Divider',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'style',
+          title: 'Style',
+          type: 'string',
+          initialValue: 'line',
+          hidden: true,
+        }),
+      ],
+      preview: {
+        prepare() {
+          return {title: '— Divider —'}
+        },
+      },
     }),
   ],
 })

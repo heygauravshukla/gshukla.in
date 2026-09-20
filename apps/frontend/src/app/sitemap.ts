@@ -1,18 +1,14 @@
-import path from "path";
-import { promises as fs } from "fs";
 import type { MetadataRoute } from "next";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { postSlugsQuery } from "@/sanity/lib/queries";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Fetch all posts from the blog directory
-  const blogDir = path.join(process.cwd(), "src/content/blog");
-  const postFiles = await fs.readdir(blogDir);
-  const posts = postFiles
-    .filter((file) => file.endsWith(".mdx"))
-    .map((file) => file.replace(".mdx", ""));
+  const slugs = await sanityFetch<Array<{ slug: string }>>({
+    query: postSlugsQuery,
+  });
 
-  // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
@@ -52,9 +48,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Dynamic blog post pages
-  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post}`,
+  const blogPages: MetadataRoute.Sitemap = slugs.map((s) => ({
+    url: `${BASE_URL}/blog/${s.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
