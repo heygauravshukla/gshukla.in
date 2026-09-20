@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import Layout from "@/components/layout";
-import { bookmarks } from "@/data/bookmarks";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { bookmarksQuery, BookmarksQueryResult } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -12,7 +13,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BookmarksPage() {
+export default async function BookmarksPage() {
+  const bookmarks = await sanityFetch<BookmarksQueryResult>({
+    query: bookmarksQuery,
+  });
+
   return (
     <Layout>
       <main className="container my-12">
@@ -23,8 +28,8 @@ export default function BookmarksPage() {
 
           <section className="mt-6">
             {bookmarks.map((bookmark) => (
-              <div key={bookmark.category}>
-                <h3>{bookmark.category}</h3>
+              <div key={bookmark._id}>
+                <h3>{bookmark.title}</h3>
 
                 <ol>
                   {bookmark.items.map((item) => (

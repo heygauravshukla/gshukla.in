@@ -1,4 +1,4 @@
-﻿import { defineQuery } from "next-sanity";
+import { defineQuery } from "next-sanity";
 
 export const projectsQuery = defineQuery(`
   *[_type == "project"] | order(publishedAt asc) {
@@ -22,4 +22,24 @@ export type ProjectsQueryResult = Array<{
   repository?: string;
   stack: string[];
   publishedAt: string;
+}>;
+
+export const bookmarksQuery = defineQuery(`
+  *[_type == "bookmarkCategory"] | order(title asc) {
+    _id,
+    title,
+    items[] {
+      title,
+      href
+    }
+  }
+`);
+
+export type BookmarksQueryResult = Array<{
+  _id: string;
+  title: string;
+  items: Array<{
+    title: string;
+    href: string;
+  }>;
 }>;
