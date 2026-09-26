@@ -138,6 +138,30 @@ const components: PortableTextComponents = {
       );
     },
 
+    // Video file upload
+    video: ({ value }) => {
+      const url: string | undefined = value.file?.asset?.url;
+      if (!url) return null;
+      return (
+        <figure>
+          <video
+            src={url}
+            className="h-auto w-full rounded-md"
+            controls={value.controls !== false}
+            autoPlay={value.autoplay ?? false}
+            loop={value.loop ?? false}
+            muted={value.muted ?? true}
+            playsInline
+          />
+          {value.caption && (
+            <figcaption className="text-muted-foreground mt-2 text-center text-sm">
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      );
+    },
+
     // Horizontal divider
     divider: () => <hr />,
   },

@@ -100,6 +100,13 @@ export const postBySlugQuery = defineQuery(`
       _type == "image" => {
         ...,
         "asset": asset->{url, metadata}
+      },
+      _type == "video" => {
+        ...,
+        "file": file{
+          ...,
+          "asset": asset->{url, mimeType, size}
+        }
       }
     }
   }

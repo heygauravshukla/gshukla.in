@@ -203,6 +203,58 @@ export default defineType({
       },
     }),
 
+    // ─── Video file upload ────────────────────────────────────────────────────
+    defineArrayMember({
+      name: 'video',
+      title: 'Video',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'file',
+          title: 'Video file',
+          type: 'file',
+          options: {accept: 'video/*'},
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'caption',
+          title: 'Caption',
+          type: 'string',
+        }),
+        defineField({
+          name: 'autoplay',
+          title: 'Autoplay',
+          type: 'boolean',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'loop',
+          title: 'Loop',
+          type: 'boolean',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'muted',
+          title: 'Muted',
+          type: 'boolean',
+          initialValue: true,
+          description: 'Must be enabled for autoplay to work in most browsers',
+        }),
+        defineField({
+          name: 'controls',
+          title: 'Show controls',
+          type: 'boolean',
+          initialValue: true,
+        }),
+      ],
+      preview: {
+        select: {caption: 'caption'},
+        prepare({caption}: {caption?: string}) {
+          return {title: caption ? `Video: ${caption}` : 'Video'}
+        },
+      },
+    }),
+
     // ─── Horizontal rule ─────────────────────────────────────────────────────
     defineArrayMember({
       name: 'divider',
