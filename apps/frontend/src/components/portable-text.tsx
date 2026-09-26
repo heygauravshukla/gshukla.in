@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import {
   PortableText as SanityPortableText,
   PortableTextComponents,
@@ -42,18 +41,11 @@ const components: PortableTextComponents = {
     code: ({ children }) => <code>{children}</code>,
     underline: ({ children }) => <span style={{ textDecoration: "underline" }}>{children}</span>,
     "strike-through": ({ children }) => <s>{children}</s>,
-    link: ({ value, children }) => {
-      const href: string = value?.href ?? "#";
-      const isExternal = href.startsWith("http") || href.startsWith("mailto");
-      if (isExternal || value?.blank) {
-        return (
-          <a href={href} target="_blank" rel="noopener noreferrer">
-            {children}
-          </a>
-        );
-      }
-      return <Link href={href}>{children}</Link>;
-    },
+    link: ({ value, children }) => (
+      <a href={value?.href ?? "#"} target="_blank" rel="noopener noreferrer">
+        {children}
+      </a>
+    ),
   },
 
   // ─── Custom block types ───────────────────────────────────────────────────

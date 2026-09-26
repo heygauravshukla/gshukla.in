@@ -41,12 +41,6 @@ export default defineType({
                 validation: (Rule) =>
                   Rule.uri({scheme: ['http', 'https', 'mailto', 'tel']}),
               }),
-              defineField({
-                name: 'blank',
-                title: 'Open in new tab',
-                type: 'boolean',
-                initialValue: true,
-              }),
             ],
           },
         ],
