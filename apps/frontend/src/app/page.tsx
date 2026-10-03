@@ -1,77 +1,38 @@
 import Link from "next/link";
 import Layout from "@/components/layout";
+import { ProjectsList } from "@/components/projects-list";
+import { BlogList } from "@/components/blog-list";
 
 export default function Home() {
   return (
     <Layout>
       <main className="container my-12">
-        <div className="typeset typeset-docs">
-          <h1>Gaurav Shukla</h1>
-          <p>
-            I'm a <Link href="/about">developer and writer</Link> based in
-            India. I build things for the web and share what I learn through my{" "}
-            <Link href="/blog">blog</Link> and{" "}
-            <Link href="/socials">social media</Link>.
+        <section>
+          <h1 className="text-3xl font-medium tracking-tight">Gaurav Shukla</h1>
+          <p className="mt-4">
+            I'm a software engineer and technical writer based in India.{" "}
           </p>
-
-          <p>
-            I got my first computer in 2021 and haven't stopped building since.
-            I've worked on several <Link href="/projects">projects</Link>, from
-            Frontend Mentor challenges to this site.
+          <p className="mt-2">
+            I build things for the web and share what I learn through my blog
+            and social media.
           </p>
+        </section>
 
-          <p>
-            Currently, I'm working as a Frontend Developer at{" "}
-            <Link
-              href="https://rwit.io"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              RW Infotech
-            </Link>
-            , where I've sharpened my skills and found a great team to grow
-            with.
-          </p>
+        <section className="mt-12 space-y-4">
+          <h2 className="text-xl font-medium tracking-tight">Projects</h2>
+          <ProjectsList limit={4} />
+          <Link href="/projects" className="text-sm underline">
+            View more
+          </Link>
+        </section>
 
-          <p>Some of my favorite posts are:</p>
-
-          <ul>
-            <li>
-              <Link href="/blog/key-value-list-using-subgrid">
-                How to create key-value list using Subgrid
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/transition-from-display-none">
-                How to transition from display none in CSS
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/why-switch-to-pnpm">
-                Why I switched to PNPM
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog/same-font-different-style">
-                How I made the same font look better without changing it
-              </Link>
-            </li>
-          </ul>
-
-          <p>
-            I also keep a list of my favorite{" "}
-            <Link href="/bookmarks">bookmarks</Link>. You can browse my{" "}
-            <Link
-              href="https://github.com/heygauravshukla"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              code on GitHub
-            </Link>{" "}
-            or <Link href="mailto:heygauravshukla@gmail.com">reach out</Link> if
-            you want to collaborate.
-          </p>
-        </div>
+        <section className="mt-12 space-y-4">
+          <h2 className="text-xl font-medium tracking-tight">Blog</h2>
+          <BlogList limit={4} />
+          <Link href="/blog" className="text-sm underline">
+            View more
+          </Link>
+        </section>
       </main>
     </Layout>
   );
