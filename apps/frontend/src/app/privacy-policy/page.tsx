@@ -235,10 +235,14 @@ export default function PrivacyPolicyPage() {
   return (
     <Layout>
       <main className="container my-12">
-        <div className="typeset typeset-docs">
-          <h1>Privacy Policy</h1>
-          <p>Effective Date: {EFFECTIVE_DATE}</p>
+        <section>
+          <h1 className="text-3xl font-medium tracking-tight">
+            Privacy Policy
+          </h1>
+          <p className="mt-4">Effective Date: {EFFECTIVE_DATE}</p>
+        </section>
 
+        <div className="typeset typeset-docs mt-12">
           <p>
             This Privacy Policy explains how Gaurav Shukla ("we," "us," or
             "our") collects, uses, and protects information when you visit{" "}

@@ -21,10 +21,15 @@ export default async function AboutPage() {
   return (
     <Layout>
       <main className="container my-12">
-        <div className="typeset typeset-docs">
-          <h1>About</h1>
-          <p>A bit about who I am, what I do, and how I ended up here.</p>
+        <section>
+          <h1 className="text-3xl font-medium tracking-tight">About</h1>
+          <p className="mt-4">
+            A bit about who I am, what I do, and how I ended up here.
+          </p>
+        </section>
 
+        <div className="typeset typeset-docs mt-12">
+          <h2>How I Got Started</h2>
           <p>
             After completing my senior secondary education in 2020, I watched a{" "}
             <Link

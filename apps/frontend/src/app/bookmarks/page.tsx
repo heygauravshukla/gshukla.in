@@ -21,33 +21,34 @@ export default async function BookmarksPage() {
   return (
     <Layout>
       <main className="container my-12">
-        <div className="typeset typeset-docs">
-          <h1>Bookmarks</h1>
+        <section>
+          <h1 className="text-3xl font-medium tracking-tight">Bookmarks</h1>
+          <p className="mt-4">
+            Tools, articles, and resources I keep coming back to.
+          </p>
+        </section>
 
-          <p>Tools, articles, and resources I keep coming back to.</p>
+        <section className="typeset typeset-docs mt-12">
+          {bookmarks.map((bookmark) => (
+            <div key={bookmark._id}>
+              <h2>{bookmark.title}</h2>
 
-          <section className="mt-6">
-            {bookmarks.map((bookmark) => (
-              <div key={bookmark._id}>
-                <h3>{bookmark.title}</h3>
-
-                <ol>
-                  {bookmark.items.map((item) => (
-                    <li key={item.title}>
-                      <Link
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ))}
-          </section>
-        </div>
+              <ol>
+                {bookmark.items.map((item) => (
+                  <li key={item.title}>
+                    <Link
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+        </section>
       </main>
     </Layout>
   );

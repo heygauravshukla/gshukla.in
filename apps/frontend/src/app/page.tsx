@@ -10,7 +10,7 @@ export default function Home() {
         <section>
           <h1 className="text-3xl font-medium tracking-tight">Gaurav Shukla</h1>
           <p className="mt-4">
-            I'm a software engineer and technical writer based in India.{" "}
+            I'm a software engineer and technical writer based in India.
           </p>
           <p className="mt-2">
             I build things for the web and share what I learn through my blog

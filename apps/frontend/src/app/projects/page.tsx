@@ -15,18 +15,17 @@ export default function ProjectsPage() {
   return (
     <Layout>
       <main className="container my-12">
-        <div className="typeset typeset-docs">
-          <h1>Projects</h1>
-
-          <p>
+        <section>
+          <h1 className="text-3xl font-medium tracking-tight">Projects</h1>
+          <p className="mt-4">
             A collection of things I've built, from Frontend Mentor challenges
-            to full apps.
+            to fully featured apps.
           </p>
+        </section>
 
-          <section className="not-typeset mt-6">
-            <ProjectsList />
-          </section>
-        </div>
+        <section className="mt-12">
+          <ProjectsList />
+        </section>
       </main>
     </Layout>
   );
