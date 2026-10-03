@@ -6,11 +6,10 @@ import { Menu, SquareArrowOutUpRight, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
-  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
   { label: "Projects", href: "/projects" },
   { label: "Bookmarks", href: "/bookmarks" },
-  { label: "Socials", href: "/socials" },
 ];
 
 export function Header() {
