@@ -1,0 +1,29 @@
+@use "../styles" as *;
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: $z-drawer;
+  display: grid;
+  place-items: center;
+  background-color: #{$neutral-50};
+
+  @include dark-mode {
+    background-color: #{$neutral-900};
+  }
+}
+
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

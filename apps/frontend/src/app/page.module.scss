@@ -1,0 +1,43 @@
+@use "../styles" as *;
+
+.main {
+  margin-block: $space-12;
+}
+
+.heroTitle {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.025em;
+}
+
+.heroText {
+  margin-top: $space-4;
+}
+
+.heroSubtext {
+  margin-top: $space-2;
+}
+
+.section {
+  margin-top: $space-12;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.sectionTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.025em;
+}
+
+.viewMoreLink {
+  font-size: $font-size-sm;
+  text-decoration: underline;
+  align-self: flex-start;
+  color: inherit;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

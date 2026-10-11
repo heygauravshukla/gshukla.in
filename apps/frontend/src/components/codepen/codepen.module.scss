@@ -1,0 +1,23 @@
+@use "../../styles" as *;
+
+.codepen {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  border-radius: $radius-lg;
+  margin: 1em 0;
+  padding: 1em;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

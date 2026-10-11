@@ -1,0 +1,2 @@
+export * from "./portable-text";
+

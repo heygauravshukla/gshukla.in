@@ -1,21 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
+import styles from "./theme-toggle.module.scss";
+
+const emptySubscribe = () => () => {};
 
 export function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const { setTheme, resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   if (!mounted) {
     return (
-      <button disabled>
-        <Sun className="size-4" />
+      <button className={styles.toggleButton} disabled aria-label="Toggle theme">
+        <Sun className={styles.icon} />
         <span className="sr-only">Toggle theme</span>
       </button>
     );
@@ -26,11 +25,11 @@ export function ThemeToggle() {
   };
 
   return (
-    <button onClick={toggleTheme}>
+    <button className={styles.toggleButton} onClick={toggleTheme} aria-label="Toggle theme">
       {resolvedTheme === "light" ? (
-        <Moon className="size-4" />
+        <Moon className={styles.icon} />
       ) : (
-        <Sun className="size-4" />
+        <Sun className={styles.icon} />
       )}
       <span className="sr-only">Toggle theme</span>
     </button>

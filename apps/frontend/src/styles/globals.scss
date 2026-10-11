@@ -1,0 +1,76 @@
+// =============================================================================
+// Global Stylesheet
+// =============================================================================
+
+@use "./reset";
+@use "./variables" as *;
+@use "./container";
+@use "./typeset";
+
+:root {
+  // Theme colors
+  --color-bg: #{$white};
+  --color-surface: #{$neutral-50};
+  --color-surface-hover: #{$neutral-100};
+  --color-text: #{$neutral-800};
+  --color-text-muted: #{$neutral-500};
+  --color-border: #{$neutral-200};
+  --color-border-subtle: #{$neutral-100};
+  --color-primary: #{$neutral-900};
+  --color-ring: #{$neutral-400};
+
+  // Aliases for compatibility
+  --color-foreground: var(--color-text);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-muted: var(--color-surface);
+
+  // Fonts
+  --font-serif: var(--font-merriweather);
+  --font-mono: var(--font-geist-mono);
+  --default-font-family: var(--font-serif);
+}
+
+.dark {
+  --color-bg: #{$neutral-950};
+  --color-surface: #{$neutral-900};
+  --color-surface-hover: #{$neutral-800};
+  --color-text: #{$neutral-200};
+  --color-text-muted: #{$neutral-400};
+  --color-border: #{$neutral-800};
+  --color-border-subtle: #{$neutral-900};
+  --color-primary: #{$white};
+  --color-ring: #{$neutral-600};
+
+  --color-foreground: var(--color-text);
+  --color-muted-foreground: var(--color-text-muted);
+  --color-muted: var(--color-surface);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.typeset-docs {
+  --typeset-font-body: var(--font-merriweather);
+  --typeset-font-heading: var(--font-merriweather);
+  --typeset-font-mono: var(--font-geist-mono);
+  --typeset-size: 15px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1.25em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

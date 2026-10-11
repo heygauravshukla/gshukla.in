@@ -1,4 +1,5 @@
 import Link from "next/link";
+import styles from "./footer.module.scss";
 
 const legalPages = [
   { label: "Privacy Policy", href: "/privacy-policy" },
@@ -7,14 +8,14 @@ const legalPages = [
 
 export function Footer() {
   return (
-    <footer className="py-4 md:py-6">
-      <div className="container flex items-center justify-between gap-2 text-sm max-sm:flex-col">
-        <p>© {new Date().getFullYear()} Gaurav Shukla</p>
+    <footer className={styles.footer}>
+      <div className={`container ${styles.inner}`}>
+        <p className={styles.copyright}>© {new Date().getFullYear()} Gaurav Shukla</p>
 
-        <ul className="flex items-center gap-4">
+        <ul className={styles.links}>
           {legalPages.map((item) => (
             <li key={item.label}>
-              <Link href={item.href} className="hover:underline">
+              <Link href={item.href} className={styles.link}>
                 {item.label}
               </Link>
             </li>
@@ -24,3 +25,4 @@ export function Footer() {
     </footer>
   );
 }
+

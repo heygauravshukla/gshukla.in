@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import styles from "./codepen.module.scss";
 
 interface CodePenProps {
   height?: string;
@@ -34,7 +35,7 @@ export function CodePen({
 
   return (
     <p
-      className="codepen"
+      className={styles.codepen}
       data-height={height}
       data-default-tab={defaultTab}
       data-slug-hash={slugHash}
@@ -42,13 +43,6 @@ export function CodePen({
       data-user={userName}
       style={{
         height: `${height}px`,
-        boxSizing: "border-box",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        border: "2px solid",
-        margin: "1em 0",
-        padding: "1em",
       }}
     >
       <span>
@@ -63,3 +57,4 @@ export function CodePen({
     </p>
   );
 }
+

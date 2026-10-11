@@ -1,0 +1,98 @@
+// =============================================================================
+// Design System - Mixins
+// =============================================================================
+
+@use "./variables" as *;
+
+// --- Responsive Breakpoints ---
+@mixin mq($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (min-width: $bp-sm) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (min-width: $bp-md) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (min-width: $bp-lg) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (min-width: $bp-xl) { @content; }
+  } @else {
+    @media (min-width: $breakpoint) { @content; }
+  }
+}
+
+@mixin max-mq($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media (max-width: ($bp-sm - 1px)) { @content; }
+  } @else if $breakpoint == "md" {
+    @media (max-width: ($bp-md - 1px)) { @content; }
+  } @else if $breakpoint == "lg" {
+    @media (max-width: ($bp-lg - 1px)) { @content; }
+  } @else if $breakpoint == "xl" {
+    @media (max-width: ($bp-xl - 1px)) { @content; }
+  } @else {
+    @media (max-width: $breakpoint) { @content; }
+  }
+}
+
+// --- Dark Mode Selector Helper ---
+@mixin dark-mode {
+  :global(.dark) & {
+    @content;
+  }
+}
+
+// --- Container Layout ---
+@mixin container {
+  margin-inline: auto;
+  padding-inline: $space-4;
+
+  @include mq("md") {
+    max-width: 48rem; // 768px (equivalent to max-w-3xl)
+    padding-inline: $space-8;
+  }
+}
+
+// --- Flexbox Helpers ---
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --- Typography & Truncation ---
+@mixin line-clamp($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// --- Accessibility: Screen Reader Only ---
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Focus Ring ---
+@mixin focus-ring {
+  outline: 2px solid var(--color-ring, currentColor);
+  outline-offset: 2px;
+}

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Layout from "@/components/layout";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { bookmarksQuery, BookmarksQueryResult } from "@/sanity/lib/queries";
+import styles from "./bookmarks.module.scss";
 
 export const metadata: Metadata = {
   title: "Bookmarks",
@@ -20,15 +21,15 @@ export default async function BookmarksPage() {
 
   return (
     <Layout>
-      <main className="container my-12">
+      <main className={`container ${styles.main}`}>
         <section>
-          <h1 className="text-3xl font-medium tracking-tight">Bookmarks</h1>
-          <p className="mt-4">
+          <h1 className={styles.title}>Bookmarks</h1>
+          <p className={styles.subtitle}>
             Tools, articles, and resources I keep coming back to.
           </p>
         </section>
 
-        <section className="typeset typeset-docs mt-12">
+        <section className={`typeset typeset-docs ${styles.content}`}>
           {bookmarks.map((bookmark) => (
             <div key={bookmark._id}>
               <h2>{bookmark.title}</h2>

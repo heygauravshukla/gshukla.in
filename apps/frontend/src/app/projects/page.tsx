@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Layout from "@/components/layout";
 import { ProjectsList } from "@/components/projects-list";
+import styles from "./projects.module.scss";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,16 +15,16 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <Layout>
-      <main className="container my-12">
+      <main className={`container ${styles.main}`}>
         <section>
-          <h1 className="text-3xl font-medium tracking-tight">Projects</h1>
-          <p className="mt-4">
-            A collection of things I've built, from Frontend Mentor challenges
+          <h1 className={styles.title}>Projects</h1>
+          <p className={styles.subtitle}>
+            A collection of things I&apos;ve built, from Frontend Mentor challenges
             to fully featured apps.
           </p>
         </section>
 
-        <section className="mt-12">
+        <section className={styles.listSection}>
           <ProjectsList />
         </section>
       </main>

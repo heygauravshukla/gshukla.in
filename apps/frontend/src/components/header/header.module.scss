@@ -1,0 +1,213 @@
+@use "../../styles" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: $z-drawer;
+  background-color: var(--color-bg);
+  padding-block: $space-4;
+  transition: background-color $transition-base;
+
+  @include mq("md") {
+    padding-block: $space-6;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: fit-content;
+  border-radius: $radius-full;
+  object-fit: cover;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+}
+
+.desktopList {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+
+  @include max-mq("md") {
+    display: none;
+  }
+}
+
+.desktopLink {
+  font-size: $font-size-sm;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.drawerTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: $space-1;
+  border-radius: $radius-sm;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.triggerIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+// Drawer elements
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: $z-drawer;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: calc(1 - var(--drawer-swipe-progress, 0));
+  transition: opacity $transition-slow;
+
+  &[data-ending-style],
+  &[data-starting-style] {
+    opacity: 0;
+  }
+
+  @include dark-mode {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.viewport {
+  position: fixed;
+  inset: 0;
+  z-index: $z-drawer;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup {
+  display: flex;
+  height: 100%;
+  width: 18rem;
+  max-width: calc(100vw - 3rem);
+  transform: translateX(var(--drawer-swipe-movement-x, 0));
+  flex-direction: column;
+  background-color: var(--color-bg);
+  box-shadow: $shadow-xl;
+  transition: transform $transition-slow;
+  outline: none;
+
+  &[data-ending-style],
+  &[data-starting-style] {
+    transform: translateX(100%);
+  }
+
+  @include dark-mode {
+    background-color: $neutral-900;
+  }
+}
+
+.drawerContent {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: $space-6;
+}
+
+.closeWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: $space-1;
+  border-radius: $radius-sm;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.closeIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.drawerList {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: $space-6;
+}
+
+.drawerLink {
+  font-size: $font-size-2xl;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.drawerFooter {
+  margin-top: auto;
+  padding-top: $space-6;
+}
+
+.contactButton {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  border-radius: $radius-md;
+  background-color: $neutral-900;
+  padding: 0.625rem $space-4;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $white;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $neutral-700;
+  }
+
+  @include dark-mode {
+    background-color: $white;
+    color: $neutral-900;
+
+    &:hover {
+      background-color: $neutral-200;
+    }
+  }
+}
+
+.contactIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+}

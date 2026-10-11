@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-
 import { Drawer } from "@base-ui/react/drawer";
 import { Menu, SquareArrowOutUpRight, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import styles from "./header.module.scss";
 
 const navigation = [
   { label: "Blog", href: "/blog" },
@@ -14,24 +14,24 @@ const navigation = [
 
 export function Header() {
   return (
-    <header className="sticky inset-y-0 top-0 z-50 bg-white py-4 md:py-6 dark:bg-neutral-950">
-      <div className="container flex items-center justify-between">
+    <header className={styles.header}>
+      <div className={`container ${styles.inner}`}>
         <Link href="/" aria-label="Home">
           <Image
             src="/avatar.jpg"
             alt="Gaurav's avatar"
             width={42}
             height={42}
-            className="size-10 min-w-fit rounded-full object-cover"
+            className={styles.avatar}
           />
         </Link>
 
-        <nav className="flex items-center gap-6">
+        <nav className={styles.nav}>
           {/* Desktop nav */}
-          <ul className="flex items-center gap-5 max-md:hidden">
+          <ul className={styles.desktopList}>
             {navigation.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} className="text-sm hover:underline">
+                <Link href={item.href} className={styles.desktopLink}>
                   {item.label}
                 </Link>
               </li>
@@ -42,21 +42,21 @@ export function Header() {
 
           {/* Mobile nav */}
           <Drawer.Root>
-            <Drawer.Trigger className="md:hidden" aria-label="Open menu">
-              <Menu className="size-4" />
+            <Drawer.Trigger className={styles.drawerTrigger} aria-label="Open menu">
+              <Menu className={styles.triggerIcon} />
             </Drawer.Trigger>
             <Drawer.Portal>
-              <Drawer.Backdrop className="fixed inset-0 z-50 bg-black/20 opacity-[calc(1-var(--drawer-swipe-progress))] transition-opacity duration-300 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 dark:bg-black/60" />
-              <Drawer.Viewport className="fixed inset-0 z-50 flex justify-end">
-                <Drawer.Popup className="flex h-full w-72 max-w-[calc(100vw-3rem)] [transform:translateX(var(--drawer-swipe-movement-x))] flex-col bg-white shadow-xl transition-transform duration-300 ease-out outline-none data-ending-style:translate-x-full data-starting-style:translate-x-full dark:bg-neutral-900">
-                  <Drawer.Content className="flex h-full flex-col p-6">
-                    <div className="flex justify-end">
-                      <Drawer.Close aria-label="Close menu">
-                        <X className="size-4" />
+              <Drawer.Backdrop className={styles.backdrop} />
+              <Drawer.Viewport className={styles.viewport}>
+                <Drawer.Popup className={styles.popup}>
+                  <Drawer.Content className={styles.drawerContent}>
+                    <div className={styles.closeWrapper}>
+                      <Drawer.Close aria-label="Close menu" className={styles.closeButton}>
+                        <X className={styles.closeIcon} />
                       </Drawer.Close>
                     </div>
 
-                    <ul className="mt-10 grid gap-6">
+                    <ul className={styles.drawerList}>
                       {navigation.map((item) => (
                         <li key={item.label}>
                           <Drawer.Close
@@ -64,7 +64,7 @@ export function Header() {
                             render={
                               <Link
                                 href={item.href}
-                                className="text-2xl hover:underline"
+                                className={styles.drawerLink}
                               >
                                 {item.label}
                               </Link>
@@ -74,16 +74,16 @@ export function Header() {
                       ))}
                     </ul>
 
-                    <div className="mt-auto pt-6">
+                    <div className={styles.drawerFooter}>
                       <Drawer.Close
                         nativeButton={false}
                         render={
                           <Link
                             href="mailto:heygauravshukla@gmail.com"
-                            className="flex w-full items-center justify-center gap-2 rounded-md bg-neutral-900 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+                            className={styles.contactButton}
                           >
                             Contact
-                            <SquareArrowOutUpRight className="size-3.5" />
+                            <SquareArrowOutUpRight className={styles.contactIcon} />
                           </Link>
                         }
                       />
@@ -98,3 +98,4 @@ export function Header() {
     </header>
   );
 }
+

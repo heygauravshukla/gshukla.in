@@ -3,11 +3,12 @@ import { Metadata } from "next";
 import Layout from "@/components/layout";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { timelineQuery, TimelineQueryResult } from "@/sanity/lib/queries";
+import styles from "./about.module.scss";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Gaurav Shukla, a self-taught frontend developer from India building web experiences with Next.js, React, and Tailwind CSS.",
+    "Learn about Gaurav Shukla, a self-taught frontend developer from India building web experiences with Next.js, React, and modern web tooling.",
   alternates: {
     canonical: "/about",
   },
@@ -20,15 +21,15 @@ export default async function AboutPage() {
 
   return (
     <Layout>
-      <main className="container my-12">
+      <main className={`container ${styles.main}`}>
         <section>
-          <h1 className="text-3xl font-medium tracking-tight">About</h1>
-          <p className="mt-4">
+          <h1 className={styles.title}>About</h1>
+          <p className={styles.subtitle}>
             A bit about who I am, what I do, and how I ended up here.
           </p>
         </section>
 
-        <div className="typeset typeset-docs mt-12">
+        <div className={`typeset typeset-docs ${styles.content}`}>
           <h2>How I Got Started</h2>
           <p>
             After completing my senior secondary education in 2020, I watched a{" "}
@@ -207,10 +208,10 @@ export default async function AboutPage() {
               <ul>
                 {item.achievements.map((achievement) => (
                   <li key={achievement.title}>
-                    <p className="not-prose">{achievement.title}</p>
+                    <p className="not-typeset">{achievement.title}</p>
 
                     {achievement.date && (
-                      <small className="font-mono">
+                      <small className={styles.achievementDate}>
                         {new Date(achievement.date).toLocaleDateString(
                           "en-US",
                           {

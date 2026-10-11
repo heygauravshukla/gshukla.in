@@ -8,11 +8,20 @@ import {
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { CodePen } from "@/components/codepen";
+import { cn } from "@/lib/utils";
+import styles from "./portable-text.module.scss";
 
 interface PortableTextProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any[];
 }
+
+const calloutClassMap: Record<string, string> = {
+  note: styles.calloutNote,
+  tip: styles.calloutTip,
+  warning: styles.calloutWarning,
+  important: styles.calloutImportant,
+};
 
 const components: PortableTextComponents = {
   // ─── Block-level elements ─────────────────────────────────────────────────
@@ -39,7 +48,9 @@ const components: PortableTextComponents = {
     strong: ({ children }) => <strong>{children}</strong>,
     em: ({ children }) => <em>{children}</em>,
     code: ({ children }) => <code>{children}</code>,
-    underline: ({ children }) => <span style={{ textDecoration: "underline" }}>{children}</span>,
+    underline: ({ children }) => (
+      <span style={{ textDecoration: "underline" }}>{children}</span>
+    ),
     "strike-through": ({ children }) => <s>{children}</s>,
     link: ({ value, children }) => (
       <a href={value?.href ?? "#"} target="_blank" rel="noopener noreferrer">
@@ -61,10 +72,10 @@ const components: PortableTextComponents = {
             alt={value.alt ?? ""}
             width={1200}
             height={630}
-            className="h-auto w-full"
+            className={styles.image}
           />
           {value.caption && (
-            <figcaption className="text-muted-foreground mt-2 text-center text-sm">
+            <figcaption className={styles.caption}>
               {value.caption}
             </figcaption>
           )}
@@ -74,9 +85,9 @@ const components: PortableTextComponents = {
 
     // Code snippet via @sanity/code-input
     code: ({ value }) => (
-      <div className="not-prose my-4">
+      <div className={cn("not-typeset", styles.codeBlock)}>
         {value.filename && (
-          <div className="bg-neutral-800 rounded-t-md px-4 py-1.5 text-xs text-neutral-400 font-mono">
+          <div className={styles.filename}>
             {value.filename}
           </div>
         )}
@@ -107,12 +118,6 @@ const components: PortableTextComponents = {
 
     // Callout / alert box
     callout: ({ value }) => {
-      const styles: Record<string, string> = {
-        note: "border-blue-400 bg-blue-50 dark:bg-blue-950/30",
-        tip: "border-green-400 bg-green-50 dark:bg-green-950/30",
-        warning: "border-yellow-400 bg-yellow-50 dark:bg-yellow-950/30",
-        important: "border-red-400 bg-red-50 dark:bg-red-950/30",
-      };
       const icons: Record<string, string> = {
         note: "📝",
         tip: "💡",
@@ -122,9 +127,13 @@ const components: PortableTextComponents = {
       const type: string = value.type ?? "note";
       return (
         <div
-          className={`not-prose my-4 rounded-r-md border-l-4 px-4 py-3 text-sm ${styles[type] ?? styles.note}`}
+          className={cn(
+            "not-typeset",
+            styles.callout,
+            calloutClassMap[type] ?? styles.calloutNote,
+          )}
         >
-          <span className="mr-2">{icons[type] ?? "📝"}</span>
+          <span className={styles.calloutIcon}>{icons[type] ?? "📝"}</span>
           {value.content}
         </div>
       );
@@ -138,7 +147,7 @@ const components: PortableTextComponents = {
         <figure>
           <video
             src={url}
-            className="h-auto w-full rounded-md"
+            className={styles.video}
             controls={value.controls !== false}
             autoPlay={value.autoplay ?? false}
             loop={value.loop ?? false}
@@ -146,7 +155,7 @@ const components: PortableTextComponents = {
             playsInline
           />
           {value.caption && (
-            <figcaption className="text-muted-foreground mt-2 text-center text-sm">
+            <figcaption className={styles.caption}>
               {value.caption}
             </figcaption>
           )}
@@ -163,3 +172,4 @@ export function PortableText({ value }: PortableTextProps) {
   if (!value || value.length === 0) return null;
   return <SanityPortableText value={value} components={components} />;
 }
+

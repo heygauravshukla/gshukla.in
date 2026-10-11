@@ -1,0 +1,36 @@
+@use "../../styles" as *;
+
+.footer {
+  padding-block: $space-4;
+
+  @include mq("md") {
+    padding-block: $space-6;
+  }
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-2;
+  font-size: $font-size-sm;
+  
+  @include max-mq("sm") {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.link {
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

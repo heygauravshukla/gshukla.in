@@ -9,6 +9,7 @@ import {
   postSlugsQuery,
   PostBySlugQueryResult,
 } from "@/sanity/lib/queries";
+import styles from "./post.module.scss";
 
 export async function generateMetadata({
   params,
@@ -58,12 +59,12 @@ export default async function BlogPostPage({
 
   return (
     <Layout>
-      <main className="container my-12">
+      <main className={`container ${styles.main}`}>
         <div className="typeset typeset-docs">
-          <h1 className="mb-4">{post.title}</h1>
+          <h1 className={styles.title}>{post.title}</h1>
 
-          <small className="flex items-start gap-2">
-            <Calendar className="h-lh w-4" />
+          <small className={styles.date}>
+            <Calendar className={styles.calendarIcon} />
             {new Date(post.publishedAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
@@ -78,7 +79,7 @@ export default async function BlogPostPage({
             alt={post.title}
             width={704}
             height={370}
-            className="aspect-1200/630 h-auto w-full object-cover ring-1 ring-neutral-100 dark:ring-neutral-800"
+            className={styles.coverImage}
           />
 
           <PortableText value={post.body} />

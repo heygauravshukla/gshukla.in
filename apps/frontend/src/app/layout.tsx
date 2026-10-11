@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Merriweather, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import "./globals.css";
+import "@/styles/globals.scss";
 
 const merriweather = Merriweather({
   variable: "--font-merriweather",
@@ -36,9 +36,9 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${merriweather.variable} ${geistMono.variable} antialiased`}
+      className={`${merriweather.variable} ${geistMono.variable}`}
     >
-      <body className="bg-white text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -1,0 +1,32 @@
+@use "../../styles" as *;
+
+.toggleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-1;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  border-radius: $radius-sm;
+  transition: opacity $transition-fast;
+
+  &:hover:not(:disabled) {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+}

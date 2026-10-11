@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import Layout from "@/components/layout";
+import styles from "./privacy.module.scss";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -224,7 +225,7 @@ const sections = [
     body: (
       <p>
         We may update this Privacy Policy from time to time. Any changes will be
-        posted on this page with a revised "Effective Date." We encourage you to
+        posted on this page with a revised &quot;Effective Date.&quot; We encourage you to
         review this policy periodically.
       </p>
     ),
@@ -234,19 +235,17 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <Layout>
-      <main className="container my-12">
+      <main className={`container ${styles.main}`}>
         <section>
-          <h1 className="text-3xl font-medium tracking-tight">
-            Privacy Policy
-          </h1>
-          <p className="mt-4">Effective Date: {EFFECTIVE_DATE}</p>
+          <h1 className={styles.title}>Privacy Policy</h1>
+          <p className={styles.date}>Effective Date: {EFFECTIVE_DATE}</p>
         </section>
 
-        <div className="typeset typeset-docs mt-12">
+        <div className={`typeset typeset-docs ${styles.content}`}>
           <p>
-            This Privacy Policy explains how Gaurav Shukla ("we," "us," or
-            "our") collects, uses, and protects information when you visit{" "}
-            <Link href={`https://${SITE_URL}`}>{SITE_URL}</Link> (the "Site").
+            This Privacy Policy explains how Gaurav Shukla (&quot;we,&quot; &quot;us,&quot; or
+            &quot;our&quot;) collects, uses, and protects information when you visit{" "}
+            <Link href={`https://${SITE_URL}`}>{SITE_URL}</Link> (the &quot;Site&quot;).
             By using the Site, you agree to the collection and use of
             information in accordance with this policy.
           </p>

@@ -1,0 +1,15 @@
+// =============================================================================
+// Design System - Functions
+// =============================================================================
+
+@use "sass:math";
+
+/// Converts pixel value to rem
+/// @param {Number} $px - Pixel value (with or without unit)
+/// @return {Number} Converted rem value
+@function rem($px) {
+  @if math.is-unitless($px) {
+    @return math.div($px, 16) * 1rem;
+  }
+  @return math.div($px, 16px) * 1rem;
+}
