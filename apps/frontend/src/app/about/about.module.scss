@@ -1,25 +1,26 @@
 @use "../../styles" as *;
 
 .main {
-  margin-block: $space-12;
+  @include wrapper;
+  margin-block: var(--space-12);
 }
 
 .title {
-  font-size: $font-size-3xl;
-  font-weight: $font-weight-medium;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
   letter-spacing: -0.025em;
 }
 
 .subtitle {
-  margin-top: $space-4;
+  margin-top: var(--space-4);
 }
 
 .content {
-  margin-top: $space-12;
+  margin-top: var(--space-12);
 }
 
 .achievementDate {
   font-family: var(--font-mono);
-  font-size: $font-size-xs;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
 }

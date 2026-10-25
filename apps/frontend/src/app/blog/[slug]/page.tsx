@@ -59,7 +59,7 @@ export default async function BlogPostPage({
 
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <div className="typeset typeset-docs">
           <h1 className={styles.title}>{post.title}</h1>
 

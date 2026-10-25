@@ -1,24 +1,25 @@
 @use "../../../styles" as *;
 
 .main {
-  margin-block: $space-12;
+  @include wrapper;
+  margin-block: var(--space-12);
 }
 
 .title {
-  margin-bottom: $space-4;
+  margin-bottom: var(--space-4);
 }
 
 .date {
   display: flex;
   align-items: center;
-  gap: $space-2;
-  font-size: $font-size-sm;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
 
 .calendarIcon {
-  width: 1rem;
-  height: 1rem;
+  width: rem(16px);
+  height: rem(16px);
 }
 
 .coverImage {
@@ -26,6 +27,6 @@
   height: auto;
   width: 100%;
   object-fit: cover;
-  border-radius: $radius-lg;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
 }

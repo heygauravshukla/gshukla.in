@@ -7,7 +7,7 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.heroTitle}>Gaurav Shukla</h1>
           <p className={styles.heroText}>

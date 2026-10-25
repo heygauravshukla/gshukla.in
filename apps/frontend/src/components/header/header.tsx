@@ -15,7 +15,7 @@ const navigation = [
 export function Header() {
   return (
     <header className={styles.header}>
-      <div className={`container ${styles.inner}`}>
+      <div className={styles.inner}>
         <Link href="/" aria-label="Home">
           <Image
             src="/avatar.jpg"

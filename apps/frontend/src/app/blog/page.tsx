@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.title}>Blog</h1>
           <p className={styles.subtitle}>

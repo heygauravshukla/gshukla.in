@@ -2,7 +2,7 @@
 
 .grid {
   display: grid;
-  gap: $space-4;
+  gap: var(--space-4);
 
   @include mq("sm") {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -12,16 +12,16 @@
 .card {
   position: relative;
   isolation: isolate;
-  height: 12.5rem;
-  min-width: 15rem;
+  height: rem(200px);
+  min-width: rem(240px);
   overflow: hidden;
-  border-radius: $radius-2xl;
-  border: 1px solid #{$neutral-300};
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-neutral-300);
   background-color: var(--color-bg);
 
   @include dark-mode {
-    border-color: #{$neutral-800};
-    background-color: #{$neutral-900};
+    border-color: var(--color-neutral-800);
+    background-color: var(--color-surface);
   }
 
   &:hover .image {
@@ -32,8 +32,8 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: $space-1;
-  padding: $space-4;
+  gap: var(--space-1);
+  padding: var(--space-4);
 }
 
 .titleWrapper {
@@ -56,17 +56,17 @@
 }
 
 .description {
-  font-size: $font-size-sm;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   @include line-clamp(2);
 }
 
 .image {
   position: absolute;
-  top: 7rem;
-  right: -2.5rem;
+  top: rem(112px);
+  right: rem(-40px);
   transform: rotate(-6deg);
-  border-radius: $radius-2xl;
+  border-radius: var(--radius-2xl);
   border: 1px solid var(--color-border);
   object-fit: cover;
   object-position: top;

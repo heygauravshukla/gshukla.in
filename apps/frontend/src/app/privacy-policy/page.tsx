@@ -235,7 +235,7 @@ const sections = [
 export default function PrivacyPolicyPage() {
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.title}>Privacy Policy</h1>
           <p className={styles.date}>Effective Date: {EFFECTIVE_DATE}</p>

@@ -1,19 +1,20 @@
 @use "../../styles" as *;
 
 .main {
-  margin-block: $space-12;
+  @include wrapper;
+  margin-block: var(--space-12);
 }
 
 .title {
-  font-size: $font-size-3xl;
-  font-weight: $font-weight-medium;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-medium);
   letter-spacing: -0.025em;
 }
 
 .subtitle {
-  margin-top: $space-4;
+  margin-top: var(--space-4);
 }
 
 .listSection {
-  margin-top: $space-12;
+  margin-top: var(--space-12);
 }

@@ -21,7 +21,7 @@ export default async function AboutPage() {
 
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.title}>About</h1>
           <p className={styles.subtitle}>

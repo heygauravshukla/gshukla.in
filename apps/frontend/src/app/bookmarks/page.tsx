@@ -21,7 +21,7 @@ export default async function BookmarksPage() {
 
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.title}>Bookmarks</h1>
           <p className={styles.subtitle}>

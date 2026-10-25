@@ -4,13 +4,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $space-1;
+  padding: var(--space-1);
   border: none;
   background: none;
   color: inherit;
   cursor: pointer;
-  border-radius: $radius-sm;
-  transition: opacity $transition-fast;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
 
   &:hover:not(:disabled) {
     opacity: 0.7;
@@ -27,6 +27,6 @@
 }
 
 .icon {
-  width: 1rem;
-  height: 1rem;
+  width: rem(16px);
+  height: rem(16px);
 }

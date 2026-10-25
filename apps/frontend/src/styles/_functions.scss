@@ -13,3 +13,15 @@
   }
   @return math.div($px, 16px) * 1rem;
 }
+
+/// Converts pixel value to em (ideal for media query breakpoints)
+/// @param {Number} $px - Pixel value (with or without unit)
+/// @param {Number} $base - Base font size (default: 16)
+/// @return {Number} Converted em value
+@function em($px, $base: 16) {
+  @if math.is-unitless($px) {
+    @return math.div($px, $base) * 1em;
+  }
+  @return math.div($px, $base * 1px) * 1em;
+}
+

@@ -9,7 +9,7 @@ const legalPages = [
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={`container ${styles.inner}`}>
+      <div className={styles.inner}>
         <p className={styles.copyright}>© {new Date().getFullYear()} Gaurav Shukla</p>
 
         <ul className={styles.links}>

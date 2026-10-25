@@ -2,7 +2,8 @@
 // Design System - Mixins
 // =============================================================================
 
-@use "./variables" as *;
+@use "./breakpoints" as *;
+@use "./functions" as *;
 
 // --- Responsive Breakpoints ---
 @mixin mq($breakpoint) {
@@ -21,13 +22,13 @@
 
 @mixin max-mq($breakpoint) {
   @if $breakpoint == "sm" {
-    @media (max-width: ($bp-sm - 1px)) { @content; }
+    @media (max-width: ($bp-sm - 0.02em)) { @content; }
   } @else if $breakpoint == "md" {
-    @media (max-width: ($bp-md - 1px)) { @content; }
+    @media (max-width: ($bp-md - 0.02em)) { @content; }
   } @else if $breakpoint == "lg" {
-    @media (max-width: ($bp-lg - 1px)) { @content; }
+    @media (max-width: ($bp-lg - 0.02em)) { @content; }
   } @else if $breakpoint == "xl" {
-    @media (max-width: ($bp-xl - 1px)) { @content; }
+    @media (max-width: ($bp-xl - 0.02em)) { @content; }
   } @else {
     @media (max-width: $breakpoint) { @content; }
   }
@@ -40,14 +41,14 @@
   }
 }
 
-// --- Container Layout ---
-@mixin container {
+// --- Content Wrapper Layout ---
+@mixin wrapper {
   margin-inline: auto;
-  padding-inline: $space-4;
+  padding-inline: var(--space-4);
 
   @include mq("md") {
-    max-width: 48rem; // 768px (equivalent to max-w-3xl)
-    padding-inline: $space-8;
+    max-width: rem(768px); // 48rem
+    padding-inline: var(--space-8);
   }
 }
 

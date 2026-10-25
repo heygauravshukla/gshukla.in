@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <Layout>
-      <main className={`container ${styles.main}`}>
+      <main className={styles.main}>
         <section>
           <h1 className={styles.title}>Projects</h1>
           <p className={styles.subtitle}>
