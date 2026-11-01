@@ -194,7 +194,7 @@ export default async function AboutPage() {
           <p>
             If you&apos;re someone who enjoys technology, design, frontend
             development, or building things for the web,{" "}
-            <Link href="/socials">let&apos;s connect.</Link>
+            <Link href="mailto:heygauravshukla@gmail.com">let&apos;s connect.</Link>
           </p>
 
           <h2>Achievements</h2>
