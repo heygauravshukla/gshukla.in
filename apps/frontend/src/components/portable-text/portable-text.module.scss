@@ -26,6 +26,21 @@
   font-family: var(--font-mono);
 }
 
+.code :global(pre) {
+  margin: 0;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.codeWithFilename :global(pre) {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 .callout {
   margin-block: var(--space-4);
   border-top-right-radius: var(--radius-md);

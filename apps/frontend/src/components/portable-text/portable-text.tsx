@@ -1,12 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import {
   PortableText as SanityPortableText,
   PortableTextComponents,
 } from "@portabletext/react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { bundledLanguages, codeToHtml } from "shiki";
 import { CodePen } from "@/components/codepen";
 import { cn } from "@/lib/utils";
 import styles from "./portable-text.module.scss";
@@ -22,6 +19,29 @@ const calloutClassMap: Record<string, string> = {
   warning: styles.calloutWarning,
   important: styles.calloutImportant,
 };
+
+async function CodeBlock({
+  code,
+  language,
+  filename,
+}: {
+  code: string;
+  language?: string;
+  filename?: string;
+}) {
+  const lang = language && language in bundledLanguages ? language : "text";
+  const html = await codeToHtml(code, { lang, theme: "one-dark-pro" });
+
+  return (
+    <div className={cn("not-typeset", styles.codeBlock)}>
+      {filename && <div className={styles.filename}>{filename}</div>}
+      <div
+        className={cn(styles.code, filename && styles.codeWithFilename)}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    </div>
+  );
+}
 
 const components: PortableTextComponents = {
   // ─── Block-level elements ─────────────────────────────────────────────────
@@ -85,24 +105,11 @@ const components: PortableTextComponents = {
 
     // Code snippet via @sanity/code-input
     code: ({ value }) => (
-      <div className={cn("not-typeset", styles.codeBlock)}>
-        {value.filename && (
-          <div className={styles.filename}>
-            {value.filename}
-          </div>
-        )}
-        <SyntaxHighlighter
-          language={value.language ?? "text"}
-          style={oneDark}
-          customStyle={{
-            margin: 0,
-            borderRadius: value.filename ? "0 0 0.375rem 0.375rem" : "0.375rem",
-            fontSize: "0.875rem",
-          }}
-        >
-          {value.code ?? ""}
-        </SyntaxHighlighter>
-      </div>
+      <CodeBlock
+        code={value.code ?? ""}
+        language={value.language}
+        filename={value.filename}
+      />
     ),
 
     // CodePen embed
