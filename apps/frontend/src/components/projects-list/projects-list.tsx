@@ -7,8 +7,8 @@ import styles from "./projects-list.module.scss";
 export async function ProjectsList({ limit }: { limit?: number }) {
   const displayed = await sanityFetch<ProjectsQueryResult>(
     limit
-      ? { query: latestProjectsQuery, params: { limit } }
-      : { query: projectsQuery },
+      ? { query: latestProjectsQuery, params: { limit }, tags: ["project"] }
+      : { query: projectsQuery, tags: ["project"] },
   );
 
   return (
@@ -30,7 +30,9 @@ export async function ProjectsList({ limit }: { limit?: number }) {
                 </a>
               </p>
 
-              <small className={styles.description}>{project.description}</small>
+              <small className={styles.description}>
+                {project.description}
+              </small>
             </div>
 
             <Image
@@ -46,4 +48,3 @@ export async function ProjectsList({ limit }: { limit?: number }) {
     </div>
   );
 }
-

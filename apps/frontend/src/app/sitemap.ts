@@ -7,6 +7,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://www.gshukla.in";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const slugs = await sanityFetch<Array<{ slug: string }>>({
     query: postSlugsQuery,
+    tags: ["post"],
   });
 
   const staticPages: MetadataRoute.Sitemap = [

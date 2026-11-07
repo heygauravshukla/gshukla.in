@@ -12,8 +12,8 @@ import styles from "./blog-list.module.scss";
 export async function BlogList({ limit }: { limit?: number }) {
   const posts = await sanityFetch<PostsQueryResult>(
     limit
-      ? { query: latestPostsQuery, params: { limit } }
-      : { query: postsQuery },
+      ? { query: latestPostsQuery, params: { limit }, tags: ["post"] }
+      : { query: postsQuery, tags: ["post"] },
   );
 
   return (
@@ -43,4 +43,3 @@ export async function BlogList({ limit }: { limit?: number }) {
     </div>
   );
 }
-

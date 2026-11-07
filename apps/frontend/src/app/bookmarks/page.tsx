@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 export default async function BookmarksPage() {
   const bookmarks = await sanityFetch<BookmarksQueryResult>({
     query: bookmarksQuery,
+    tags: ["bookmarkCategory"],
   });
 
   return (

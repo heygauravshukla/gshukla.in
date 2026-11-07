@@ -20,6 +20,7 @@ export async function generateMetadata({
   const post = await sanityFetch<PostBySlugQueryResult>({
     query: postBySlugQuery,
     params: { slug },
+    tags: ["post"],
   });
 
   if (!post) return {};
@@ -53,6 +54,7 @@ export default async function BlogPostPage({
   const post = await sanityFetch<PostBySlugQueryResult>({
     query: postBySlugQuery,
     params: { slug },
+    tags: ["post"],
   });
 
   if (!post) notFound();
@@ -94,8 +96,7 @@ export default async function BlogPostPage({
 export async function generateStaticParams() {
   const slugs = await sanityFetch<Array<{ slug: string }>>({
     query: postSlugsQuery,
+    tags: ["post"],
   });
   return slugs.map((s) => ({ slug: s.slug }));
 }
-
-export const dynamicParams = false;
