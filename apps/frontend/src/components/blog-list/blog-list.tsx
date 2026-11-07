@@ -2,12 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { TimeAgo } from "@/components/time-ago";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { postsQuery, PostsQueryResult } from "@/sanity/lib/queries";
+import {
+  latestPostsQuery,
+  postsQuery,
+  PostsQueryResult,
+} from "@/sanity/lib/queries";
 import styles from "./blog-list.module.scss";
 
 export async function BlogList({ limit }: { limit?: number }) {
-  const allPosts = await sanityFetch<PostsQueryResult>({ query: postsQuery });
-  const posts = limit ? allPosts.slice(0, limit) : allPosts;
+  const posts = await sanityFetch<PostsQueryResult>(
+    limit
+      ? { query: latestPostsQuery, params: { limit } }
+      : { query: postsQuery },
+  );
 
   return (
     <div className={styles.grid}>

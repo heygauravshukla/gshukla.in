@@ -1,14 +1,15 @@
 import Image from "next/image";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { projectsQuery } from "@/sanity/lib/queries";
+import { latestProjectsQuery, projectsQuery } from "@/sanity/lib/queries";
 import type { ProjectsQueryResult } from "@/sanity/lib/queries";
 import styles from "./projects-list.module.scss";
 
 export async function ProjectsList({ limit }: { limit?: number }) {
-  const projects = await sanityFetch<ProjectsQueryResult>({
-    query: projectsQuery,
-  });
-  const displayed = limit ? projects.slice(0, limit) : projects;
+  const displayed = await sanityFetch<ProjectsQueryResult>(
+    limit
+      ? { query: latestProjectsQuery, params: { limit } }
+      : { query: projectsQuery },
+  );
 
   return (
     <div className={styles.grid}>

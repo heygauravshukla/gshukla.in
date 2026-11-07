@@ -13,6 +13,19 @@ export const projectsQuery = defineQuery(`
   }
 `);
 
+export const latestProjectsQuery = defineQuery(`
+  *[_type == "project"] | order(publishedAt asc) [0...$limit] {
+    _id,
+    title,
+    description,
+    "imageUrl": image.asset->url,
+    link,
+    repository,
+    stack,
+    publishedAt
+  }
+`);
+
 export type ProjectsQueryResult = Array<{
   _id: string;
   title: string;
@@ -66,6 +79,18 @@ export type TimelineQueryResult = Array<{
 
 export const postsQuery = defineQuery(`
   *[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    "slug": slug.current,
+    summary,
+    publishedAt,
+    tags,
+    "coverImageUrl": coverImage.asset->url
+  }
+`);
+
+export const latestPostsQuery = defineQuery(`
+  *[_type == "post"] | order(publishedAt desc) [0...$limit] {
     _id,
     title,
     "slug": slug.current,
