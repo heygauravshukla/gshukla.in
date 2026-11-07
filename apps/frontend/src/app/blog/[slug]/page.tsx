@@ -79,6 +79,8 @@ export default async function BlogPostPage({
             alt={post.title}
             width={704}
             height={370}
+            loading="eager"
+            fetchPriority="high"
             className={styles.coverImage}
           />
 
