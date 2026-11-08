@@ -15,23 +15,23 @@ export function ThemeToggle() {
     return (
       <button className={styles.toggleButton} disabled aria-label="Toggle theme">
         <Sun className={styles.icon} />
-        <span className="sr-only">Toggle theme</span>
       </button>
     );
   }
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "light" ? "dark" : "light");
-  };
+  const nextTheme = resolvedTheme === "light" ? "dark" : "light";
 
   return (
-    <button className={styles.toggleButton} onClick={toggleTheme} aria-label="Toggle theme">
-      {resolvedTheme === "light" ? (
+    <button
+      className={styles.toggleButton}
+      onClick={() => setTheme(nextTheme)}
+      aria-label={`Switch to ${nextTheme} theme`}
+    >
+      {nextTheme === "dark" ? (
         <Moon className={styles.icon} />
       ) : (
         <Sun className={styles.icon} />
       )}
-      <span className="sr-only">Toggle theme</span>
     </button>
   );
 }
