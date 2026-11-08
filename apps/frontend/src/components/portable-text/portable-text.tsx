@@ -125,22 +125,19 @@ const components: PortableTextComponents = {
 
     // Callout / alert box
     callout: ({ value }) => {
-      const icons: Record<string, string> = {
-        note: "📝",
-        tip: "💡",
-        warning: "⚠️",
-        important: "❗",
+      const labels: Record<string, string> = {
+        note: "Note",
+        tip: "Tip",
+        warning: "Warning",
+        important: "Important",
       };
-      const type: string = value.type ?? "note";
+      const type: string = value.type in labels ? value.type : "note";
       return (
         <div
-          className={cn(
-            "not-typeset",
-            styles.callout,
-            calloutClassMap[type] ?? styles.calloutNote,
-          )}
+          className={cn("not-typeset", styles.callout, calloutClassMap[type])}
         >
-          <span className={styles.calloutIcon}>{icons[type] ?? "📝"}</span>
+          {/* The type is shown by color only, so announce it to screen readers */}
+          <span className="sr-only">{labels[type]}: </span>
           {value.content}
         </div>
       );
