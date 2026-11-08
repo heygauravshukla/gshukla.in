@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
@@ -11,17 +12,22 @@ import {
 } from "@/sanity/lib/queries";
 import styles from "./post.module.scss";
 
+// generateMetadata and the page both need the post; share one fetch per request
+const getPost = cache((slug: string) =>
+  sanityFetch<PostBySlugQueryResult>({
+    query: postBySlugQuery,
+    params: { slug },
+    tags: ["post"],
+  }),
+);
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await sanityFetch<PostBySlugQueryResult>({
-    query: postBySlugQuery,
-    params: { slug },
-    tags: ["post"],
-  });
+  const post = await getPost(slug);
 
   if (!post) return {};
 
@@ -51,11 +57,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await sanityFetch<PostBySlugQueryResult>({
-    query: postBySlugQuery,
-    params: { slug },
-    tags: ["post"],
-  });
+  const post = await getPost(slug);
 
   if (!post) notFound();
 
