@@ -2,7 +2,7 @@ import { cache } from "react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Calendar } from "lucide-react";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import { PortableText } from "@/components/portable-text";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import {

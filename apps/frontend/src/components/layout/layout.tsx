@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import styles from "./layout.module.scss";
 
-export default function Layout({
+export function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -15,6 +15,4 @@ export default function Layout({
     </div>
   );
 }
-
-export { Layout };
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import { ProjectsList } from "@/components/projects-list";
 import { BlogList } from "@/components/blog-list";
 import styles from "./page.module.scss";

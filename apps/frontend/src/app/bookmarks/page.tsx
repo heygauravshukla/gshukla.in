@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { bookmarksQuery, BookmarksQueryResult } from "@/sanity/lib/queries";
 import styles from "./bookmarks.module.scss";

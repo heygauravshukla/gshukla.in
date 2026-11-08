@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import styles from "./privacy.module.scss";
 
 export const metadata: Metadata = {

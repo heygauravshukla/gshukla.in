@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import Layout from "@/components/layout";
+import { Layout } from "@/components/layout";
 import { ProjectsList } from "@/components/projects-list";
 import styles from "./projects.module.scss";
 
