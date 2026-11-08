@@ -4,6 +4,20 @@ export function cn(...inputs: ClassValue[]) {
   return clsx(inputs);
 }
 
+// Pinned to the author's time zone so a date reads the same whether it is
+// rendered on a UTC build server or in a visitor's browser
+export function formatDate(
+  date: string | Date,
+  month: "long" | "short" = "short",
+) {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month,
+    day: "numeric",
+    timeZone: "Asia/Kolkata",
+  });
+}
+
 export function formatTimeAgo(date: string | Date) {
   // Parse the date string as is - it should contain timezone information
   const dateString = typeof date === "string" ? date : date.toISOString();

@@ -10,6 +10,7 @@ import {
   postSlugsQuery,
   PostBySlugQueryResult,
 } from "@/sanity/lib/queries";
+import { formatDate } from "@/lib/utils";
 import styles from "./post.module.scss";
 
 // generateMetadata and the page both need the post; share one fetch per request
@@ -69,11 +70,7 @@ export default async function BlogPostPage({
 
           <small className={styles.date}>
             <Calendar className={styles.calendarIcon} />
-            {new Date(post.publishedAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {formatDate(post.publishedAt, "long")}
           </small>
 
           <p>{post.summary}</p>

@@ -1,16 +1,8 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
-import { formatTimeAgo, cn } from "@/lib/utils";
+import { formatDate, formatTimeAgo, cn } from "@/lib/utils";
 import styles from "./time-ago.module.scss";
-
-function formatPublishedDate(date: string) {
-  return new Date(date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 
 const emptySubscribe = () => () => {};
 
@@ -22,7 +14,7 @@ export function TimeAgo({
   className?: string;
 }) {
   const isClient = useSyncExternalStore(emptySubscribe, () => true, () => false);
-  const label = isClient ? formatTimeAgo(date) : formatPublishedDate(date);
+  const label = isClient ? formatTimeAgo(date) : formatDate(date);
 
   return (
     <time

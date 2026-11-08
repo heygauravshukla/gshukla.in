@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Layout from "@/components/layout";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { timelineQuery, TimelineQueryResult } from "@/sanity/lib/queries";
+import { formatDate } from "@/lib/utils";
 import styles from "./about.module.scss";
 
 export const metadata: Metadata = {
@@ -215,14 +216,7 @@ export default async function AboutPage() {
 
                     {achievement.date && (
                       <small className={styles.achievementDate}>
-                        {new Date(achievement.date).toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                          },
-                        )}
+                        {formatDate(achievement.date)}
                       </small>
                     )}
                   </li>
