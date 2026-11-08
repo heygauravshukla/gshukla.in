@@ -37,7 +37,7 @@ export async function ProjectsList({ limit }: { limit?: number }) {
 
             <Image
               src={imageUrl}
-              alt={project.title}
+              alt=""
               width={300}
               height={100}
               className={styles.image}

@@ -23,7 +23,7 @@ export async function BlogList({ limit }: { limit?: number }) {
           <div className={styles.cardInner}>
             <Image
               src={post.coverImageUrl}
-              alt={post.title}
+              alt=""
               width={500}
               height={260}
               className={styles.coverImage}
